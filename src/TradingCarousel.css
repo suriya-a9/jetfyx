@@ -1,0 +1,59 @@
+.carousel-item {
+    background-color: #E6E6E6 !important;
+    border-radius: 20px;
+    padding: 15px;
+}
+
+hr.hr {
+    background-color: #C3282E;
+    height: 3px;
+}
+
+.slick-slide.slick-cloned div {
+    padding: 10px !important;
+}
+
+.slick-slide.slick-active div {
+    padding: 10px !important;
+}
+
+.slick-slide div {
+    padding: 10px !important;
+}
+
+.slick-slide.slick-active.slick-cloned div {
+    padding: 10px !important;
+}
+
+.item-content p {
+    height: 55px;
+}
+
+.section-heading {
+    position: relative;
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 700;
+    top: -90px;
+    color: #222;
+    text-align: center;
+    padding: 20px 40px;
+    margin-bottom: 40px;
+    z-index: 1;
+}
+.section-heading::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    right: -50px;
+    height: 100%;
+    background: white;
+    border-radius: 50px;
+    z-index: -1;
+    transform: translateY(-50%);
+}
+
+.section-heading .highlight {
+    color: #b22222;
+}
