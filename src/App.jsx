@@ -13,6 +13,7 @@ import AccountAccessSection from './AccountAccessSection'
 import PAMMSection from './PAMMSection'
 import ConsultationSection from './ConsultationSection'
 import InnovationSection from './InnovationSection';
+import BlogSection from './BlogSection';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <PAMMSection />
         <ConsultationSection />
         <InnovationSection />
+        <BlogSection />
       </main>
     </PageLayout>
   )

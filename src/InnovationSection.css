@@ -11,6 +11,7 @@
 .hover-shine:hover {
     background-image: linear-gradient(to right, transparent, red, transparent);
     background-size: 400% 100%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 1.5s infinite;
