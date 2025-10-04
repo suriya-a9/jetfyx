@@ -10,16 +10,16 @@ const PrevArrow = ({ className, onClick }) => (
         className={`${className} custom-arrow prev`}
         onClick={onClick}
         style={{
-            width: '50px',
-            height: '50px',
+            width: '60px', 
+            height: '60px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
-            left: '-80px',
+            left: '10px',
         }}
     >
-        <ChevronLeft size={28} style={{ color: '#852221' }} />
+        <ChevronLeft size={36} style={{ color: '#852221' }} />  {/* larger icon */}
     </div>
 );
 
@@ -28,16 +28,16 @@ const NextArrow = ({ className, onClick }) => (
         className={`${className} custom-arrow next`}
         onClick={onClick}
         style={{
-            width: '50px',
-            height: '50px',
+            width: '60px',
+            height: '60px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
-            right: '-80px',
+            right: '10px',
         }}
     >
-        <ChevronRight size={28} style={{ color: '#852221' }} />
+        <ChevronRight size={36} style={{ color: '#852221' }} />
     </div>
 );
 
@@ -66,6 +66,7 @@ const TradingCarousel = () => {
                 settings: {
                     slidesToShow: 1,
                     centerMode: false,
+                    arrows: true,
                 },
             },
         ],

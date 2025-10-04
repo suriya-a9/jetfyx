@@ -57,3 +57,11 @@ hr.hr {
 .section-heading .highlight {
     color: #b22222;
 }
+
+.slick-next:before {
+    display: none !important;
+}
+
+.slick-prev:before {
+    display: none !important;
+}

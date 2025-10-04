@@ -1,180 +1,158 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
 
 const features = [
-    {
-        title: 'Fully Integrated Platform',
-        description: 'Execution, risk management, reporting, CRM, and IB portal in one system.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Lightning-Fast Execution',
-        description: 'Trade with unparalleled speed and accuracy.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Deep Liquidity Access',
-        description: 'Access deep liquidity pools for better trading opportunities.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'White Label Solutions',
-        description: 'Customizable solutions for brokers and businesses.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Regulatory & Company Setup',
-        description: 'Comprehensive support for regulatory compliance and company setup.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Website & Payment Gateway',
-        description: 'Integrated website and payment gateway solutions.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Risk Management Tools',
-        description: 'Advanced tools for managing trading risks effectively.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'Advanced Back-Office',
-        description: 'Streamlined back-office operations for brokers.',
-        image: '/assets/broker-img-1.webp',
-    },
-    {
-        title: 'JetFyX CRM',
-        description: 'Powerful CRM tools for managing client relationships.',
-        image: '/assets/broker-img-1.webp',
-    },
+    { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/broker-img-1.webp' },
+    { title: 'Lightning-Fast Execution', description: 'Trade with unparalleled speed and accuracy.', image: '/assets/broker-img-1.webp' },
+    { title: 'Deep Liquidity Access', description: 'Access deep liquidity pools for better trading opportunities.', image: '/assets/broker-img-1.webp' },
+    { title: 'White Label Solutions', description: 'Customizable solutions for brokers and businesses.', image: '/assets/broker-img-1.webp' },
+    { title: 'Regulatory & Company Setup', description: 'Comprehensive support for regulatory compliance and company setup.', image: '/assets/broker-img-1.webp' },
+    { title: 'Website & Payment Gateway', description: 'Integrated website and payment gateway solutions.', image: '/assets/broker-img-1.webp' },
+    { title: 'Risk Management Tools', description: 'Advanced tools for managing trading risks effectively.', image: '/assets/broker-img-1.webp' },
+    { title: 'Advanced Back-Office', description: 'Streamlined back-office operations for brokers.', image: '/assets/broker-img-1.webp' },
+    { title: 'JetFyX CRM', description: 'Powerful CRM tools for managing client relationships.', image: '/assets/broker-img-1.webp' },
 ];
 
 const FeatureSection = () => {
     const [activeFeature, setActiveFeature] = useState(features[0]);
-    const [activeIndex, setActiveIndex] = useState(0); // Track the active feature index
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [arrowTop, setArrowTop] = useState(0);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
 
-    return (
-        <div
-            className="feature-section"
-            style={{
-                backgroundColor: '#f9f9f9',
-                borderRadius: '16px',
-                padding: '40px',
-                display: 'flex',
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-            }}
-        >
-            {/* Left Side: Image with Red Background and Arrow */}
-            <div
-                className="feature-image-container"
-                style={{
-                    flex: '1',
-                    textAlign: 'center',
-                    padding: '20px',
-                    position: 'relative',
-                }}
-            >
-                {/* Red Background */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: '0',
-                        right: '0',
-                        width: '100%',
-                        height: '100%',
-                        backgroundColor: '#d32f2f',
-                        borderRadius: '16px',
-                        zIndex: '0',
-                    }}
-                ></div>
+    const listRef = useRef(null);
+    const itemRefs = useRef([]);
 
-                {/* Arrow */}
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: `${activeIndex * 50 + 20}px`, // Dynamically adjust arrow position
-                        left: '-20px',
-                        width: '0',
-                        height: '0',
-                        borderTop: '10px solid transparent',
-                        borderBottom: '10px solid transparent',
-                        borderRight: '20px solid #d32f2f',
-                        zIndex: '1',
-                    }}
-                ></div>
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 900);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
-                {/* Image */}
-                <img
-                    src={activeFeature.image}
-                    alt={activeFeature.title}
-                    style={{
-                        width: '100%',
-                        height:'100%',
-                        borderRadius: '16px',
-                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-                        zIndex: '1',
-                        position: 'relative',
-                    }}
-                />
-                <div style={{ marginTop: '20px', }}>
-                    <h3
-                        style={{
-                            fontSize: '20px',
-                            fontWeight: 'bold',
-                            color: '#333',
-                        }}
+    useEffect(() => {
+        if (isMobile) return;
+        const activeItem = itemRefs.current[activeIndex];
+        const list = listRef.current;
+        if (activeItem && list) {
+            const listRect = list.getBoundingClientRect();
+            const itemRect = activeItem.getBoundingClientRect();
+            const relativeTop = itemRect.top - listRect.top + itemRect.height / 1;
+            setArrowTop(relativeTop);
+        }
+    }, [activeIndex, isMobile]);
+
+    const scrollTabs = (direction) => {
+        if (listRef.current) {
+            listRef.current.scrollBy({
+                left: direction === 'left' ? -200 : 200,
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    if (isMobile) {
+        return (
+            <div style={{ padding: '20px' }}>
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                    <button
+                        onClick={() => scrollTabs('left')}
+                        style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginRight: '10px', cursor: 'pointer' }}
                     >
-                        {activeFeature.title}
-                    </h3>
-                    <p
-                        style={{
-                            fontSize: '16px',
-                            color: '#555',
-                        }}
+                        ←
+                    </button>
+                    <ul
+                        ref={listRef}
+                        style={{ display: 'flex', overflowX: 'auto', listStyle: 'none', padding: 0, margin: 0, flex: 1 }}
                     >
-                        {activeFeature.description}
-                    </p>
+                        {features.map((feature, index) => (
+                            <li
+                                key={index}
+                                onClick={() => { setActiveFeature(feature); setActiveIndex(index); }}
+                                style={{
+                                    flex: '0 0 auto',
+                                    padding: '10px 20px',
+                                    marginRight: '10px',
+                                    borderRadius: '8px',
+                                    backgroundColor: activeIndex === index ? '#C3282E' : '#fff',
+                                    color: activeIndex === index ? '#fff' : '#333',
+                                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                                    cursor: 'pointer',
+                                    whiteSpace: 'nowrap',
+                                }}
+                            >
+                                {feature.title}
+                            </li>
+                        ))}
+                    </ul>
+                    <button
+                        onClick={() => scrollTabs('right')}
+                        style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginLeft: '10px', cursor: 'pointer' }}
+                    >
+                        →
+                    </button>
+                </div>
+
+                <div style={{ position: 'relative' }}>
+                    <img
+                        src={activeFeature.image}
+                        alt={activeFeature.title}
+                        style={{ width: '100%', borderRadius: '12px', border: '6px solid #C3282E38', objectFit: 'cover' }}
+                    />
+                    <div style={{ marginTop: '15px' }}>
+                        <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#252525' }}>{activeFeature.title}</h3>
+                        <p style={{ fontSize: '15px', color: '#555555' }}>{activeFeature.description}</p>
+                    </div>
                 </div>
             </div>
+        );
+    }
 
-            {/* Right Side: List of Features */}
-            <div
-                className="feature-list-container"
-                style={{
-                    flex: '1',
-                    padding: '20px',
-                }}
-            >
-                <ul
+    return (
+        <div style={{ backgroundColor: '#f9f9f9', borderRadius: '16px', padding: '40px', display: 'flex', flexDirection: 'row', gap: '20px', position: 'relative' }}>
+            <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                <div style={{ position: 'relative', height: '100%' }}>
+                    <img
+                        src={activeFeature.image}
+                        alt={activeFeature.title}
+                        style={{ width: '100%', height: '100%', borderRadius: '16px', objectFit: 'cover', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', border: '10px solid #C3282E38' }}
+                    />
+                    <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', padding: '15px', borderRadius: '12px', textAlign: 'left' }}>
+                        <h3 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0, color: '#252525' }}>{activeFeature.title}</h3>
+                        <p style={{ fontSize: '16px', margin: 0, color: '#555555' }}>{activeFeature.description}</p>
+                    </div>
+                </div>
+                <div
                     style={{
-                        listStyleType: 'none',
-                        padding: '0',
-                        margin: '0',
+                        position: 'absolute',
+                        top: `${arrowTop}px`,
+                        right: '-49px',
+                        width: 0,
+                        height: 0,
+                        borderTop: '8px solid transparent',
+                        borderBottom: '15px solid transparent',
+                        borderLeft: '50px solid #C3282E38',
+                        transform: 'translateY(-50%)',
+                        transition: 'top 0.3s ease',
                     }}
+                ></div>
+            </div>
+
+            <div style={{ flex: 1, padding: '20px' }}>
+                <ul
+                    ref={listRef}
+                    style={{ listStyleType: 'none', padding: 0, margin: 0, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}
                 >
                     {features.map((feature, index) => (
                         <li
                             key={index}
-                            onClick={() => {
-                                setActiveFeature(feature);
-                                setActiveIndex(index); // Update the active index
-                            }}
+                            ref={(el) => (itemRefs.current[index] = el)}
+                            onClick={() => { setActiveFeature(feature); setActiveIndex(index); }}
                             style={{
                                 cursor: 'pointer',
-                                padding: '10px 20px',
+                                padding: '15px 20px',
                                 marginBottom: '10px',
-                                backgroundColor:
-                                    activeFeature.title === feature.title
-                                        ? '#d32f2f'
-                                        : '#ffffff',
-                                color:
-                                    activeFeature.title === feature.title
-                                        ? '#ffffff'
-                                        : '#333',
                                 borderRadius: '8px',
-                                boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+                                backgroundColor: activeIndex === index ? '#C3282E' : '#fff',
+                                color: activeIndex === index ? '#fff' : '#333',
+                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
                                 transition: 'background-color 0.3s, color 0.3s',
                             }}
                         >
