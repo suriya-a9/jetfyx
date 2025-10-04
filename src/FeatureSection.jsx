@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
 
 const features = [
     { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/broker-img-1.webp' },
@@ -17,7 +18,7 @@ const FeatureSection = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [arrowTop, setArrowTop] = useState(0);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
-
+    const [showParaMore, setShowParaMore] = useState(false);
     const listRef = useRef(null);
     const itemRefs = useRef([]);
 
@@ -50,118 +51,266 @@ const FeatureSection = () => {
 
     if (isMobile) {
         return (
-            <div style={{ padding: '20px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
-                    <button
-                        onClick={() => scrollTabs('left')}
-                        style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginRight: '10px', cursor: 'pointer' }}
-                    >
-                        ←
-                    </button>
+            <>
+                <div className="grid grid-cols-1 md:grid-cols-2" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
+                    <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                        <span className="text-red-600">JetFyX</span>
+                        <br />For Brokers
+                    </h2>
+                    <p className="text-gray-700 max-w-2xl">
+                        At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                        {!showParaMore && (
+                            <>
+                                &nbsp;
+                                <button
+                                    className="font-semibold focus:outline-none"
+                                    onClick={() => setShowParaMore(true)}
+                                    style={{ color: "#555555" }}
+                                >
+                                    Read More..
+                                </button>
+                            </>
+                        )}
+                        <AnimatePresence>
+                            {showParaMore && (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="inline"
+                                >
+                                    &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics. We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                    &nbsp;
+                                    <button
+                                        className="font-semibold focus:outline-none"
+                                        onClick={() => setShowParaMore(false)}
+                                        style={{ color: "#555555" }}
+                                    >
+                                        Read Less
+                                    </button>
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                    </p>
+                </div>
+                <div style={{ padding: '20px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px' }}>
+                        <button
+                            onClick={() => scrollTabs('left')}
+                            style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginRight: '10px', cursor: 'pointer' }}
+                        >
+                            ←
+                        </button>
+                        <ul
+                            ref={listRef}
+                            style={{ display: 'flex', overflowX: 'auto', listStyle: 'none', padding: 0, margin: 0, flex: 1 }}
+                        >
+                            {features.map((feature, index) => (
+                                <li
+                                    key={index}
+                                    onClick={() => { setActiveFeature(feature); setActiveIndex(index); }}
+                                    style={{
+                                        flex: '0 0 auto',
+                                        padding: '10px 20px',
+                                        marginRight: '10px',
+                                        borderRadius: '8px',
+                                        backgroundColor: activeIndex === index ? '#C3282E' : '#fff',
+                                        color: activeIndex === index ? '#fff' : '#333',
+                                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                                        cursor: 'pointer',
+                                        whiteSpace: 'nowrap',
+                                    }}
+                                >
+                                    {feature.title}
+                                </li>
+                            ))}
+                        </ul>
+                        <button
+                            onClick={() => scrollTabs('right')}
+                            style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginLeft: '10px', cursor: 'pointer' }}
+                        >
+                            →
+                        </button>
+                    </div>
+
+                    <div style={{ position: 'relative' }}>
+                        <img
+                            src={activeFeature.image}
+                            alt={activeFeature.title}
+                            style={{ width: '100%', borderRadius: '12px', border: '6px solid #C3282E38', objectFit: 'cover' }}
+                        />
+                        <div style={{ marginTop: '15px' }}>
+                            <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#252525' }}>{activeFeature.title}</h3>
+                            <p style={{ fontSize: '15px', color: '#555555' }}>{activeFeature.description}</p>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+
+    return (
+        <>
+            <div className="grid grid-cols-1 md:grid-cols-2" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
+                <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+                    <span className="text-red-600">JetFyX</span>
+                    <br />For Brokers
+                </h2>
+                <p className="text-gray-700 max-w-2xl">
+                    At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                    {!showParaMore && (
+                        <>
+                            &nbsp;
+                            <button
+                                className="font-semibold focus:outline-none"
+                                onClick={() => setShowParaMore(true)}
+                                style={{ color: "#555555" }}
+                            >
+                                Read More..
+                            </button>
+                        </>
+                    )}
+                    <AnimatePresence>
+                        {showParaMore && (
+                            <motion.span
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4 }}
+                                className="inline"
+                            >
+                                &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics. We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                &nbsp;
+                                <button
+                                    className="font-semibold focus:outline-none"
+                                    onClick={() => setShowParaMore(false)}
+                                    style={{ color: "#555555" }}
+                                >
+                                    Read Less
+                                </button>
+                            </motion.span>
+                        )}
+                    </AnimatePresence>
+                </p>
+            </div>
+
+            <div
+                style={{
+                    backgroundColor: "#f9f9f9",
+                    borderBottomLeftRadius: "16px",
+                    borderBottomRightRadius: "16px",
+                    padding: "40px",
+                    display: "flex",
+                    flexDirection: "row",
+                    gap: "20px",
+                    position: "relative",
+                }}
+            >
+                <div
+                    style={{
+                        flex: 1,
+                        position: "relative",
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                    }}
+                >
+                    <div style={{ position: "relative", height: "100%" }}>
+                        <img
+                            src={activeFeature.image}
+                            alt={activeFeature.title}
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                borderRadius: "16px",
+                                objectFit: "cover",
+                                boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+                                border: "10px solid #C3282E38",
+                            }}
+                        />
+                        <div
+                            style={{
+                                position: "absolute",
+                                bottom: "20px",
+                                left: "20px",
+                                right: "20px",
+                                padding: "15px",
+                                borderRadius: "12px",
+                                textAlign: "left",
+                            }}
+                        >
+                            <h3
+                                style={{
+                                    fontSize: "20px",
+                                    fontWeight: "bold",
+                                    margin: 0,
+                                    color: "#252525",
+                                }}
+                            >
+                                {activeFeature.title}
+                            </h3>
+                            <p style={{ fontSize: "16px", margin: 0, color: "#555555" }}>
+                                {activeFeature.description}
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: `${arrowTop}px`,
+                            right: "-49px",
+                            width: 0,
+                            height: 0,
+                            borderTop: "8px solid transparent",
+                            borderBottom: "15px solid transparent",
+                            borderLeft: "50px solid #C3282E38",
+                            transform: "translateY(-50%)",
+                            transition: "top 0.3s ease",
+                        }}
+                    ></div>
+                </div>
+
+                <div style={{ flex: 1, padding: "20px" }}>
                     <ul
                         ref={listRef}
-                        style={{ display: 'flex', overflowX: 'auto', listStyle: 'none', padding: 0, margin: 0, flex: 1 }}
+                        style={{
+                            listStyleType: "none",
+                            padding: 0,
+                            margin: 0,
+                            height: "100%",
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "space-evenly",
+                        }}
                     >
                         {features.map((feature, index) => (
                             <li
                                 key={index}
-                                onClick={() => { setActiveFeature(feature); setActiveIndex(index); }}
+                                ref={(el) => (itemRefs.current[index] = el)}
+                                onClick={() => {
+                                    setActiveFeature(feature);
+                                    setActiveIndex(index);
+                                }}
                                 style={{
-                                    flex: '0 0 auto',
-                                    padding: '10px 20px',
-                                    marginRight: '10px',
-                                    borderRadius: '8px',
-                                    backgroundColor: activeIndex === index ? '#C3282E' : '#fff',
-                                    color: activeIndex === index ? '#fff' : '#333',
-                                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                    cursor: 'pointer',
-                                    whiteSpace: 'nowrap',
+                                    cursor: "pointer",
+                                    padding: "15px 20px",
+                                    marginBottom: "10px",
+                                    borderRadius: "8px",
+                                    backgroundColor: activeIndex === index ? "#C3282E" : "#fff",
+                                    color: activeIndex === index ? "#fff" : "#333",
+                                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+                                    transition: "background-color 0.3s, color 0.3s",
                                 }}
                             >
                                 {feature.title}
                             </li>
                         ))}
                     </ul>
-                    <button
-                        onClick={() => scrollTabs('right')}
-                        style={{ border: 'none', background: '#C3282E', color: '#fff', padding: '8px 12px', borderRadius: '6px', marginLeft: '10px', cursor: 'pointer' }}
-                    >
-                        →
-                    </button>
-                </div>
-
-                <div style={{ position: 'relative' }}>
-                    <img
-                        src={activeFeature.image}
-                        alt={activeFeature.title}
-                        style={{ width: '100%', borderRadius: '12px', border: '6px solid #C3282E38', objectFit: 'cover' }}
-                    />
-                    <div style={{ marginTop: '15px' }}>
-                        <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#252525' }}>{activeFeature.title}</h3>
-                        <p style={{ fontSize: '15px', color: '#555555' }}>{activeFeature.description}</p>
-                    </div>
                 </div>
             </div>
-        );
-    }
+        </>
 
-    return (
-        <div style={{ backgroundColor: '#f9f9f9', borderRadius: '16px', padding: '40px', display: 'flex', flexDirection: 'row', gap: '20px', position: 'relative' }}>
-            <div style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                <div style={{ position: 'relative', height: '100%' }}>
-                    <img
-                        src={activeFeature.image}
-                        alt={activeFeature.title}
-                        style={{ width: '100%', height: '100%', borderRadius: '16px', objectFit: 'cover', boxShadow: '0 4px 6px rgba(0,0,0,0.1)', border: '10px solid #C3282E38' }}
-                    />
-                    <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px', padding: '15px', borderRadius: '12px', textAlign: 'left' }}>
-                        <h3 style={{ fontSize: '20px', fontWeight: 'bold', margin: 0, color: '#252525' }}>{activeFeature.title}</h3>
-                        <p style={{ fontSize: '16px', margin: 0, color: '#555555' }}>{activeFeature.description}</p>
-                    </div>
-                </div>
-                <div
-                    style={{
-                        position: 'absolute',
-                        top: `${arrowTop}px`,
-                        right: '-49px',
-                        width: 0,
-                        height: 0,
-                        borderTop: '8px solid transparent',
-                        borderBottom: '15px solid transparent',
-                        borderLeft: '50px solid #C3282E38',
-                        transform: 'translateY(-50%)',
-                        transition: 'top 0.3s ease',
-                    }}
-                ></div>
-            </div>
-
-            <div style={{ flex: 1, padding: '20px' }}>
-                <ul
-                    ref={listRef}
-                    style={{ listStyleType: 'none', padding: 0, margin: 0, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}
-                >
-                    {features.map((feature, index) => (
-                        <li
-                            key={index}
-                            ref={(el) => (itemRefs.current[index] = el)}
-                            onClick={() => { setActiveFeature(feature); setActiveIndex(index); }}
-                            style={{
-                                cursor: 'pointer',
-                                padding: '15px 20px',
-                                marginBottom: '10px',
-                                borderRadius: '8px',
-                                backgroundColor: activeIndex === index ? '#C3282E' : '#fff',
-                                color: activeIndex === index ? '#fff' : '#333',
-                                boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                                transition: 'background-color 0.3s, color 0.3s',
-                            }}
-                        >
-                            {feature.title}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div>
     );
 };
 

@@ -5,6 +5,14 @@ import FeatureCarousel from './FeatureCarousel'
 import MissionVisionSection from './MissionVision'
 import TradingCarousel from './TradingCarousel'
 import FeatureSection from './FeatureSection'
+import CRMSection from './CRMSection';
+import RiskManagementSection from './RiskManagementSection'
+import EdgeSection from './EdgeSection'
+import TradersSection from './TradersSection'
+import AccountAccessSection from './AccountAccessSection'
+import PAMMSection from './PAMMSection'
+import ConsultationSection from './ConsultationSection'
+import InnovationSection from './InnovationSection';
 
 function App() {
   return (
@@ -16,6 +24,14 @@ function App() {
         <MissionVisionSection />
         <TradingCarousel />
         <FeatureSection />
+        <CRMSection />
+        <RiskManagementSection />
+        <EdgeSection />
+        <TradersSection />
+        <AccountAccessSection />
+        <PAMMSection />
+        <ConsultationSection />
+        <InnovationSection />
       </main>
     </PageLayout>
   )

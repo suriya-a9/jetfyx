@@ -1,0 +1,17 @@
+@keyframes shine {
+    0% {
+        background-position: -200%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+.hover-shine:hover {
+    background-image: linear-gradient(to right, transparent, red, transparent);
+    background-size: 400% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 1.5s infinite;
+}
