@@ -14,6 +14,10 @@ import PAMMSection from './PAMMSection'
 import ConsultationSection from './ConsultationSection'
 import InnovationSection from './InnovationSection';
 import BlogSection from './BlogSection';
+import FAQSection from './FAQSection';
+import CEOSection from './CTA';
+import ContactSection from './ContactSection';
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -34,7 +38,11 @@ function App() {
         <ConsultationSection />
         <InnovationSection />
         <BlogSection />
+        <FAQSection />
+        <CEOSection />
+        <ContactSection />
       </main>
+      <Footer />
     </PageLayout>
   )
 }

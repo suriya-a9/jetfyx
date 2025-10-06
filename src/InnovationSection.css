@@ -16,3 +16,20 @@
     -webkit-text-fill-color: transparent;
     animation: shine 1.5s infinite;
 }
+
+@media (max-width: 640px) {
+    .feature-card {
+        width: 100%;
+        padding: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1rem;
+    }
+
+    .feature-card p {
+        line-height: 1.5;
+        word-break: break-word;
+    }
+}

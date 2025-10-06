@@ -38,35 +38,34 @@ export default function InnovationSection() {
                         Innovations that will transform how the world trades:
                     </p>
                     <h1
-                        className="text-6xl font-extrabold text-gray-200 relative hover-shine"
-                        style={{ fontSize: '140px' }}
+                        className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none"
                     >
                         INNOVATION
                     </h1>
+
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {initialFeatures.slice(0, 2).map((feature, index) => (
                         <motion.div
                             key={index}
-                            style={{ borderRadius: '25px', backgroundColor: '#F8F8F8' }}
-                            className={`flex flex-col items-start text-left p-4 rounded-lg shadow hover:shadow-lg transition ${expandedCard === index ? "bg-red-50" : ""
-                                }`}
+                            className={`w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition ${expandedCard === index ? "bg-red-50" : "bg-gray-50"}`}
+                            style={{ borderRadius: "25px" }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h3 className="text-lg font-bold text-red-600 mb-2">
+                            <h3 className="text-lg md:text-xl font-bold text-red-600 mb-2">
                                 {feature.title}
                             </h3>
-                            <p className="text-gray-700">
+                            <p className="text-gray-700 text-sm sm:text-base md:text-base">
                                 {expandedCard === index
                                     ? feature.fullDescription
                                     : feature.shortDescription}
                                 {expandedCard !== index && (
                                     <button
                                         onClick={() => handleReadMore(index)}
-                                        className="font-semibold text-red-600 hover:underline"
+                                        className="font-semibold text-red-600 hover:underline ml-1"
                                     >
                                         Read More...
                                     </button>
@@ -82,10 +81,10 @@ export default function InnovationSection() {
                             )}
                         </motion.div>
                     ))}
+
                     <motion.div
-                        className={`flex flex-col items-start text-left p-4 rounded-lg shadow hover:shadow-lg transition ${expandedCard === 2 ? "bg-red-50" : ""
-                            } col-span-2 mx-auto`}
-                        style={{ borderRadius: '25px', backgroundColor: '#F8F8F8' }}
+                        className={`flex flex-col items-start text-left p-4 sm:p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition ${expandedCard === 2 ? "bg-red-50" : ""} col-span-2 mx-auto`}
+                        style={{ borderRadius: "25px", backgroundColor: "#F8F8F8" }}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
@@ -116,6 +115,7 @@ export default function InnovationSection() {
                         )}
                     </motion.div>
                 </div>
+
             </div>
         </section>
     );
