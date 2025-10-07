@@ -1,41 +1,70 @@
 import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
 
 const blogs = [
     {
         title: "Best Multi-Asset Trading Platform",
         description: "Discover the best trading platform for multi-asset brokers.",
         image: "/assets/blog-img-1.webp",
+        fullDescription: `<h1>Best Multi-Asset Trading Platform</h1>
+            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.</p><h1>Best Multi-Asset Trading Platform</h1>
+            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.</p><h1>Best Multi-Asset Trading Platform</h1>
+            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.</p><h1>Best Multi-Asset Trading Platform</h1>
+            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.</p><h1>Best Multi-Asset Trading Platform</h1>
+            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etcs.</p>`
     },
     {
         title: "Wealth Expo Mexico City",
         description: "Meet top professionals and discover the latest in investment innovation.",
         image: "/assets/blog-img-2.webp",
+        fullDescription: `<h1>Wealth Expo Mexico City</h1>
+            <p>Meet top professionals and discover the latest in investment innovation at our <b>Mexico City Expo</b>.</p>`
     },
     {
         title: "Wealth Expo Mexico Cities",
         description: "Explore advanced trading strategies and tools for brokers.",
         image: "/assets/blog-img-3.webp",
+        fullDescription: `<h1>Wealth Expo Mexico Cities</h1>
+            <p>Explore advanced trading strategies and tools for brokers in multiple cities.</p>`
+    },
+    {
+        title: "Wealth Expo Mexico Cities",
+        description: "Explore advanced trading strategies and tools for brokers.",
+        image: "/assets/blog-img-3.webp",
+        fullDescription: `<h1>Wealth Expo Mexico Cities</h1>
+            <p>Explore advanced trading strategies and tools for brokers in multiple cities.</p>`
     },
 ];
 
 export default function BlogSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [showDropdown, setShowDropdown] = useState(false);
+
+    const sideBlogs = [
+        blogs[(currentIndex + 1) % blogs.length],
+        blogs[(currentIndex + 2) % blogs.length],
+    ];
 
     const prevBlog = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === 0 ? blogs.length - 1 : prevIndex - 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? blogs.length - 1 : prevIndex - 1
+        );
+        setShowDropdown(false);
     };
 
     const nextBlog = () => {
-        setCurrentIndex((prevIndex) => (prevIndex === blogs.length - 1 ? 0 : prevIndex + 1));
+        setCurrentIndex((prevIndex) =>
+            prevIndex === blogs.length - 1 ? 0 : prevIndex + 1
+        );
+        setShowDropdown(false);
     };
 
     return (
         <section className="py-16 bg-gray-100">
             <div className="max-w-7xl mx-auto px-4">
                 <h2 className="text-3xl md:text-4xl font-bold mb-8">Blog</h2>
-
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {/* Main Blog */}
                     <div className="relative col-span-2">
                         <div className="relative overflow-hidden rounded-lg shadow-lg">
                             <img
@@ -45,18 +74,37 @@ export default function BlogSection() {
                             />
                             <div className="absolute inset-0 bg-[#D0D0D0] opacity-50"></div>
                             <div className="absolute inset-0 flex flex-col justify-between p-6">
-                                <div className="text-white p-4 rounded-lg" style={{backgroundColor:'#D9D9D9'}}>
-                                    <h3 className="text-xl font-bold">{blogs[currentIndex].title}</h3>
-                                </div>
-                                <div className="flex justify-end">
-                                    <button className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                                    <span className="px-3 py-1 rounded bg-black/60 w-fit">
+                                        <h2 className="text-xl w-full font-bold text-white m-0 p-4">
+                                            {blogs[currentIndex].title}
+                                        </h2>
+                                    </span>
+                                    <button
+                                        className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition mt-2 md:mt-0 md:ml-4 self-start md:self-auto flex items-center gap-2"
+                                        onClick={() => setShowDropdown((v) => !v)}
+                                    >
                                         Read More
+                                        {showDropdown ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
                                     </button>
                                 </div>
+                                {showDropdown && (
+                                    <div
+                                        className="relative mt-4 bg-white rounded-lg shadow-xl border-t-4 border-red-600 p-4 overflow-auto animate-fadeIn"
+                                        style={{
+                                            maxHeight: "320px",
+                                            zIndex: 30,
+                                        }}
+                                    >
+                                        <div
+                                            className="prose max-w-none"
+                                            dangerouslySetInnerHTML={{ __html: blogs[currentIndex].fullDescription }}
+                                        />
+                                    </div>
+                                )}
                             </div>
                         </div>
-
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
+                        <div className="absolute bottom-[5rem] right-4 flex gap-4">
                             <button
                                 onClick={prevBlog}
                                 className="bg-white border rounded-full shadow p-2 hover:bg-red-100"
@@ -71,27 +119,38 @@ export default function BlogSection() {
                             </button>
                         </div>
                     </div>
-
-                    <div className="space-y-4">
-                        {blogs
-                            .filter((_, index) => index !== currentIndex) 
-                            .map((blog, index) => (
-                                <div
-                                    key={index}
-                                    className="relative flex items-center gap-4 p-4 rounded-lg shadow-lg bg-white transition"
-                                >
-                                    <img
-                                        src={blog.image}
-                                        alt={blog.title}
-                                        className="w-16 h-16 object-cover rounded-lg"
-                                    />
-                                    <div className="absolute inset-0 bg-[#D0D0D0] opacity-50 rounded-lg"></div>
-                                    <div className="relative">
-                                        <h4 className="text-lg font-bold text-gray-800">{blog.title}</h4>
-                                        <p className="text-sm text-gray-600">{blog.description}</p>
-                                    </div>
-                                </div>
-                            ))} 
+                    <div className="space-y-4 flex flex-col justify-start mt-2">
+                        <div className="flex items-center gap-2 mb-2">
+                            <span className="inline-block bg-red-600 text-white text-lg font-semibold px-4 py-2 rounded">
+                                Latest Blogs:
+                            </span>
+                        </div>
+                        <div className="relative">
+                            {sideBlogs.map(
+                                (blog, index) =>
+                                    blog && (
+                                        <div
+                                            key={index}
+                                            className="relative rounded-lg shadow-lg overflow-hidden bg-white mb-4"
+                                        >
+                                            <img
+                                                src={blog.image}
+                                                alt={blog.title}
+                                                className="w-full h-48 object-cover"
+                                            />
+                                            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+                                            <div className="absolute bottom-0 left-0 w-full px-4 pb-4">
+                                                <h4 className="text-lg font-bold text-gray-900">
+                                                    {blog.title}
+                                                </h4>
+                                                <p className="text-sm text-gray-700">
+                                                    {blog.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

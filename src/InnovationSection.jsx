@@ -46,11 +46,18 @@ export default function InnovationSection() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {initialFeatures.slice(0, 2).map((feature, index) => (
+                    {initialFeatures.map((feature, index) => (
                         <motion.div
                             key={index}
-                            className={`w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition ${expandedCard === index ? "bg-red-50" : "bg-gray-50"}`}
-                            style={{ borderRadius: "25px" }}
+                            className={
+                                `w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition 
+                ${expandedCard === index ? "bg-red-50" : "bg-gray-50"} 
+                ${index === 2 ? "md:col-span-2 md:mx-auto md:max-w-[60%]" : ""}`
+                            }
+                            style={{
+                                borderRadius: "25px",
+                                backgroundColor: index === 2 ? "#F8F8F8" : undefined,
+                            }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
@@ -81,39 +88,6 @@ export default function InnovationSection() {
                             )}
                         </motion.div>
                     ))}
-
-                    <motion.div
-                        className={`flex flex-col items-start text-left p-4 sm:p-6 md:p-8 rounded-lg shadow hover:shadow-lg transition ${expandedCard === 2 ? "bg-red-50" : ""} col-span-2 mx-auto`}
-                        style={{ borderRadius: "25px", backgroundColor: "#F8F8F8" }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <h3 className="text-lg font-bold text-red-600 mb-2">
-                            {initialFeatures[2].title}
-                        </h3>
-                        <p className="text-gray-700">
-                            {expandedCard === 2
-                                ? initialFeatures[2].fullDescription
-                                : initialFeatures[2].shortDescription}
-                            {expandedCard !== 2 && (
-                                <button
-                                    onClick={() => handleReadMore(2)}
-                                    className="font-semibold text-red-600 hover:underline"
-                                >
-                                    Read More...
-                                </button>
-                            )}
-                        </p>
-                        {expandedCard === 2 && (
-                            <button
-                                onClick={() => handleReadMore(2)}
-                                className="font-semibold text-red-600 hover:underline mt-4"
-                            >
-                                Show Less...
-                            </button>
-                        )}
-                    </motion.div>
                 </div>
 
             </div>
