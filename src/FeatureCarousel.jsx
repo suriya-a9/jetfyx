@@ -12,20 +12,20 @@ const features = [
     {
         title: "Future-Ready Technology",
         desc: "Experience next-gen tools and automation for smarter trading.",
-        image: "/assets/feature2.webp",
-        icon: "/assets/icon2.webp",
+        image: "/assets/carousel-img-1.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
     },
     {
         title: "Effortless & Powerful",
         desc: "Designed for beginners to trade with confidence and professionals with precision.",
-        image: "/assets/feature3.webp",
-        icon: "/assets/icon3.webp",
+        image: "/assets/carousel-img-1.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
     },
     {
         title: "Smart Tools",
         desc: "Advanced analytics and risk management at your fingertips.",
-        image: "/assets/feature4.webp",
-        icon: "/assets/icon4.webp",
+        image: "/assets/carousel-img-1.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
     },
 ];
 
