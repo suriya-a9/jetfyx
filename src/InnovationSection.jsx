@@ -28,69 +28,76 @@ export default function InnovationSection() {
     };
 
     return (
-        <section className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-4">
-                <div className="text-center mb-10">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-4">
-                        The Next Big Leap in Trading<br />Technology
-                    </h1>
-                    <p className="text-gray-700 mb-4">
-                        Innovations that will transform how the world trades:
-                    </p>
-                    <h1
-                        className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none"
-                    >
-                        INNOVATION
-                    </h1>
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+        >
+            <section className="py-16 bg-white">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="text-center mb-10">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4">
+                            The Next Big Leap in Trading<br />Technology
+                        </h1>
+                        <p className="text-gray-700 mb-4">
+                            Innovations that will transform how the world trades:
+                        </p>
+                        <h1
+                            className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none"
+                        >
+                            INNOVATION
+                        </h1>
 
-                </div>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {initialFeatures.map((feature, index) => (
-                        <motion.div
-                            key={index}
-                            className={
-                                `w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {initialFeatures.map((feature, index) => (
+                            <motion.div
+                                key={index}
+                                className={
+                                    `w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition 
                 ${expandedCard === index ? "bg-red-50" : "bg-gray-50"} 
                 ${index === 2 ? "md:col-span-2 md:mx-auto md:max-w-[60%]" : ""}`
-                            }
-                            style={{
-                                borderRadius: "25px",
-                                backgroundColor: index === 2 ? "#F8F8F8" : undefined,
-                            }}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                        >
-                            <h3 className="text-lg md:text-xl font-bold text-red-600 mb-2">
-                                {feature.title}
-                            </h3>
-                            <p className="text-gray-700 text-sm sm:text-base md:text-base">
-                                {expandedCard === index
-                                    ? feature.fullDescription
-                                    : feature.shortDescription}
-                                {expandedCard !== index && (
+                                }
+                                style={{
+                                    borderRadius: "25px",
+                                    backgroundColor: index === 2 ? "#F8F8F8" : undefined,
+                                }}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <h3 className="text-lg md:text-xl font-bold text-red-600 mb-2">
+                                    {feature.title}
+                                </h3>
+                                <p className="text-gray-700 text-sm sm:text-base md:text-base">
+                                    {expandedCard === index
+                                        ? feature.fullDescription
+                                        : feature.shortDescription}
+                                    {expandedCard !== index && (
+                                        <button
+                                            onClick={() => handleReadMore(index)}
+                                            className="font-semibold text-red-600 hover:underline ml-1"
+                                        >
+                                            Read More...
+                                        </button>
+                                    )}
+                                </p>
+                                {expandedCard === index && (
                                     <button
                                         onClick={() => handleReadMore(index)}
-                                        className="font-semibold text-red-600 hover:underline ml-1"
+                                        className="font-semibold text-red-600 hover:underline mt-4"
                                     >
-                                        Read More...
+                                        Show Less...
                                     </button>
                                 )}
-                            </p>
-                            {expandedCard === index && (
-                                <button
-                                    onClick={() => handleReadMore(index)}
-                                    className="font-semibold text-red-600 hover:underline mt-4"
-                                >
-                                    Show Less...
-                                </button>
-                            )}
-                        </motion.div>
-                    ))}
-                </div>
+                            </motion.div>
+                        ))}
+                    </div>
 
-            </div>
-        </section>
+                </div>
+            </section>
+        </motion.div>
     );
 }

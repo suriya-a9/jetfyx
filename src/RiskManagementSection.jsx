@@ -75,96 +75,103 @@ export default function RiskManagementSection() {
     };
 
     return (
-        <section
-            className="relative py-16"
-            style={{
-                marginTop: "60px",
-                backgroundImage: "url('/assets/banner-section-bg.webp')",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                backgroundBlendMode: "overlay",
-                backgroundColor: '#D9D9D933'
-            }}
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
         >
-            <div
-                className="absolute inset-0"
+            <section
+                className="relative py-16"
                 style={{
-                    backgroundColor: "rgba(255, 255, 255, 0.8)",
-                    zIndex: 5,
+                    marginTop: "60px",
+                    backgroundImage: "url('/assets/banner-section-bg.webp')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundBlendMode: "overlay",
+                    backgroundColor: '#D9D9D933'
                 }}
-            ></div>
+            >
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.8)",
+                        zIndex: 5,
+                    }}
+                ></div>
 
-            <div className="max-w-7xl mx-auto px-4 relative z-10">
-                <div className="text-left mb-10">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                        <span className="text-red-600">JetFyX</span> Risk Management<br />for Brokers
-                    </h2>
-                </div>
+                <div className="max-w-7xl mx-auto px-4 relative z-10">
+                    <div className="text-left mb-10">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                            <span className="text-red-600">JetFyX</span> Risk Management<br />for Brokers
+                        </h2>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {initialFeatures.map((feature, index) => (
-                        <div
-                            key={index}
-                            className="flex items-center p-4 rounded-lg"
-                        >
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {initialFeatures.map((feature, index) => (
                             <div
-                                className="flex-shrink-0 rounded-full flex items-center justify-center"
-                                style={{
-                                    width: "25%",
-                                    height: "80%",
-                                    backgroundColor: "#D9D9D9",
-                                    boxShadow: "rgb(38, 57, 77) 0px 8px 30px -10px",
-                                }}
+                                key={index}
+                                className="flex items-center p-4 rounded-lg"
                             >
-                                <img src={feature.icon} alt={feature.title} style={{ width: "30%" }} />
-                            </div>
-                            <div className="ml-4">
-                                <h3 className="text-lg font-bold" style={{ color: "#252525" }}>{feature.title}</h3>
-                                <p style={{ color: "#252525" }}>{feature.description}</p>
-                            </div>
-                        </div>
-                    ))}
-
-                    <AnimatePresence>
-                        {showMore &&
-                            additionalFeatures.map((feature, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="flex items-center p-4 rounded-lg"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 20 }}
-                                    transition={{ duration: 0.5 }}
+                                <div
+                                    className="flex-shrink-0 rounded-full flex items-center justify-center"
+                                    style={{
+                                        width: "25%",
+                                        height: "80%",
+                                        backgroundColor: "#D9D9D9",
+                                        boxShadow: "rgb(38, 57, 77) 0px 8px 30px -10px",
+                                    }}
                                 >
-                                    <div
-                                        className="flex-shrink-0 rounded-full flex items-center justify-center"
-                                        style={{
-                                            width: "25%",
-                                            height: "80%",
-                                            backgroundColor: "#D9D9D9",
-                                            boxShadow: "rgb(38, 57, 77) 0px 8px 30px -10px",
-                                        }}
-                                    >
-                                        <img src={feature.icon} alt={feature.title} style={{ width: "30%" }} />
-                                    </div>
-                                    <div className="ml-4">
-                                        <h3 className="text-lg font-bold" style={{ color: "#252525" }}>{feature.title}</h3>
-                                        <p style={{ color: "#252525" }}>{feature.description}</p>
-                                    </div>
-                                </motion.div>
-                            ))}
-                    </AnimatePresence>
-                </div>
+                                    <img src={feature.icon} alt={feature.title} style={{ width: "30%" }} />
+                                </div>
+                                <div className="ml-4">
+                                    <h3 className="text-lg font-bold" style={{ color: "#252525" }}>{feature.title}</h3>
+                                    <p style={{ color: "#252525" }}>{feature.description}</p>
+                                </div>
+                            </div>
+                        ))}
 
-                <div className="text-right mt-8">
-                    <button
-                        onClick={handleToggle}
-                        className="font-semibold text-red-600 hover:underline"
-                    >
-                        {showMore ? "Show Less....." : "Read More....."}
-                    </button>
+                        <AnimatePresence>
+                            {showMore &&
+                                additionalFeatures.map((feature, index) => (
+                                    <motion.div
+                                        key={index}
+                                        className="flex items-center p-4 rounded-lg"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: 20 }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <div
+                                            className="flex-shrink-0 rounded-full flex items-center justify-center"
+                                            style={{
+                                                width: "25%",
+                                                height: "80%",
+                                                backgroundColor: "#D9D9D9",
+                                                boxShadow: "rgb(38, 57, 77) 0px 8px 30px -10px",
+                                            }}
+                                        >
+                                            <img src={feature.icon} alt={feature.title} style={{ width: "30%" }} />
+                                        </div>
+                                        <div className="ml-4">
+                                            <h3 className="text-lg font-bold" style={{ color: "#252525" }}>{feature.title}</h3>
+                                            <p style={{ color: "#252525" }}>{feature.description}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                        </AnimatePresence>
+                    </div>
+
+                    <div className="text-right mt-8">
+                        <button
+                            onClick={handleToggle}
+                            className="font-semibold text-red-600 hover:underline"
+                        >
+                            {showMore ? "Show Less....." : "Read More....."}
+                        </button>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </motion.div>
     );
 }

@@ -48,7 +48,14 @@ const FeatureSection = () => {
             });
         }
     };
-
+    const listVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: (i) => ({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.4, delay: i * 0.2 },
+        }),
+    };
     if (isMobile) {
         return (
             <>
@@ -151,7 +158,12 @@ const FeatureSection = () => {
     }
 
     return (
-        <>
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+        >
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                     <span className="text-red-600">JetFyX</span>
@@ -159,39 +171,6 @@ const FeatureSection = () => {
                 </h2>
                 <p className="text-gray-700 max-w-2xl">
                     At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
-                    {!showParaMore && (
-                        <>
-                            &nbsp;
-                            <button
-                                className="font-semibold focus:outline-none"
-                                onClick={() => setShowParaMore(true)}
-                                style={{ color: "#555555" }}
-                            >
-                                Read More..
-                            </button>
-                        </>
-                    )}
-                    <AnimatePresence>
-                        {showParaMore && (
-                            <motion.span
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.4 }}
-                                className="inline"
-                            >
-                                &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics. We envision a world where trading is accessible, secure, and rewarding for everyone.
-                                &nbsp;
-                                <button
-                                    className="font-semibold focus:outline-none"
-                                    onClick={() => setShowParaMore(false)}
-                                    style={{ color: "#555555" }}
-                                >
-                                    Read Less
-                                </button>
-                            </motion.span>
-                        )}
-                    </AnimatePresence>
                 </p>
             </div>
 
@@ -285,13 +264,18 @@ const FeatureSection = () => {
                         }}
                     >
                         {features.map((feature, index) => (
-                            <li
+                            <motion.li
                                 key={index}
                                 ref={(el) => (itemRefs.current[index] = el)}
                                 onClick={() => {
                                     setActiveFeature(feature);
                                     setActiveIndex(index);
                                 }}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true, amount: 0.5 }}
+                                variants={listVariants}
+                                custom={index} // Custom delay for each feature
                                 style={{
                                     cursor: "pointer",
                                     padding: "15px 20px",
@@ -304,13 +288,12 @@ const FeatureSection = () => {
                                 }}
                             >
                                 {feature.title}
-                            </li>
+                            </motion.li>
                         ))}
                     </ul>
                 </div>
             </div>
-        </>
-
+        </motion.div>
     );
 };
 
