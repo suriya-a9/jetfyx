@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import { motion } from "framer-motion";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "./ContactSection.css";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -20,7 +21,24 @@ export default function ContactSection() {
         { name: "Sydney", position: [-33.8688, 151.2093] },
         { name: "Iceland", position: [64.963051, -19.020835] },
         { name: "Greenland", position: [71.706936, -42.604303] },
+        { name: "United States", position: [38.9072, -77.0369] },
+        { name: "Canada", position: [45.4215, -75.6972] },
+        { name: "Mexico", position: [19.4326, -99.1332] },
+        { name: "Brazil", position: [-15.7939, -47.8828] },
+        { name: "Argentina", position: [-34.6037, -58.3816] },
+        { name: "Colombia", position: [4.7110, -74.0721] },
+        { name: "Chile", position: [-33.4489, -70.6693] },
+        { name: "Peru", position: [-12.0464, -77.0428] },
+        { name: "Venezuela", position: [10.4806, -66.9036] },
+        { name: "Ecuador", position: [-0.1807, -78.4678] }
     ];
+
+    const redDotIcon = new L.DivIcon({
+        html: `<div style="width:12px; height:12px; background-color:#C3282E; border-radius:50%; border: 2px solid white;"></div>`,
+        className: "", // remove default class
+        iconSize: [12, 12],
+        iconAnchor: [6, 6], // center the dot
+    });
 
     return (
         <motion.div
@@ -29,7 +47,7 @@ export default function ContactSection() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <section className="relative py-16 bg-gray-100 overflow-hidden" style={{ marginTop: '60px' }}>
+            <section className="relative py-16 overflow-hidden" style={{ marginTop: '60px' }}>
                 <div className="hidden md:block md:absolute inset-0 z-10">
                     <MapContainer
                         center={[20, 0]}
@@ -38,43 +56,19 @@ export default function ContactSection() {
                         zoomControl={false}
                         dragging={false}
                         doubleClickZoom={false}
-                        className="h-full w-full grayscale opacity-80"
+                        className="h-full w-full opacity-80"
                     >
                         <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
+                            subdomains="abcd"
+                            attribution='&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
                         />
+
                         {locations.map((loc, i) => (
                             <Marker
                                 key={i}
                                 position={loc.position}
-                                eventHandlers={{
-                                    mouseover: (e) => e.target.openTooltip(),
-                                    mouseout: (e) => e.target.closeTooltip(),
-                                }}
-                            >
-                                <Tooltip direction="top" offset={[0, -10]} opacity={1}>
-                                    <span className="font-semibold text-sm">{loc.name}</span>
-                                </Tooltip>
-                            </Marker>
-                        ))}
-                    </MapContainer>
-                </div>
-                <div className="md:hidden w-full h-64 mb-6 relative z-10">
-                    <MapContainer
-                        center={[20, 0]}
-                        zoom={2}
-                        scrollWheelZoom={false}
-                        className="h-full w-full grayscale opacity-80"
-                    >
-                        <TileLayer
-                            attribution='&copy; <a href="https://www.openstreetmap.org/">OSM</a>'
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        />
-                        {locations.map((loc, i) => (
-                            <Marker
-                                key={i}
-                                position={loc.position}
+                                icon={redDotIcon} // use red dot icon
                                 eventHandlers={{
                                     mouseover: (e) => e.target.openTooltip(),
                                     mouseout: (e) => e.target.closeTooltip(),
@@ -88,6 +82,36 @@ export default function ContactSection() {
                     </MapContainer>
                 </div>
 
+                <div className="md:hidden w-full h-64 mb-6 relative z-10">
+                    <MapContainer
+                        center={[20, 0]}
+                        zoom={2}
+                        scrollWheelZoom={false}
+                        className="h-full w-full opacity-80"
+                    >
+                        <TileLayer
+                            url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png"
+                            subdomains="abcd"
+                            attribution='&copy; <a href="https://carto.com/">CARTO</a> &copy; <a href="https://www.openstreetmap.org/copyright">OSM</a>'
+                        />
+
+                        {locations.map((loc, i) => (
+                            <Marker
+                                key={i}
+                                position={loc.position}
+                                icon={redDotIcon} // red dot for mobile too
+                                eventHandlers={{
+                                    mouseover: (e) => e.target.openTooltip(),
+                                    mouseout: (e) => e.target.closeTooltip(),
+                                }}
+                            >
+                                <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+                                    <span className="font-semibold text-sm">{loc.name}</span>
+                                </Tooltip>
+                            </Marker>
+                        ))}
+                    </MapContainer>
+                </div>
                 <div className="relative">
                     <div className="absolute inset-0 bg-transparent pointer-events-none"></div>
 

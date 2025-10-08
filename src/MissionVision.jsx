@@ -29,43 +29,55 @@ export default function MissionVisionSection() {
         >
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-2 md:mb-0">
-                            Our Mission & <br /><span className="text-red-600">Vision</span>
-                        </h2>
-                        <p className="text-gray-700 md:ml-8 max-w-2xl">
-                            At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
-                            {!showParaMore && (
-                                <button
-                                    className="font-semibold focus:outline-none"
-                                    onClick={() => setShowParaMore(true)}
-                                    style={{ color: "#555555" }}
-                                >
-                                    Read More..
-                                </button>
-                            )}
-                            <AnimatePresence>
-                                {showParaMore && (
-                                    <motion.span
-                                        initial={{ opacity: 0 }}
-                                        animate={{ opacity: 1 }}
-                                        exit={{ opacity: 0 }}
-                                        transition={{ duration: 0.4 }}
-                                        className="inline"
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10">
+                        {/* Left: Heading (30%) */}
+                        <div className="md:w-3/10">
+                            <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4 md:mb-0">
+                                Our Mission & <br />
+                                <span className="text-red-600">Vision</span>
+                            </h2>
+                        </div>
+
+                        {/* Right: Paragraph (70%) */}
+                        <div className="md:w-7/10">
+                            <p className="text-gray-700 md:ml-8 max-w-3xl">
+                                At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
+                                Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                                {!showParaMore && (
+                                    <button
+                                        className="font-semibold focus:outline-none"
+                                        onClick={() => setShowParaMore(true)}
+                                        style={{ color: "#555555" }}
                                     >
-                                        &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics. We envision a world where trading is accessible, secure, and rewarding for everyone.
-                                        <button
-                                            className="font-semibold focus:outline-none"
-                                            onClick={() => setShowParaMore(false)}
-                                            style={{ color: "#555555" }}
-                                        >
-                                            Read Less
-                                        </button>
-                                    </motion.span>
+                                        {" "}Read More..
+                                    </button>
                                 )}
-                            </AnimatePresence>
-                        </p>
+                                <AnimatePresence>
+                                    {showParaMore && (
+                                        <motion.span
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.4 }}
+                                            className="inline"
+                                        >
+                                            &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
+                                            We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                            <button
+                                                className="font-semibold focus:outline-none"
+                                                onClick={() => setShowParaMore(false)}
+                                                style={{ color: "#555555" }}
+                                            >
+                                                {" "}Read Less
+                                            </button>
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </p>
+                        </div>
                     </div>
+
+
                     <div className="grid grid-cols-1 md:grid-cols-2 items-center">
                         {/* Left Image */}
                         <motion.div

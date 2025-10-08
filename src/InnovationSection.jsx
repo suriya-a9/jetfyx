@@ -44,19 +44,19 @@ export default function InnovationSection() {
                             Innovations that will transform how the world trades:
                         </p>
                         <h1
-                            className="text-[60px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none"
+                            className="text-[50px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none"
                         >
                             INNOVATION
                         </h1>
 
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid gap-6 md:justify-center">
                         {initialFeatures.map((feature, index) => (
                             <motion.div
                                 key={index}
                                 className={
-                                    `w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl shadow hover:shadow-lg transition 
+                                    `md:w-[498px] sm:w-full flex flex-col items-start text-left p-4 sm:p-5 md:p-[0.5rem] lg:p-[0.5rem] lg:pl-[15px] lg:pr-[15px] rounded-xl shadow hover:shadow-lg transition 
                 ${expandedCard === index ? "bg-red-50" : "bg-gray-50"} 
                 ${index === 2 ? "md:col-span-2 md:mx-auto md:max-w-[60%]" : ""}`
                                 }
@@ -71,7 +71,7 @@ export default function InnovationSection() {
                                 <h3 className="text-lg md:text-xl font-bold text-red-600 mb-2">
                                     {feature.title}
                                 </h3>
-                                <p className="text-gray-700 text-sm sm:text-base md:text-base">
+                                <p className="text-gray-700 text-sm sm:text-[0.9rem] md:text-[0.9rem]">
                                     {expandedCard === index
                                         ? feature.fullDescription
                                         : feature.shortDescription}

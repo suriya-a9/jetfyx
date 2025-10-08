@@ -27,6 +27,12 @@ const features = [
         image: "/assets/carousel-img-1.webp",
         icon: "/assets/carousel-sub-img-1.webp",
     },
+    {
+        title: "Effortless & Powerful",
+        desc: "Designed for beginners to trade with confidence and professionals with precision.",
+        image: "/assets/carousel-img-1.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
+    },
 ];
 
 export default function FeatureCarousel() {
@@ -38,9 +44,12 @@ export default function FeatureCarousel() {
     const next = () => setIndex((i) => (i === features.length - 1 ? 0 : i + 1));
 
     const getPosition = (i) => {
+        const total = features.length;
         if (i === index) return "center";
-        if (i === (index - 1 + features.length) % features.length) return "left";
-        if (i === (index + 1) % features.length) return "right";
+        if (i === (index - 1 + total) % total) return "left";
+        if (i === (index + 1) % total) return "right";
+        if (i === (index - 2 + total) % total) return "far-left";
+        if (i === (index + 2) % total) return "far-right";
         return "hidden";
     };
 
@@ -50,15 +59,15 @@ export default function FeatureCarousel() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
-            onViewportEnter={() => setIsInView(true)} // Trigger when the section enters the viewport
-            onViewportLeave={() => setIsInView(false)} // Trigger when the section leaves the viewport
+            onViewportEnter={() => setIsInView(true)}
+            onViewportLeave={() => setIsInView(false)}
         >
             <section className="py-16">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl font-bold mb-2">
                         Welcome to <span className="text-red-600">JetFyX</span>
                     </h2>
-                    <p className="text-gray-700 md:w-[60%] sm:w-[100%] mx-auto inline" style={{display:'block'}}>
+                    <p className="text-gray-700 md:w-[60%] sm:w-[100%] mx-auto inline" style={{ display: 'block' }}>
                         Welcome to <span className="text-red-600">JetFyX</span>—the modern trading platform designed for multi-asset brokers! Enjoy a sleek, user-friendly experience with powerful risk management tools and round-the-clock support to keep your brokerage running smoothly.
                         {!showMore && (
                             <>
@@ -114,7 +123,7 @@ export default function FeatureCarousel() {
                                         animate={isInView ? { x: 0 } : { x: -300 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <div className="relative w-72 h-[22rem] shadow-xl overflow-hidden bg-white flex flex-col justify-end rounded-tl-[20px]">
+                                        <div className="relative w-72 h-[22rem] shadow-xl overflow-hidden bg-white flex flex-col justify-end rounded-tl-[20px]" style={{ borderRadius: '25px' }}>
                                             <div className="absolute z-20" style={{ top: '0px', left: '0px' }}>
                                                 <div className="bg-white rounded-tl-[24px] rounded-br-[24px] p-1 shadow-md">
                                                     <div className="bg-[#C3272E] rounded-tl-[20px] rounded-br-[20px] p-3 flex items-center justify-center">
@@ -143,20 +152,45 @@ export default function FeatureCarousel() {
                                         animate={isInView ? { x: pos === "left" ? -300 : 300 } : { x: 0 }}
                                         transition={{ duration: 0.5 }}
                                     >
-                                        <div className="relative w-64 h-[18rem] bg-white rounded-2xl shadow-lg flex flex-col pt-4 pb-4 px-4">
-                                            <div className="absolute -top-4 -left-4 z-20">
+                                        <div className="relative w-64 h-[18rem] bg-[#eddede] rounded-2xl shadow-lg flex flex-col pt-4 pb-4 px-4">
+                                            <div className="absolute top-0 left-0 z-20">
                                                 <div className="bg-white rounded-tl-[20px] rounded-br-[20px] p-1 shadow">
                                                     <div className="bg-[#C3272E] rounded-tl-[16px] rounded-br-[16px] p-2 flex items-center justify-center">
                                                         <img src={f.icon} alt="" className="w-7 h-7" />
                                                     </div>
                                                 </div>
                                             </div>
+                                            <h3 className="text-lg font-bold mb-1 text-gray-900 text-center">{f.title}</h3>
                                             <div className="w-full h-24 bg-[#C3272E] rounded-xl flex items-center justify-center mt-6 mb-3 overflow-hidden">
                                                 <img src={f.image} alt={f.title} className="object-cover w-full h-full opacity-80" />
                                             </div>
-                                            <h3 className="text-lg font-bold mb-1 text-gray-900">{f.title}</h3>
                                             <p className="text-sm text-gray-700">{f.desc}</p>
                                         </div>
+                                    </motion.div>
+                                );
+                            } else if (pos === "far-left" || pos === "far-right") {
+                                return (
+                                    <motion.div
+                                        key={i}
+                                        className="absolute transition-all duration-500 scale-50 opacity-80 z-0"
+                                        animate={isInView ? { x: pos === "far-left" ? -400 : 400 } : { x: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                    >
+                                        <div
+                                            className="relative w-48 h-[12rem] rounded-xl flex items-center justify-center overflow-hidden"
+                                            style={{
+                                                backgroundImage: `url(${f.image})`,
+                                                backgroundSize: "cover",
+                                                backgroundPosition: "center",
+                                            }}
+                                        >
+                                            <div className="absolute inset-0 bg-[#e3cbc5] opacity-60"></div>
+
+                                            <h3 className="relative text-sm font-bold text-white text-center px-2 py-1 rounded z-10">
+                                                {f.title}
+                                            </h3>
+                                        </div>
+
                                     </motion.div>
                                 );
                             }

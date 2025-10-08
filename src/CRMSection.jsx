@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CRMSection() {
     const initialFeatures = [
@@ -34,6 +34,7 @@ export default function CRMSection() {
 
     const [features, setFeatures] = useState(initialFeatures);
     const [showMore, setShowMore] = useState(false);
+    const [showParaMore, setShowParaMore] = useState(false);
 
     const handleToggle = () => {
         if (showMore) {
@@ -44,7 +45,6 @@ export default function CRMSection() {
         setShowMore(!showMore);
     };
 
-    // Variants for list item animations
     const listVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: (i) => ({
@@ -55,12 +55,13 @@ export default function CRMSection() {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8 }}
-        >
+        // <motion.div
+        //     initial={{ opacity: 0, y: 50 }}
+        //     whileInView={{ opacity: 1, y: 0 }}
+        //     viewport={{ once: true, amount: 0.5 }}
+        //     transition={{ duration: 0.8 }}
+        // >
+        <>
             <section
                 className="bg-white relative overflow-hidden"
                 style={{ borderRadius: "20px", marginTop: "60px", paddingTop: "4rem" }}
@@ -72,9 +73,42 @@ export default function CRMSection() {
                         <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-2 md:mb-0">
                             <span className="text-red-600">JetFyX</span> CRM and<br />Back Office
                         </h2>
-                        <p className="text-gray-700 md:ml-8 max-w-2xl">
-                            At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
-                        </p>
+                        <div className="md:w-7/10">
+                            <p className="text-gray-700 md:ml-8 max-w-3xl">
+                                At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
+                                Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                                {!showParaMore && (
+                                    <button
+                                        className="font-semibold focus:outline-none"
+                                        onClick={() => setShowParaMore(true)}
+                                        style={{ color: "#555555" }}
+                                    >
+                                        {" "}Read More..
+                                    </button>
+                                )}
+                                <AnimatePresence>
+                                    {showParaMore && (
+                                        <motion.span
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            exit={{ opacity: 0 }}
+                                            transition={{ duration: 0.4 }}
+                                            className="inline"
+                                        >
+                                            &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
+                                            We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                            <button
+                                                className="font-semibold focus:outline-none"
+                                                onClick={() => setShowParaMore(false)}
+                                                style={{ color: "#555555" }}
+                                            >
+                                                {" "}Read Less
+                                            </button>
+                                        </motion.span>
+                                    )}
+                                </AnimatePresence>
+                            </p>
+                        </div>
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center">
@@ -82,7 +116,7 @@ export default function CRMSection() {
                             <img
                                 src="/assets/crm-img.webp"
                                 alt="JetFyX CRM and Back Office"
-                                className="w-full relative"
+                                className="w-full relative left-[-20px] bottom-[-14px]"
                             />
                         </div>
 
@@ -96,9 +130,9 @@ export default function CRMSection() {
                                     whileInView="visible"
                                     viewport={{ once: true, amount: 0.5 }}
                                     variants={listVariants}
-                                    custom={index} // Custom delay for each feature
+                                    custom={index}
                                 >
-                                    <div className="bg-gray-100 p-4 rounded-lg shadow hover:shadow-lg transition w-3/4">
+                                    <div className="bg-gray-100 p-[10px] rounded-lg shadow hover:shadow-lg transition w-3/4" style={{ borderRadius: "20px" }}>
                                         <h3 className="text-lg font-bold text-red-600 mb-2">
                                             {feature.title}
                                         </h3>
@@ -108,17 +142,18 @@ export default function CRMSection() {
                             ))}
                         </div>
                     </div>
-
-                    <div className="text-right mt-8">
-                        <button
-                            onClick={handleToggle}
-                            className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
-                        >
-                            {showMore ? "Less Information" : "More Information"}
-                        </button>
-                    </div>
                 </div>
             </section>
-        </motion.div>
+
+            <div className="text-right mt-8">
+                <button
+                    onClick={handleToggle}
+                    className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
+                >
+                    {showMore ? "Less Information" : "More Information"}
+                </button>
+            </div>
+        </>
+        // </motion.div>
     );
 }

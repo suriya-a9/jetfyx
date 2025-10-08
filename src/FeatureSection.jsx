@@ -164,14 +164,47 @@ const FeatureSection = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <div className="grid grid-cols-1 md:grid-cols-2" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
+            <div className="flex flex-row justify-between" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                     <span className="text-red-600">JetFyX</span>
                     <br />For Brokers
                 </h2>
-                <p className="text-gray-700 max-w-2xl">
-                    At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
-                </p>
+                <div className="md:w-7/10">
+                    <p className="text-gray-700 md:ml-8 max-w-3xl">
+                        At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
+                        Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                        {!showParaMore && (
+                            <button
+                                className="font-semibold focus:outline-none"
+                                onClick={() => setShowParaMore(true)}
+                                style={{ color: "#555555" }}
+                            >
+                                {" "}Read More..
+                            </button>
+                        )}
+                        <AnimatePresence>
+                            {showParaMore && (
+                                <motion.span
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="inline"
+                                >
+                                    &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
+                                    We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                    <button
+                                        className="font-semibold focus:outline-none"
+                                        onClick={() => setShowParaMore(false)}
+                                        style={{ color: "#555555" }}
+                                    >
+                                        {" "}Read Less
+                                    </button>
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                    </p>
+                </div>
             </div>
 
             <div
@@ -180,6 +213,7 @@ const FeatureSection = () => {
                     borderBottomLeftRadius: "16px",
                     borderBottomRightRadius: "16px",
                     padding: "40px",
+                    paddingTop: '0px',
                     display: "flex",
                     flexDirection: "row",
                     gap: "20px",
@@ -188,25 +222,29 @@ const FeatureSection = () => {
             >
                 <div
                     style={{
-                        flex: 1,
+                        flex: '1 1 25%',
                         position: "relative",
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "center",
                     }}
                 >
-                    <div style={{ position: "relative", height: "100%" }}>
+                    <div style={{
+                        position: "relative", height: "100%", border: "10px solid #C3282E38",
+                        borderRadius: "16px",
+                    }}>
                         <img
                             src={activeFeature.image}
                             alt={activeFeature.title}
                             style={{
                                 width: "100%",
                                 height: "100%",
-                                borderRadius: "16px",
+                                borderRadius: "5px",
                                 objectFit: "cover",
                                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-                                border: "10px solid #C3282E38",
+
                             }}
+                            className='filter grayscale'
                         />
                         <div
                             style={{
@@ -221,7 +259,8 @@ const FeatureSection = () => {
                         >
                             <h3
                                 style={{
-                                    fontSize: "20px",
+                                    fontSize: "35px",
+                                    width: '60%',
                                     fontWeight: "bold",
                                     margin: 0,
                                     color: "#252525",
@@ -275,18 +314,29 @@ const FeatureSection = () => {
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.5 }}
                                 variants={listVariants}
-                                custom={index} // Custom delay for each feature
+                                custom={index}
                                 style={{
                                     cursor: "pointer",
-                                    padding: "15px 20px",
+                                    padding: "10px 20px",
                                     marginBottom: "10px",
-                                    borderRadius: "8px",
+                                    borderRadius: "25px",
                                     backgroundColor: activeIndex === index ? "#C3282E" : "#fff",
                                     color: activeIndex === index ? "#fff" : "#333",
                                     boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
                                     transition: "background-color 0.3s, color 0.3s",
                                 }}
                             >
+                                <span
+                                    style={{
+                                        display: "inline-block",
+                                        width: "10px",
+                                        height: "10px",
+                                        borderRight: `2px solid ${activeIndex === index ? "#fff" : "#333"}`,
+                                        borderBottom: `2px solid ${activeIndex === index ? "#fff" : "#333"}`,
+                                        transform: "rotate(310deg)",
+                                        marginRight: '15px'
+                                    }}
+                                ></span>
                                 {feature.title}
                             </motion.li>
                         ))}

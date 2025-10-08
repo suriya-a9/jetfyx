@@ -32,15 +32,15 @@ export default function AccountAccessSection() {
     ];
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8 }}
-        >
-            <section className="py-16 bg-[#D9D9D933]" style={{ marginTop: "60px" }}>
+        // <motion.div
+        //     initial={{ opacity: 0, y: 50 }}
+        //     whileInView={{ opacity: 1, y: 0 }}
+        //     viewport={{ once: true, amount: 0.5 }}
+        //     transition={{ duration: 0.8 }}
+        // >
+            <section className="pt-[25px] pb-[25px] bg-[#D9D9D933]" style={{ marginTop: "60px" }}>
                 <div className="max-w-7xl mx-auto px-4">
-                    <div className="mb-10 flex items-center justify-between">
+                    <div className="mb-[0.5rem] flex items-center justify-between md:pl-[5%] md:pr-[5%]">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-left">
                             Account Access & <br />Management{" "}
                             <span className="text-red-600">Features</span>
@@ -51,11 +51,11 @@ export default function AccountAccessSection() {
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center">
-                        <div className="md:w-1/2 mb-8 md:mb-0 object-contain">
+                        <div className="md:w-1/2 mb-8 md:mb-0 object-contain place-items-center">
                             <img
                                 src="/assets/account-img.webp"
                                 alt="Account Access Features"
-                                className="w-full rounded-[50px] shadow-lg"
+                                className="md:w-[80%] md:h-[350px] rounded-[50px] shadow-lg"
                             />
                         </div>
 
@@ -72,7 +72,7 @@ export default function AccountAccessSection() {
                                                 className="w-[5rem] h-[5rem] bg-[#E7E7E7] rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105"
                                                 style={{
                                                     boxShadow:
-                                                        "rgb(38, 57, 77) 0px 8px 30px -10px",
+                                                        "rgb(38, 57, 77) 0px 8px 19px -10px",
                                                 }}
                                             >
                                                 <img
@@ -82,7 +82,7 @@ export default function AccountAccessSection() {
                                                 />
                                             </div>
 
-                                            <h3 className="text-lg font-bold text-red-600">
+                                            <h3 className="text-lg font-bold text-red-600 text-[15px]">
                                                 {feature.title}
                                             </h3>
 
@@ -102,6 +102,6 @@ export default function AccountAccessSection() {
                     </div>
                 </div>
             </section>
-        </motion.div>
+        // </motion.div>
     );
 }

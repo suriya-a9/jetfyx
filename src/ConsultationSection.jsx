@@ -48,15 +48,15 @@ export default function ConsultationSection() {
             <section className="py-16 bg-white">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                        <div className="md:w-1/2">
+                        <div className="md:w-1/2 place-items-center">
                             <img
                                 src="/assets/consultation-img.webp"
                                 alt="Consultation Image"
-                                className="w-full"
+                                className="md:w-[80%] sm:w-full"
                             />
                         </div>
 
-                        <div className="md:w-1/2">
+                        <div className="md:w-1/2 md:mt-[5%]">
                             <div className="mb-8">
                                 <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                     <span className="text-red-600">JetFyX</span> Consultation - Ask our expert the A-Z of brokerage

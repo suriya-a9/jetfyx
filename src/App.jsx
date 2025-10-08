@@ -24,8 +24,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="mt-16 px-10 md:px-18"> {/* Added padding */}
-        {/* Wrap each section with Element for smooth scrolling */}
+      <main className="mt-16 px-10 md:px-18">
         <Element name="banner">
           <Banner />
         </Element>
@@ -78,6 +77,11 @@ function App() {
           <ContactSection />
         </Element>
       </main>
+      <img
+        src="/assets/float-img.webp"
+        alt="Floating Icon"
+        className="fixed bottom-10 right-0 md:w-[12%] md:h-[13%] w-[80px] h-[60px] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
+      />
       <Footer />
     </>
   );

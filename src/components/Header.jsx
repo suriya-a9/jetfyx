@@ -39,7 +39,6 @@ export default function Header() {
                         />
                     </svg>
                 </button>
-                {/* Centered nav links */}
                 <nav className="hidden md:flex flex-1 justify-center space-x-8">
                     {links.map((link) => (
                         <Link
@@ -53,14 +52,13 @@ export default function Header() {
                         </Link>
                     ))}
                 </nav>
-                {/* Sign In button at end */}
                 <div className="hidden md:flex">
                     <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                         Sign In
                     </button>
                 </div>
                 {isMobileMenuOpen && (
-                    <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
+                    <div className="fixed top-[15%] left-0 w-full h-full bg-white shadow-md md:hidden z-50">
                         <nav className="flex flex-col space-y-4 p-4">
                             {links.map((link) => (
                                 <Link

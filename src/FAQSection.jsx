@@ -66,15 +66,18 @@ export default function FAQSection() {
             transition={{ duration: 0.8 }}
         >
             <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
+                <div className="max-w-7xl mx-auto px-4 place-items-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-red-600">
                         Frequently Asked Questions
                     </h2>
-                    <div className="space-y-4">
+                    <div className="space-y-4 md:w-[80%]">
                         {faqs.map((faq, index) => (
                             <div
                                 key={index}
-                                style={{ borderRadius: '50px', padding: '20px 30px' }}
+                                style={{
+                                    borderRadius: expandedFAQ === index ? "30px" : "50px",
+                                    padding: "20px 30px",
+                                }}
                                 className={`p-4 rounded-lg shadow transition ${expandedFAQ === index ? "bg-[#D9D9D9]" : "bg-[#D9D9D9]"
                                     }`}
                             >
@@ -82,20 +85,22 @@ export default function FAQSection() {
                                     className="flex justify-between items-center cursor-pointer"
                                     onClick={() => toggleFAQ(index)}
                                 >
-                                    <h3 className="text-lg font-bold text-gray-800">
+                                    <h3 className="text-lg font-bold text-gray-800 flex-1">
                                         {faq.question}
                                     </h3>
-                                    {expandedFAQ === index ? (
-                                        <ChevronUp
-                                            className="w-6 h-6 text-red-600"
-                                            style={{ border: '2px solid', borderRadius: '50px' }}
-                                        />
-                                    ) : (
-                                        <ChevronDown
-                                            className="w-6 h-6 text-red-600"
-                                            style={{ border: '2px solid', borderRadius: '50px' }}
-                                        />
-                                    )}
+                                    <div className="flex-shrink-0 ml-4">
+                                        {expandedFAQ === index ? (
+                                            <ChevronUp
+                                                className="w-6 h-6 text-red-600"
+                                                style={{ border: "2px solid", borderRadius: "50px" }}
+                                            />
+                                        ) : (
+                                            <ChevronDown
+                                                className="w-6 h-6 text-red-600"
+                                                style={{ border: "2px solid", borderRadius: "50px" }}
+                                            />
+                                        )}
+                                    </div>
                                 </div>
                                 {expandedFAQ === index && (
                                     <p className="mt-4 text-gray-700">{faq.answer}</p>

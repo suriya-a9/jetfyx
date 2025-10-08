@@ -55,15 +55,21 @@ export default function TradersSection() {
                     backgroundColor: "#D9D9D933",
                     marginTop: "100px",
                     borderRadius: "20px",
-                    paddingBottom: '4rem'
+                    paddingBottom: '2rem'
                 }}
             >
-                <div className="max-w-7xl mx-auto relative z-10" style={{ borderRadius: '20px' }}>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-2 md:mb-0" style={{ paddingLeft: '20px' }}>
-                            <span className="text-red-600">JetFyX</span> fro<br />Traders
+                <div className="max-w-7xl mx-auto relative z-10" style={{ borderRadius: "20px" }}>
+                    <div className="flex flex-col md:flex-row md:items-center mb-10">
+                        <h2
+                            className="text-3xl md:text-4xl font-bold leading-tight mb-4 md:mb-0 md:w-1/3"
+                            style={{ paddingLeft: "20px" }}
+                        >
+                            <span className="text-red-600">JetFyX</span> for<br />Traders
                         </h2>
-                        <p className="text-gray-700 md:ml-8 max-w-2xl bg-white" style={{ borderRadius: '20px', padding: '20px' }}>
+                        <p
+                            className="text-gray-700 md:w-2/3 bg-white rounded-2xl p-5"
+                            style={{ marginLeft: "0", marginTop: "0" }}
+                        >
                             At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
                             {!showParaMore && (
                                 <>
@@ -102,7 +108,7 @@ export default function TradersSection() {
                     </div>
                 </div>
                 <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
-                    <div className="md:w-1/2">
+                    <div className="md:w-1/2 md:pl-[25px] md:pr-[25px]">
                         <ul className="space-y-4 relative">
                             {[...features, ...(showMore ? additionalFeatures : [])].map(
                                 (feature, index, arr) => (
