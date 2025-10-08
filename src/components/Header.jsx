@@ -10,7 +10,6 @@ export default function Header() {
         { name: "Mission", to: "missionVision" },
         { name: "Contact", to: "contactSection" },
     ];
-
     return (
         <header className="w-full top-0 left-0 z-50">
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
@@ -40,7 +39,8 @@ export default function Header() {
                         />
                     </svg>
                 </button>
-                <nav className="hidden md:flex space-x-8">
+                {/* Centered nav links */}
+                <nav className="hidden md:flex flex-1 justify-center space-x-8">
                     {links.map((link) => (
                         <Link
                             key={link.name}
@@ -53,6 +53,12 @@ export default function Header() {
                         </Link>
                     ))}
                 </nav>
+                {/* Sign In button at end */}
+                <div className="hidden md:flex">
+                    <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+                        Sign In
+                    </button>
+                </div>
                 {isMobileMenuOpen && (
                     <div className="absolute top-16 left-0 w-full bg-white shadow-md md:hidden">
                         <nav className="flex flex-col space-y-4 p-4">
@@ -68,6 +74,9 @@ export default function Header() {
                                     {link.name}
                                 </Link>
                             ))}
+                            <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+                                Sign In
+                            </button>
                         </nav>
                     </div>
                 )}

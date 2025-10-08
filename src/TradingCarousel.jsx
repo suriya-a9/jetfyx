@@ -10,13 +10,16 @@ const PrevArrow = ({ className, onClick }) => (
         className={`${className} custom-arrow prev`}
         onClick={onClick}
         style={{
-            width: '60px', 
-            height: '60px',
+            width: '60px',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
-            left: '10px',
+            left: '-80px',
+            background: '#f2e3e4',
+            borderTopRightRadius: '30px',
+            borderBottomRightRadius: '30px'
         }}
     >
         <ChevronLeft size={36} style={{ color: '#852221' }} />  {/* larger icon */}
@@ -29,12 +32,15 @@ const NextArrow = ({ className, onClick }) => (
         onClick={onClick}
         style={{
             width: '60px',
-            height: '60px',
+            height: '100%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
-            right: '10px',
+            right: '-80PX',
+            background: '#f2e3e4',
+            borderTopLeftRadius: '30px',
+            borderBottomLeftRadius: '30px'
         }}
     >
         <ChevronRight size={36} style={{ color: '#852221' }} />
@@ -104,24 +110,25 @@ const TradingCarousel = () => {
         <div
             className="trading-carousel-section"
             style={{
-                backgroundColor: '#f9f9f9',
+                backgroundColor: '#f7f7f7',
                 padding: '60px 20px',
                 textAlign: 'center',
                 boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
                 borderRadius: '20px',
-                marginTop: '60px'
+                marginTop: '60px',
+                paddingBottom: '20px'
             }}
         >
             <h2 className="section-heading">
                 <span className="highlight">JetFyX</span> Forex and Crypto <br />
                 Trading Platform
             </h2>
-            <div className="trading-carousel" style={{ padding: '20px' }}>
+            <div className="trading-carousel md:mt-[-80px] " style={{ padding: '20px' }}>
                 <Slider {...settings}>
                     {carouselItems.map((item, index) => (
                         <div
                             key={index}
-                            className="carousel-item"
+                            className="carousel-item w-[80%]"
                             style={{
                                 background: '#E6E6E6',
                                 borderRadius: '16px',
@@ -137,8 +144,9 @@ const TradingCarousel = () => {
                                     alt={item.title}
                                     className="icon"
                                     style={{
-                                        width: '100px',
-                                        height: '100px',
+                                        width: '200px',
+                                        height: '175px',
+                                        padding: '20px',
                                         marginBottom: '15px',
                                         display: 'block',
                                         margin: '0 auto',

@@ -85,7 +85,7 @@ export default function MissionVisionSection() {
                             <img
                                 src="/assets/mission-img-1.webp"
                                 alt="24/7 Support"
-                                className="w-full object-cover rounded-xl -scale-x-100 relative z-10"
+                                className="w-[75%] object-cover rounded-xl -scale-x-100 relative z-10"
                             />
                         </motion.div>
 
@@ -96,9 +96,9 @@ export default function MissionVisionSection() {
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
                             variants={imageVariants}
-                            custom={1} // Custom delay for right image
+                            custom={1}
                         >
-                            <div>
+                            <div className="w-full md:w-[35%] flex flex-col justify-center">
                                 <ul className="space-y-2 text-gray-800 text-base">
                                     {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance", "Knowledge Base", "VIP Support"].map((item, i) => (
                                         <motion.li
@@ -155,12 +155,12 @@ export default function MissionVisionSection() {
 
                             {/* Right Image */}
                             <motion.div
-                                className="relative mt-4 flex justify-center items-center"
+                                className="w-full md:w-[100%] relative mt-4 md:mt-0 flex justify-center items-center"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.5 }}
                                 variants={imageVariants}
-                                custom={2} // Custom delay for right image
+                                custom={2}
                             >
                                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] md:w-[260px] md:h-[260px] rounded-full bg-blue-200 opacity-30 blur-2xl z-0"></div>
                                 <img
@@ -171,7 +171,8 @@ export default function MissionVisionSection() {
                                 <img
                                     src="/assets/mission-img-2.webp"
                                     alt="Analytics"
-                                    className="w-84 h-64 object-cover rounded-xl relative z-10"
+                                    className="w-full h-full object-cover rounded-xl relative z-10"
+                                    style={{ minHeight: "200px", minWidth: "200px" }}
                                 />
                             </motion.div>
                         </motion.div>

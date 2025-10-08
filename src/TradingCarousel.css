@@ -2,6 +2,7 @@
     background-color: #E6E6E6 !important;
     border-radius: 20px;
     padding: 15px;
+    width: 80% !important;
 }
 
 hr.hr {
@@ -64,4 +65,10 @@ hr.hr {
 
 .slick-prev:before {
     display: none !important;
+}
+
+@media(max-width: 600px){
+    .carousel-item {
+        height: 400px !important;
+    }
 }
