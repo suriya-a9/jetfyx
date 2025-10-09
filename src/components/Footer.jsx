@@ -58,7 +58,7 @@ export default function Footer() {
                 </div>
 
             </footer>
-            <div className="footer-text text-[#555555]" style={{ fontSize: '12px', marginTop: '25px', marginBottom: '25px', padding: '20px' }}>
+            <div className="footer-text text-[#555555] md:ml-[5%] md:mr-[5%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]" style={{ fontSize: '12px', marginTop: '25px', marginBottom: '25px', padding: '20px' }}>
                 <p>© 2025 JETFYX (A NaFa Group Venture) Ltd. Copyright - All Rights Reserved</p><br />
                 <p>Risk warning: There is a significant degree of risk involved in trading leveraged financial products, such as futures, CFDs, and forex. This type of trading may not be appropriate for all investors. Losses from trading in these financial products may surpass your initial investment. Before dealing in such financial products, you should carefully examine your degree of experience, risk tolerance, and investment objectives. It is your duty to make sure you are completely aware of the dangers and, if needed, to obtain independent legal counsel. You affirm and guarantee that you are at least eighteen years old and possess the mental ability necessary to engage in legally binding contracts by using our website.</p><br />
                 <p>Trading: The JETFYX platform allows users to trade a range of financial assets, such as indices, commodities, and currencies. Please remember that trading entails risk, and you should never invest money you cannot afford to lose.</p><br />

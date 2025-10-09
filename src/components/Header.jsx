@@ -3,13 +3,38 @@ import { Link } from "react-scroll";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [hoveredLink, setHoveredLink] = useState(null);
 
     const links = [
         { name: "Home", to: "banner" },
-        { name: "Features", to: "featureCarousel" },
-        { name: "Mission", to: "missionVision" },
+        {
+            name: "Features",
+            dropdown: [
+                { name: "Platform", to: "featureSection" },
+                { name: "PAMM/MAM", to: "pammSection" },
+                { name: "Copy Trading", to: "tradersSection" },
+                { name: "Social Trading", to: "accountAccessSection" },
+            ],
+        },
+        {
+            name: "Exclusive",
+            dropdown: [
+                { name: "Exclusive Offers", to: "missionVision" },
+                { name: "Download Corporate Brochure", to: "consultationSection" },
+                { name: "Download Client Brochure", to: "innovationSection" },
+                { name: "Other Services", to: "edgeSection" },
+            ],
+        },
+        {
+            name: "Deals",
+            dropdown: [
+                { name: "For Brokers", to: "crmSection" },
+                { name: "For Dealers", to: "riskManagementSection" },
+            ],
+        },
         { name: "Contact", to: "contactSection" },
     ];
+
     return (
         <header className="w-full top-0 left-0 z-50">
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
@@ -39,17 +64,37 @@ export default function Header() {
                         />
                     </svg>
                 </button>
-                <nav className="hidden md:flex flex-1 justify-center space-x-8">
-                    {links.map((link) => (
-                        <Link
-                            key={link.name}
-                            to={link.to}
-                            smooth={true}
-                            duration={500}
-                            className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
-                        >
-                            {link.name}
-                        </Link>
+                <nav className="hidden md:flex flex-1 justify-center space-x-8 relative">
+                    {links.map((link, index) => (
+                        <div key={index} className="relative group">
+                            <Link
+                                to={link.to || ""}
+                                smooth={true}
+                                duration={500}
+                                className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
+                            >
+                                {link.name}
+                            </Link>
+
+                            {link.dropdown && (
+                                <div
+                                    className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                                >
+                                    {link.dropdown.map((dropdownItem, dropdownIndex) => (
+                                        <Link
+                                            key={dropdownIndex}
+                                            to={dropdownItem.to}
+                                            smooth={true}
+                                            duration={500}
+                                            className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
+                                        >
+                                            {dropdownItem.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
                     ))}
                 </nav>
                 <div className="hidden md:flex">
@@ -60,17 +105,34 @@ export default function Header() {
                 {isMobileMenuOpen && (
                     <div className="fixed top-[15%] left-0 w-full h-full bg-white shadow-md md:hidden z-50">
                         <nav className="flex flex-col space-y-4 p-4">
-                            {links.map((link) => (
-                                <Link
-                                    key={link.name}
-                                    to={link.to}
-                                    smooth={true}
-                                    duration={500}
-                                    className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    {link.name}
-                                </Link>
+                            {links.map((link, index) => (
+                                <div key={index}>
+                                    <Link
+                                        to={link.to || ""}
+                                        smooth={true}
+                                        duration={500}
+                                        className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                    {link.dropdown && (
+                                        <div className="pl-4">
+                                            {link.dropdown.map((dropdownItem, dropdownIndex) => (
+                                                <Link
+                                                    key={dropdownIndex}
+                                                    to={dropdownItem.to}
+                                                    smooth={true}
+                                                    duration={500}
+                                                    className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
+                                                    onClick={() => setIsMobileMenuOpen(false)}
+                                                >
+                                                    {dropdownItem.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    )}
+                                </div>
                             ))}
                             <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                                 Sign In

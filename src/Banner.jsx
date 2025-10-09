@@ -9,7 +9,7 @@ export default function Banner() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 py-12 overflow-hidden md:top-[-100px] sm:top-0">
+            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:py-12 overflow-hidden md:top-[-100px] sm:top-0 md:pl-[6%] md:pr-[6%] 2xl:pl-[10%] 2xl:pr-[10%]">
                 <div
                     className="absolute inset-0 w-full h-full bg-no-repeat bg-cover bg-center pointer-events-none"
                     style={{
@@ -26,7 +26,7 @@ export default function Banner() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <h1 className="text-3xl md:text-5xl font-bold" style={{ lineHeight: '1.2' }}>
-                        <span className="text-red-600">JetFyx</span>
+                        <span className="text-red-600">JetFyX</span>
                         <span className="text-black">: The Multi-Asset Trading Platform of Choice</span>
                     </h1>
                     <p className="text-gray-600">
@@ -55,7 +55,7 @@ export default function Banner() {
                             DOWNLOAD PLATFORM
                         </button>
                     </form>
-                    <div className="flex space-x-4 md:w-[85%]" style={{justifyContent:'space-between'}}>
+                    <div className="flex space-x-4 md:w-[85%]" style={{ justifyContent: 'space-between' }}>
                         <button className="bg-red-600 w-full text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
                             CONTACT US
                         </button>
@@ -74,7 +74,7 @@ export default function Banner() {
                     <img
                         src="/assets/new-banner-1.webp"
                         alt="Trading Platform Devices"
-                        className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl"
+                        className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl 2xl:top-[-30px]"
                     />
                     {/* <img
                         src="/assets/jet.webp"

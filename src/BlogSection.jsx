@@ -55,17 +55,25 @@ export default function BlogSection() {
         setShowDropdown(false);
     };
 
+    const handleSideBlogClick = (blog) => {
+        const newIndex = blogs.findIndex((b) => b.title === blog.title);
+        setCurrentIndex(newIndex);
+        setShowDropdown(false);
+    };
+
     return (
-        <section className="py-16 bg-gray-100">
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[15%] md:pl-[5%] md:pr-[5%] sm:gap-0">
+        <section className="py-16 bg-[#D9D9D933]" style={{ borderRadius: "25px" }}>
+            <div className="px-4 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[15%] md:pl-[5%] md:pr-[5%] sm:gap-0  md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]">
                 <div className="col-span-2">
                     <h2 className="text-3xl md:text-4xl font-bold mb-8">Blog</h2>
-                    <div className="relative overflow-hidden rounded-lg shadow-lg" style={{ borderRadius: '25px' }}>
+                    <div
+                        className="relative overflow-hidden rounded-lg shadow-lg"
+                        style={{ borderRadius: "25px" }}
+                    >
                         <img
                             src={blogs[currentIndex].image}
                             alt={blogs[currentIndex].title}
-                            className="w-full md:h-[400px] h-full object-cover filter grayscale"
-
+                            className="w-full h-64 md:h-[400px] object-cover filter grayscale"
                         />
                         <div className="absolute inset-0 bg-[#D0D0D0] opacity-50"></div>
                         <div className="absolute inset-0 flex flex-col justify-between p-6">
@@ -93,7 +101,9 @@ export default function BlogSection() {
                                 >
                                     <div
                                         className="prose max-w-none"
-                                        dangerouslySetInnerHTML={{ __html: blogs[currentIndex].fullDescription }}
+                                        dangerouslySetInnerHTML={{
+                                            __html: blogs[currentIndex].fullDescription,
+                                        }}
                                     />
                                 </div>
                             )}
@@ -115,7 +125,6 @@ export default function BlogSection() {
                     </div>
                 </div>
 
-                {/* Right Column: Latest Blogs */}
                 <div className="space-y-4 flex flex-col justify-start mt-2">
                     <div className="flex items-center gap-2 mb-2">
                         <span className="inline-block bg-red-600 text-white text-lg font-semibold px-4 py-2 rounded">
@@ -128,7 +137,8 @@ export default function BlogSection() {
                                 blog && (
                                     <div
                                         key={index}
-                                        className="relative rounded-lg shadow-lg overflow-hidden bg-white mb-4"
+                                        className="relative rounded-lg shadow-lg overflow-hidden bg-white mb-4 cursor-pointer"
+                                        onClick={() => handleSideBlogClick(blog)}
                                     >
                                         <img
                                             src={blog.image}

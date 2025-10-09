@@ -142,11 +142,14 @@ const FeatureSection = () => {
                     </div>
 
                     <div style={{ position: 'relative' }}>
-                        <img
-                            src={activeFeature.image}
-                            alt={activeFeature.title}
-                            style={{ width: '100%', borderRadius: '12px', border: '6px solid #C3282E38', objectFit: 'cover' }}
-                        />
+                        <div style={{ borderRadius: '12px', border: '6px solid #C3282E38', }}>
+                            <img
+                                src={activeFeature.image}
+                                alt={activeFeature.title}
+                                style={{ width: '100%', objectFit: 'cover', borderRadius: '6px' }}
+                                className='filter grayscale'
+                            />
+                        </div>
                         <div style={{ marginTop: '15px' }}>
                             <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: '#252525' }}>{activeFeature.title}</h3>
                             <p style={{ fontSize: '15px', color: '#555555' }}>{activeFeature.description}</p>
@@ -164,7 +167,7 @@ const FeatureSection = () => {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <div className="flex flex-row justify-between" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px' }}>
+            <div className="flex flex-row justify-between md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]" style={{ backgroundColor: "#f9f9f9", marginTop: '60px', padding: '45px', borderTopLeftRadius: '16px', borderTopRightRadius: '16px' }}>
                 <h2 className="text-3xl md:text-4xl font-bold leading-tight">
                     <span className="text-red-600">JetFyX</span>
                     <br />For Brokers
@@ -219,6 +222,7 @@ const FeatureSection = () => {
                     gap: "20px",
                     position: "relative",
                 }}
+                className="md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
             >
                 <div
                     style={{

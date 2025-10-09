@@ -35,9 +35,9 @@ export default function ContactSection() {
 
     const redDotIcon = new L.DivIcon({
         html: `<div style="width:12px; height:12px; background-color:#C3282E; border-radius:50%; border: 2px solid white;"></div>`,
-        className: "", // remove default class
+        className: "",
         iconSize: [12, 12],
-        iconAnchor: [6, 6], // center the dot
+        iconAnchor: [6, 6],
     });
 
     return (
@@ -68,7 +68,7 @@ export default function ContactSection() {
                             <Marker
                                 key={i}
                                 position={loc.position}
-                                icon={redDotIcon} // use red dot icon
+                                icon={redDotIcon}
                                 eventHandlers={{
                                     mouseover: (e) => e.target.openTooltip(),
                                     mouseout: (e) => e.target.closeTooltip(),
@@ -99,7 +99,7 @@ export default function ContactSection() {
                             <Marker
                                 key={i}
                                 position={loc.position}
-                                icon={redDotIcon} // red dot for mobile too
+                                icon={redDotIcon}
                                 eventHandlers={{
                                     mouseover: (e) => e.target.openTooltip(),
                                     mouseout: (e) => e.target.closeTooltip(),
@@ -117,8 +117,8 @@ export default function ContactSection() {
 
                     <div className="relative max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
                         <div
-                            className="md:w-3/4 bg-[#C3282E] text-white rounded-lg shadow-lg relative z-20 pointer-events-auto px-5 md:px-8 left-0 md:left-[5%]"
-                            style={{ padding: "10px 20px" }}
+                            className="md:w-3/4 bg-[#C3282E] text-white shadow-lg relative z-20 pointer-events-auto px-5 md:px-8 left-0 md:left-[5%]"
+                            style={{ padding: "15px 20px", borderRadius: '26px' }}
                         >
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
                                 Ready to trade without limits?
@@ -128,7 +128,7 @@ export default function ContactSection() {
                             </button>
                         </div>
 
-                        <div className="w-full md:w-1/2 bg-[#999999] p-8 rounded-lg shadow-lg relative z-20 pointer-events-auto">
+                        <div className="w-full md:w-[45%] md:pb-[60px] bg-[#999999] p-8 shadow-lg relative z-20 pointer-events-auto" style={{ borderRadius: '26px' }}>
                             <form>
                                 <div className="space-y-4">
                                     <input

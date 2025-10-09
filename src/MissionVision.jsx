@@ -5,7 +5,6 @@ export default function MissionVisionSection() {
     const [showParaMore, setShowParaMore] = useState(false);
     const [showListMore, setShowListMore] = useState(false);
 
-    // Variants for animations
     const imageVariants = {
         hidden: { opacity: 0, x: -100 },
         visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
@@ -27,10 +26,9 @@ export default function MissionVisionSection() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
+            <section className="py-16 bg-white md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]">
+                <div className=" px-4">
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-10">
-                        {/* Left: Heading (30%) */}
                         <div className="md:w-3/10">
                             <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-4 md:mb-0">
                                 Our Mission & <br />
@@ -38,7 +36,6 @@ export default function MissionVisionSection() {
                             </h2>
                         </div>
 
-                        {/* Right: Paragraph (70%) */}
                         <div className="md:w-7/10">
                             <p className="text-gray-700 md:ml-8 max-w-3xl">
                                 At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
@@ -77,11 +74,9 @@ export default function MissionVisionSection() {
                         </div>
                     </div>
 
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 items-center">
-                        {/* Left Image */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:items-start items-center">
                         <motion.div
-                            className="relative flex justify-center items-center"
+                            className="relative flex justify-center items-center self-start"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
@@ -101,9 +96,8 @@ export default function MissionVisionSection() {
                             />
                         </motion.div>
 
-                        {/* Right Content */}
                         <motion.div
-                            className="flex flex-col md:flex-row gap-6"
+                            className="flex flex-col md:flex-row md:items-start gap-6"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
@@ -111,12 +105,12 @@ export default function MissionVisionSection() {
                             custom={1}
                         >
                             <div className="w-full md:w-[35%] flex flex-col justify-center">
-                                <ul className="space-y-2 text-gray-800 text-base">
+                                <ul className="space-y-2 text-gray-800 text-base font-bold">
                                     {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance", "Knowledge Base", "VIP Support"].map((item, i) => (
                                         <motion.li
                                             key={i}
                                             variants={listVariants}
-                                            custom={i} // Custom delay for each list item
+                                            custom={i}
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, amount: 0.5 }}
@@ -136,7 +130,7 @@ export default function MissionVisionSection() {
                                                     <motion.li
                                                         key={i}
                                                         variants={listVariants}
-                                                        custom={i + 6} // Custom delay for additional list items
+                                                        custom={i + 6}
                                                         initial="hidden"
                                                         whileInView="visible"
                                                         viewport={{ once: true, amount: 0.5 }}
@@ -165,9 +159,8 @@ export default function MissionVisionSection() {
                                 )}
                             </div>
 
-                            {/* Right Image */}
                             <motion.div
-                                className="w-full md:w-[100%] relative mt-4 md:mt-0 flex justify-center items-center"
+                                className="w-full md:w-[100%] relative mt-4 md:mt-0 flex justify-center items-center self-start"
                                 initial="hidden"
                                 whileInView="visible"
                                 viewport={{ once: true, amount: 0.5 }}

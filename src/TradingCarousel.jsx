@@ -48,20 +48,18 @@ const NextArrow = ({ className, onClick }) => (
 );
 const getSlidesForWidth = (w) => {
     if (w <= 600) return 1;
-    if (w <= 768) return 1;   // you wanted 1 at 768px
+    if (w <= 768) return 1;
     if (w <= 1024) return 2;
-    return 3;
+    return 4;
 };
 const TradingCarousel = () => {
     const [slidesToShow, setSlidesToShow] = useState(
         typeof window !== "undefined" ? getSlidesForWidth(window.innerWidth) : 3
     );
 
-    // update on resize
     useEffect(() => {
         let rafId = null;
         const onResize = () => {
-            // small throttle using requestAnimationFrame
             if (rafId) cancelAnimationFrame(rafId);
             rafId = requestAnimationFrame(() => {
                 const newVal = getSlidesForWidth(window.innerWidth);
@@ -81,7 +79,7 @@ const TradingCarousel = () => {
         speed: 500,
         slidesToShow,
         slidesToScroll: 1,
-        centerMode: slidesToShow >= 3, // only center on wide screens
+        centerMode: slidesToShow >= 3,
         centerPadding: "0px",
         arrows: true,
         prevArrow: <PrevArrow />,

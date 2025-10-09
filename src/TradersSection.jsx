@@ -50,7 +50,7 @@ export default function TradersSection() {
             transition={{ duration: 0.8 }}
         >
             <section
-                className="relative"
+                className="relative md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
                 style={{
                     backgroundColor: "#D9D9D933",
                     marginTop: "100px",
@@ -111,13 +111,13 @@ export default function TradersSection() {
                     <div className="md:w-1/2 md:pl-[25px] md:pr-[25px]">
                         <ul className="space-y-4 relative">
                             {[...features, ...(showMore ? additionalFeatures : [])].map(
-                                (feature, index, arr) => (
+                                (feature, index) => (
                                     <motion.li
                                         key={index}
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: 20 }}
-                                        transition={{ duration: 0.4 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.5 }}
+                                        transition={{ duration: 0.4, delay: index * 0.2 }}
                                         className="flex items-start relative"
                                     >
                                         <div className="w-4 h-4 bg-red-600 rounded-full mt-1 mr-4"></div>
@@ -145,6 +145,7 @@ export default function TradersSection() {
                             src="/assets/traders-section-img.webp"
                             alt="JetFyX Edge"
                             className="w-full"
+                            style={{borderRadius:'26px'}}
                         />
                     </div>
                 </div>

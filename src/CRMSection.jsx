@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function CRMSection() {
@@ -15,13 +15,13 @@ export default function CRMSection() {
             title: "Automated Onboarding",
             description: "Streamlined client verification, KYC, and account setup.",
         },
+    ];
+
+    const additionalFeatures = [
         {
             title: "IB Commission Automation",
             description: "Automatic tracking and payouts for introducing brokers.",
         },
-    ];
-
-    const additionalFeatures = [
         {
             title: "Advanced Analytics",
             description: "Gain insights with powerful analytics tools.",
@@ -35,7 +35,7 @@ export default function CRMSection() {
     const [features, setFeatures] = useState(initialFeatures);
     const [showMore, setShowMore] = useState(false);
     const [showParaMore, setShowParaMore] = useState(false);
-
+    const featureContainerRef = useRef(null);
     const handleToggle = () => {
         if (showMore) {
             setFeatures(initialFeatures);
@@ -44,7 +44,14 @@ export default function CRMSection() {
         }
         setShowMore(!showMore);
     };
-
+    useEffect(() => {
+        if (showMore && featureContainerRef.current) {
+            featureContainerRef.current.scrollTo({
+                top: featureContainerRef.current.scrollHeight,
+                behavior: "smooth",
+            });
+        }
+    }, [showMore]);
     const listVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: (i) => ({
@@ -63,7 +70,7 @@ export default function CRMSection() {
         // >
         <>
             <section
-                className="bg-white relative overflow-hidden"
+                className="bg-white relative overflow-hidden md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
                 style={{ borderRadius: "20px", marginTop: "60px", paddingTop: "4rem" }}
             >
                 <div className="absolute top-0 left-0 w-full md:w-1/2 h-full bg-gradient-to-r from-red-200 via-red-50 to-transparent pointer-events-none z-0"></div>
@@ -116,23 +123,39 @@ export default function CRMSection() {
                             <img
                                 src="/assets/crm-img.webp"
                                 alt="JetFyX CRM and Back Office"
-                                className="w-full relative left-[-20px] bottom-[-14px]"
+                                className="w-full relative left-[-20px] bottom-[-14px] 2xl:left-[-18%]"
                             />
                         </div>
 
-                        <div className="md:w-1/2 space-y-6">
+                        <div
+                            ref={featureContainerRef}
+                            className="md:w-1/2 space-y-6 max-h-[400px] overflow-y-scroll pr-2"
+                            style={{
+                                scrollbarWidth: "none",
+                                msOverflowStyle: "none",
+                            }}
+                        >
+                            <style>{`
+                                /* Hide scrollbar for Chrome, Safari and Opera */
+                                div::-webkit-scrollbar {
+                                    display: none;
+                                }
+                            `}</style>
+
                             {features.map((feature, index) => (
                                 <motion.div
                                     key={index}
-                                    className={`flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"
-                                        }`}
+                                    className={`flex items-center ${index % 2 === 0 ? "justify-start" : "justify-end"}`}
                                     initial="hidden"
                                     whileInView="visible"
                                     viewport={{ once: true, amount: 0.5 }}
                                     variants={listVariants}
                                     custom={index}
                                 >
-                                    <div className="bg-gray-100 p-[10px] rounded-lg shadow hover:shadow-lg transition w-3/4" style={{ borderRadius: "20px" }}>
+                                    <div
+                                        className="bg-[#F8F8F8] p-[10px] rounded-lg shadow hover:shadow-lg transition w-3/4"
+                                        style={{ borderRadius: "20px" }}
+                                    >
                                         <h3 className="text-lg font-bold text-red-600 mb-2">
                                             {feature.title}
                                         </h3>
@@ -145,7 +168,7 @@ export default function CRMSection() {
                 </div>
             </section>
 
-            <div className="text-right mt-8">
+            <div className="text-right mt-8 md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]">
                 <button
                     onClick={handleToggle}
                     className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition"

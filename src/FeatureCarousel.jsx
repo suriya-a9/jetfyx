@@ -112,16 +112,25 @@ export default function FeatureCarousel() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <div className="flex items-center justify-center w-full max-w-5xl overflow-hidden relative h-[400px]">
+                    <div className="flex items-center justify-center w-full max-w-5xl overflow-hidden md:overflow-visible relative h-[400px]">
+
                         {features.map((f, i) => {
                             const pos = getPosition(i);
+                            const isCenter = pos === "center";
+
+                            const baseMotion = {
+                                transition: { duration: 0.5 },
+                                onClick: () => setIndex(i),
+                                className: "absolute cursor-pointer",
+                            };
+
                             if (pos === "center") {
                                 return (
                                     <motion.div
                                         key={i}
-                                        className={`absolute transition-all duration-500 scale-100 opacity-100 z-20`}
-                                        animate={isInView ? { x: 0 } : { x: -300 }}
-                                        transition={{ duration: 0.5 }}
+                                        {...baseMotion}
+                                        className={`${baseMotion.className} scale-100 opacity-100 z-20`}
+                                        animate={isInView ? { x: 0, scale: 1 } : { x: -300 }}
                                     >
                                         <div className="relative w-72 h-[22rem] shadow-xl overflow-hidden bg-white flex flex-col justify-end rounded-tl-[20px]" style={{ borderRadius: '25px' }}>
                                             <div className="absolute z-20" style={{ top: '0px', left: '0px' }}>
@@ -144,13 +153,15 @@ export default function FeatureCarousel() {
                                         </div>
                                     </motion.div>
                                 );
-                            } else if (pos === "left" || pos === "right") {
+                            }
+
+                            if (pos === "left" || pos === "right") {
                                 return (
                                     <motion.div
                                         key={i}
-                                        className={`absolute transition-all duration-500 scale-75 opacity-100 z-10`}
+                                        {...baseMotion}
+                                        className={`${baseMotion.className} scale-75 opacity-100 z-10`}
                                         animate={isInView ? { x: pos === "left" ? -300 : 300 } : { x: 0 }}
-                                        transition={{ duration: 0.5 }}
                                     >
                                         <div className="relative w-64 h-[18rem] bg-[#eddede] rounded-2xl shadow-lg flex flex-col pt-4 pb-4 px-4">
                                             <div className="absolute top-0 left-0 z-20">
@@ -168,13 +179,15 @@ export default function FeatureCarousel() {
                                         </div>
                                     </motion.div>
                                 );
-                            } else if (pos === "far-left" || pos === "far-right") {
+                            }
+
+                            if (pos === "far-left" || pos === "far-right") {
                                 return (
                                     <motion.div
                                         key={i}
-                                        className="absolute transition-all duration-500 scale-50 opacity-80 z-0"
-                                        animate={isInView ? { x: pos === "far-left" ? -400 : 400 } : { x: 0 }}
-                                        transition={{ duration: 0.5 }}
+                                        {...baseMotion}
+                                        className={`${baseMotion.className} scale-50 opacity-80 z-0`}
+                                        animate={isInView ? { x: pos === "far-left" ? -500 : 500 } : { x: 0 }}
                                     >
                                         <div
                                             className="relative w-48 h-[12rem] rounded-xl flex items-center justify-center overflow-hidden"
@@ -185,15 +198,14 @@ export default function FeatureCarousel() {
                                             }}
                                         >
                                             <div className="absolute inset-0 bg-[#e3cbc5] opacity-60"></div>
-
                                             <h3 className="relative text-sm font-bold text-white text-center px-2 py-1 rounded z-10">
                                                 {f.title}
                                             </h3>
                                         </div>
-
                                     </motion.div>
                                 );
                             }
+
                             return null;
                         })}
                     </div>

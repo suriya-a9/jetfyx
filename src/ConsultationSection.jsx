@@ -39,81 +39,76 @@ export default function ConsultationSection() {
     };
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{ duration: 0.8 }}
+        <section
+            className="bg-[#D9D9D933] py-16 md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
+            style={{ marginTop: "60px" }}
         >
-            <section className="py-16 bg-white">
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                        <div className="md:w-1/2 place-items-center">
-                            <img
-                                src="/assets/consultation-img.webp"
-                                alt="Consultation Image"
-                                className="md:w-[80%] sm:w-full"
-                            />
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.8 }}
+                className="px-4"
+            >
+                <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
+                    <div className="md:w-1/2 flex justify-center">
+                        <motion.img
+                            src="/assets/consultation-img.webp"
+                            alt="Consultation Image"
+                            className="md:w-[80%] sm:w-full rounded-2xl"
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 0.6 }}
+                        />
+                    </div>
+
+                    <div className="md:w-1/2 md:mt-[5%]">
+                        <div className="mb-8">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                <span className="text-red-600">JetFyX</span> Consultation -{" "}
+                                Ask our expert the A-Z of brokerage
+                            </h2>
+                            <p className="text-gray-700">
+                                Running a successful brokerage requires more than just a trading platform.{" "}
+                                <span className="text-red-600 font-semibold">JetFyX</span> offers a full suite of services to help you build and grow your entire forex business.
+                            </p>
                         </div>
 
-                        <div className="md:w-1/2 md:mt-[5%]">
-                            <div className="mb-8">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                    <span className="text-red-600">JetFyX</span> Consultation - Ask our expert the A-Z of brokerage
-                                </h2>
-                                <p className="text-gray-700">
-                                    Running a successful brokerage requires more than just a trading platform. <span className="text-red-600">JetFyX</span> offers a full suite of services to help you build and grow your entire forex business.
-                                </p>
-                            </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                {initialFeatures.map((feature, index) => (
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {[...initialFeatures, ...(showMore ? additionalFeatures : [])].map(
+                                (feature, index) => (
                                     <motion.div
                                         key={index}
-                                        className="flex flex-col items-start text-left "
+                                        className="flex flex-col items-start text-left"
                                         initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        transition={{ duration: 0.5 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true, amount: 0.3 }}
+                                        transition={{
+                                            duration: 0.4,
+                                            delay: index * 0.1,
+                                        }}
                                     >
                                         <h3 className="text-lg font-bold text-gray-800 mb-2">
                                             {feature.title}
                                         </h3>
                                         <p className="text-gray-700">{feature.description}</p>
                                     </motion.div>
-                                ))}
+                                )
+                            )}
+                        </div>
 
-                                <AnimatePresence>
-                                    {showMore &&
-                                        additionalFeatures.map((feature, index) => (
-                                            <motion.div
-                                                key={index}
-                                                className="flex flex-col items-start text-left"
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: 20 }}
-                                                transition={{ duration: 0.5 }}
-                                            >
-                                                <h3 className="text-lg font-bold text-gray-800 mb-2">
-                                                    {feature.title}
-                                                </h3>
-                                                <p className="text-gray-700">{feature.description}</p>
-                                            </motion.div>
-                                        ))}
-                                </AnimatePresence>
-                            </div>
-
-                            <div className="text-right mt-8">
-                                <button
-                                    onClick={handleReadMore}
-                                    className="font-semibold text-red-600 hover:underline"
-                                >
-                                    {showMore ? "Show Less....." : "Read More....."}
-                                </button>
-                            </div>
+                        <div className="text-right mt-8">
+                            <button
+                                onClick={handleReadMore}
+                                className="font-semibold text-red-600 hover:underline"
+                            >
+                                {showMore ? "Show Less....." : "Read More....."}
+                            </button>
                         </div>
                     </div>
                 </div>
-            </section>
-        </motion.div>
+            </motion.div>
+        </section>
     );
 }
