@@ -58,8 +58,7 @@ export default function MissionVisionSection() {
                                             transition={{ duration: 0.4 }}
                                             className="inline"
                                         >
-                                            &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
-                                            We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                            &nbsp;Our platform is built on speed, transparency, and precision, giving you the tools, insights, and support you need to act with confidence. From advanced analytics and real-time data to a secure trading environment, everything we do is designed to help you stay ahead in a market that never sleeps. Here, you’re not just trading currency pairs—you're building strategies, seizing opportunities, and connecting with a global network of market movers. Trade smarter. Move faster. Aim higher. Once again, welcome to JetFyX. Let’s chart your path to success.
                                             <button
                                                 className="font-semibold focus:outline-none"
                                                 onClick={() => setShowParaMore(false)}
@@ -106,7 +105,7 @@ export default function MissionVisionSection() {
                         >
                             <div className="w-full md:w-[35%] flex flex-col justify-center">
                                 <ul className="space-y-2 text-gray-800 text-base font-bold">
-                                    {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance", "Knowledge Base", "VIP Support"].map((item, i) => (
+                                    {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance"].map((item, i) => (
                                         <motion.li
                                             key={i}
                                             variants={listVariants}
@@ -126,7 +125,7 @@ export default function MissionVisionSection() {
                                                 exit={{ opacity: 0, height: 0 }}
                                                 transition={{ duration: 0.4 }}
                                             >
-                                                {["Dedicated Account Managers", "Priority Issue Resolution", "Personalized Training"].map((item, i) => (
+                                                {["Knowledge Base", "VIP Support"].map((item, i) => (
                                                     <motion.li
                                                         key={i}
                                                         variants={listVariants}

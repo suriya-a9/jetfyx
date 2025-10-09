@@ -12,9 +12,16 @@ export default function EdgeSection() {
   ];
 
   const additionalFeatures = [
-    { title: "Advanced Risk Management", description: "Optimize trading strategies with real-time risk analysis tools." },
-    { title: "Customizable Alerts", description: "Set alerts for price movements and trading conditions." },
-    { title: "Portfolio Optimization", description: "Maximize returns with advanced portfolio management tools." },
+    { title: "Risk Managed", description: "Remaining positions stay protected with stop-loss or new targets." },
+    { title: "Strategic Scaling", description: "Maximize profits while reducing exposure, no constant monitoring needed." },
+    { title: "Trailing Stop Orders", description: "Protect gains automatically as markets move." },
+    { title: "Hedging Options", description: "Balance risk with multiple positions in the same instrument." },
+    { title: "Copy Trading", description: "Mirror top traders’ strategies with full risk control." },
+    { title: "API Integration", description: "Build and connect advanced algorithmic systems." },
+    { title: "Advanced Order Types", description: "Market, limit, stop, OCO, and more." },
+    { title: "Custom Alerts & Notifications", description: "Real-time updates via SMS, email, or in-app." },
+    { title: "Portfolio Analytics", description: "Track performance, diversification, and exposure clearly." },
+    { title: "Seamless Deposits & Withdrawals", description: "Multiple gateways with fast, secure processing." },
   ];
 
   return (

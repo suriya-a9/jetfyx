@@ -7,23 +7,23 @@ export default function InnovationSection() {
         {
             title: "Blockchain-Protected Trading",
             shortDescription:
-                "Every order execution and trade transaction is secured on the blockchain, ensuring full transparency - ",
+                "Every order execution and trade transaction is secured on the blockchain, ensuring full transparency ",
             fullDescription:
-                "Every order execution and trade transaction is secured on the blockchain, ensuring full transparency, immutability, and security for traders.",
+                "and eliminating any chance of manipulation.",
         },
         {
             title: "VR Metaverse Technology",
             shortDescription:
-                "Step into a virtual world where trading becomes immersive, interactive, and visually engaging - ",
+                "Step into a virtual world where trading becomes immersive, interactive, and visually dynamic—bringing data ",
             fullDescription:
-                "Step into a virtual world where trading becomes immersive, interactive, and visually engaging, revolutionizing the trading experience.",
+                "and market movements to life like never before.",
         },
         {
             title: "Metaverse Voice Command (Coming Soon)",
             shortDescription:
-                "Enter a 3D virtual trading floor and control trades with natural voice commands - ",
+                "Enter a 3D virtual trading floor and control trades with natural voice commands. ",
             fullDescription:
-                "Enter a 3D virtual trading floor and control trades with natural voice commands, making trading faster and more intuitive.",
+                "Place orders, request data, and analyze trends—all hands-free and fully immersive.",
         },
     ];
 
@@ -72,13 +72,9 @@ export default function InnovationSection() {
                                 {feature.title}
                             </h3>
 
-                            <motion.p
-                                layout
-                                className="text-gray-700 text-sm sm:text-[0.9rem] md:text-[0.9rem]"
-                            >
-                                {expandedCard === index
-                                    ? feature.fullDescription
-                                    : feature.shortDescription}
+                            <p className="text-gray-700 text-sm sm:text-[0.9rem] md:text-[0.9rem]">
+                                {feature.shortDescription}
+                                {expandedCard === index && feature.fullDescription}
                                 {expandedCard !== index && (
                                     <button
                                         onClick={() => handleReadMore(index)}
@@ -87,7 +83,7 @@ export default function InnovationSection() {
                                         Read More...
                                     </button>
                                 )}
-                            </motion.p>
+                            </p>
 
                             <AnimatePresence>
                                 {expandedCard === index && (
@@ -98,7 +94,7 @@ export default function InnovationSection() {
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3 }}
                                         onClick={() => handleReadMore(index)}
-                                        className="font-semibold text-red-600 hover:underline mt-4"
+                                        className="font-semibold text-red-600 hover:underline mt-2"
                                     >
                                         Show Less...
                                     </motion.button>

@@ -100,17 +100,55 @@ const TradingCarousel = () => {
         },
         {
             title: "Advanced Trading Tools",
-            description: "Charts, indicators, and custom mappings on one screen.",
+            description: "Charts, indicators, and custom mappings on one screen for smarter decisions.",
             icon: "/assets/trade-icon-3.webp",
         },
         {
-            title: "Customizable Alerts",
-            description: "Set alerts for price movements and market trends.",
+            title: "Social Trading",
+            description: "Connect with a vibrant community, follow strategies, and grow together.",
             icon: "/assets/trade-icon-1.webp",
         },
         {
-            title: "Secure Transactions",
-            description: "Trade with confidence using encrypted and secure platforms.",
+            title: "Risk Level Display",
+            description: "View real-time risk on every trade and manage exposure transparently.",
+            icon: "/assets/trade-icon-2.webp",
+        },
+
+        {
+            title: "In-App News Feed",
+            description: "Get the latest market news and insights without leaving the platform.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Multiple Take Profit Levels",
+            description: "Automate partial closes, secure gains step-by-step, and scale trades strategically.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Trailing Stop Orders",
+            description: "Protect profits automatically as markets move.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Hedging Options",
+            description: "Balance risk with multiple positions in the same instrument.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "API Integration",
+            description: "Connect with third-party tools and build advanced algorithmic systems.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Advanced Order Types",
+            description: "Market, limit, stop, OCO, and more for precise execution.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Custom Alerts & Notifications",
+            description: "Get instant updates via SMS, email, or in-app alerts.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Dedicated Account Manager",
+            description: "Priority support and personalized service.",
+            icon: "/assets/trade-icon-2.webp",
+        },{
+            title: "Training & Webinars",
+            description: "Enhance trading skills and leadership through expert sessions.",
             icon: "/assets/trade-icon-2.webp",
         },
     ];

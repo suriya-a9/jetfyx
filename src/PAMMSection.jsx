@@ -8,27 +8,27 @@ export default function PAMMSection() {
         {
             title: "Partner Support & Resources",
             description:
-                "Access exclusive resources and tools to support partners in managing accounts effectively.",
+                "Dedicated account manager, custom CRM integration, ROI dashboards, and training webinars to sharpen trading leadership.",
         },
         {
             title: "PAMM (Percent Allocation Management Module)",
             description:
-                "Allocate trades proportionally across multiple accounts with ease and precision.",
+                "Trade from one master account with profits/losses distributed proportionally among investors. A hands-off solution for professional traders.",
         },
         {
             title: "MAM (Multi-Account Manager)",
             description:
-                "Manage multiple accounts simultaneously with advanced tools for streamlined operations.",
+                "Flexible lot allocation for different client risk profiles, perfect for money managers.",
         },
         {
             title: "Social Trading",
             description:
-                "Collaborate with other traders and share strategies in real-time.",
+                "Build a trading community where followers can view, learn, and engage in real time—boosting reputation and attracting clients.",
         },
         {
             title: "Copy Trading",
             description:
-                "Replicate trades automatically without requiring additional servers.",
+                "Clients automatically mirror your trades for easy strategy scaling without extra workload.",
         },
     ];
 
@@ -51,7 +51,8 @@ export default function PAMMSection() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center md:pl-[2%] md:pr-[2%]">
-                    <div className="md:w-1/2 mb-8 md:mb-0 flex justify-center">
+                    <div className="md:w-1/2 mb-8 md:mb-0 flex justify-center items-start"
+                        style={{ position: "sticky", top: "100px", alignSelf: "flex-start" }}>
                         <motion.img
                             src="/assets/pamm-section-img.webp"
                             alt="JetFyX PAMM, MAM & Social Trading"

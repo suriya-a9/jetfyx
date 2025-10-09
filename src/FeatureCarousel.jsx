@@ -4,33 +4,45 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const features = [
     {
-        title: "Freedom in Trading",
-        desc: "React in real time, use voice commands, and stay fully in control.",
-        image: "/assets/carousel-img-1.webp",
-        icon: "/assets/carousel-sub-img-1.webp",
-    },
-    {
-        title: "Future-Ready Technology",
-        desc: "Experience next-gen tools and automation for smarter trading.",
-        image: "/assets/carousel-img-1.webp",
+        title: "Beyond a Platform",
+        desc: "Not just another trading tool, but a reimagined forex experience.",
+        image: "/assets/Smart.webp",
         icon: "/assets/carousel-sub-img-1.webp",
     },
     {
         title: "Effortless & Powerful",
         desc: "Designed for beginners to trade with confidence and professionals with precision.",
-        image: "/assets/carousel-img-1.webp",
+        image: "/assets/Effortless.webp",
         icon: "/assets/carousel-sub-img-1.webp",
     },
     {
         title: "Smart Tools",
-        desc: "Advanced analytics and risk management at your fingertips.",
-        image: "/assets/carousel-img-1.webp",
+        desc: "AI-driven insights and advanced features for every level of trader.",
+        image: "/assets/Smartool.webp",
         icon: "/assets/carousel-sub-img-1.webp",
     },
     {
-        title: "Effortless & Powerful",
-        desc: "Designed for beginners to trade with confidence and professionals with precision.",
-        image: "/assets/carousel-img-1.webp",
+        title: "Future-Ready Technology",
+        desc: "From lightning-fast execution to immersive metaverse environments.",
+        image: "/assets/Future.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
+    },
+    {
+        title: "Freedom in Trading",
+        desc: "React in real time, use voice commands, and stay fully in control.",
+        image: "/assets/Freedom.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
+    },
+    {
+        title: "More Than Currency",
+        desc: "Trading as an experience, not just buying and selling.",
+        image: "/assets/Smart.webp",
+        icon: "/assets/carousel-sub-img-1.webp",
+    },
+    {
+        title: "Your Launchpad",
+        desc: "Sleek, feature-rich, and scalable—built to grow with you.",
+        image: "/assets/Launchpad.webp",
         icon: "/assets/carousel-sub-img-1.webp",
     },
 ];
@@ -90,7 +102,7 @@ export default function FeatureCarousel() {
                                     transition={{ duration: 0.4 }}
                                     className="inline"
                                 >
-                                    &nbsp;JetFyX offers advanced charting, instant execution, and seamless integration with your favorite tools. Our platform is built for speed, security, and flexibility, empowering both new and experienced traders to reach their goals. Enjoy 24/7 support, regular updates, and a growing community of successful users.
+                                    &nbsp;Best of all? You can get up and running in less than two weeks! Ready to see it in action? Request a demo today—we’d love to show you around!
                                     &nbsp;
                                     <button
                                         className="font-semibold focus:outline-none"

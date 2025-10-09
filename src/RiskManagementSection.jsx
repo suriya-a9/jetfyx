@@ -47,23 +47,23 @@ export default function RiskManagementSection() {
 
     const additionalFeatures = [
         {
-            title: "Advanced Reporting & Analytics",
-            description: "Access detailed risk, P&L, and exposure reports for smarter decision-making.",
+            title: "Price Deviation & Slippage Controls",
+            description: "Protects against abnormal market volatility.",
             icon: "/assets/manage-img-5.webp",
         },
         {
-            title: "Customizable Risk Parameters",
-            description: "Set leverage limits, margin requirements, and trading restrictions per client or group.",
+            title: "Compliance & Alerts",
+            description: "Real-time notifications for margin breaches, high exposure, and regulatory compliance triggers.",
             icon: "/assets/manage-img-6.webp",
         },
         {
-            title: "Liquidity Risk Controls",
-            description: "Aggregated Tier-1 liquidity feeds for tighter spreads and reduced slippage.",
+            title: "PAMM/MAM Account Risk Tools",
+            description: "Manage multiple client accounts with role-based risk allocation.",
             icon: "/assets/manage-img-7.webp",
         },
         {
-            title: "Portfolio Risk Display",
-            description: "View and manage real-time portfolio risk levels at individual and group levels.",
+            title: "Capital Protection Tools",
+            description: "Built-in safeguards to minimize broker-side losses in extreme conditions.",
             icon: "/assets/manage-img-8.webp",
         },
     ];

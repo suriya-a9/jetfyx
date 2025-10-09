@@ -8,12 +8,12 @@ export default function ConsultationSection() {
             description: "Expert help with registering your brokerage in a reputable jurisdiction.",
         },
         {
-            title: "Website & CRM",
-            description: "Professional website and powerful CRM system to manage your clients.",
-        },
-        {
             title: "License Consulting",
             description: "Guidance on securing the necessary licenses for legal operation.",
+        },
+        {
+            title: "Website & CRM",
+            description: "Professional website and powerful CRM system to manage your clients.",
         },
         {
             title: "IB & Affiliate Portals",
@@ -23,12 +23,32 @@ export default function ConsultationSection() {
 
     const additionalFeatures = [
         {
-            title: "Marketing Support",
-            description: "Expert guidance on creating effective marketing strategies for your brokerage.",
+            title: "Back-Office Solutions",
+            description: "Streamlined system for handling client accounts, payments, and reporting.",
         },
         {
-            title: "Compliance Assistance",
-            description: "Ensure your brokerage meets all regulatory requirements with expert compliance support.",
+            title: "Legal Consulting",
+            description: "Access to legal experts specializing in forex regulations.",
+        },
+        {
+            title: "Digital Marketing",
+            description: "Targeted campaigns and social media management to reach your audience.",
+        },
+        {
+            title: "Lead Generation",
+            description: "Services to help you acquire high-quality, pre-qualified leads.",
+        },
+        {
+            title: "Liquidity Solutions",
+            description: "Secure reliable and competitive liquidity for your clients.",
+        },
+        {
+            title: "Payment Gateway Integration",
+            description: "A wide range of secure payment options for your clients.",
+        },
+        {
+            title: "Social Media Profiling",
+            description: "We help you reach the world through social media and marketing stuff.",
         },
     ];
 

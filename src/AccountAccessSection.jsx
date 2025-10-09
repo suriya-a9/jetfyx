@@ -6,27 +6,32 @@ export default function AccountAccessSection() {
         {
             title: "Unified or Individual Account Access",
             icon: "/assets/account-img-1.webp",
-            tooltip: "Access multiple accounts under one login or manage them separately.",
+            tooltip: "Choose between one login for all accounts or separate logins for account-by-account control.",
         },
         {
             title: "Single Sign-In",
             icon: "/assets/account-img-2.webp",
-            tooltip: "Simplify login with one credential for all connected accounts.",
+            tooltip: "Log in once to instantly access every account linked to your name.",
+        },
+        {
+            title: "Individual Account Login",
+            icon: "/assets/account-img-3.webp",
+            tooltip: "Manage accounts separately for focused trading.",
         },
         {
             title: "Dual Access Modes",
-            icon: "/assets/account-img-3.webp",
-            tooltip: "Switch between manager and investor modes easily.",
-        },
-        {
-            title: "Social Trading",
             icon: "/assets/account-img-4.webp",
-            tooltip: "Connect and follow top traders seamlessly.",
+            tooltip: "Secure role-based access: fund managers use a Master Login to control multiple accounts, while investors use Investor Login to view and track portfolios.",
         },
         {
-            title: "Copy Trading (No Extra Server Required)",
+            title: "Copy Trading",
             icon: "/assets/account-img-5.webp",
-            tooltip: "Mirror trades instantly without additional setup.",
+            tooltip: "Real-time, transparent copy trading with zero price mismatch between master and slave accounts under the same broker.",
+        },
+        {
+            title: "PAMM & MAM",
+            icon: "/assets/account-img-5.webp",
+            tooltip: "Flexible systems for managing multiple client accounts efficiently.",
         },
     ];
 

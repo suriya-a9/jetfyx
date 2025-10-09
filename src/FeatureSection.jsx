@@ -2,15 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
 const features = [
-    { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/broker-img-1.webp' },
-    { title: 'Lightning-Fast Execution', description: 'Trade with unparalleled speed and accuracy.', image: '/assets/broker-img-1.webp' },
-    { title: 'Deep Liquidity Access', description: 'Access deep liquidity pools for better trading opportunities.', image: '/assets/broker-img-1.webp' },
-    { title: 'White Label Solutions', description: 'Customizable solutions for brokers and businesses.', image: '/assets/broker-img-1.webp' },
-    { title: 'Regulatory & Company Setup', description: 'Comprehensive support for regulatory compliance and company setup.', image: '/assets/broker-img-1.webp' },
-    { title: 'Website & Payment Gateway', description: 'Integrated website and payment gateway solutions.', image: '/assets/broker-img-1.webp' },
-    { title: 'Risk Management Tools', description: 'Advanced tools for managing trading risks effectively.', image: '/assets/broker-img-1.webp' },
-    { title: 'Advanced Back-Office', description: 'Streamlined back-office operations for brokers.', image: '/assets/broker-img-1.webp' },
-    { title: 'JetFyX CRM', description: 'Powerful CRM tools for managing client relationships.', image: '/assets/broker-img-1.webp' },
+    { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/business-person-looking-finance-graphs.webp' },
+    { title: 'Lightning-Fast Execution', description: 'Ultra-low latency for optimal performance.', image: '/assets/Backoffice.webp' },
+    { title: 'Deep Liquidity Access', description: 'Tier-1 providers for forex, commodities, indices, and crypto with tighter spreads.', image: '/assets/Risk.webp' },
+    { title: 'White Label Solutions', description: 'Proprietary JetFyX platforms branded to your identity.', image: '/assets/payment-benefits-bookkeeping-budget-payday-concept.webp' },
+    { title: 'Regulatory & Company Setup', description: 'Support with licensing, incorporations, and infrastructure.', image: '/assets/crm.webp' },
+    { title: 'Website & Payment Gateway', description: 'Custom broker sites with secure, multi-option funding.', image: '/assets/contract-fair-agreement-webpage-interface.webp' },
+    { title: 'Risk Management Tools', description: 'Protect your business and boost profitability.', image: '/assets/White.webp' },
+    { title: 'Advanced Back-Office', description: 'KYC, compliance, dashboards, and analytics.', image: '/assets/lightning.webp' },
+    { title: 'JetFyX CRM', description: 'Lead scoring, predictive insights, automated onboarding, IB automation, multilingual communication, and real-time alerts.', image: '/assets/business-person-looking-finance-graphs.webp' },
 ];
 
 const FeatureSection = () => {
@@ -65,7 +65,7 @@ const FeatureSection = () => {
                         <br />For Brokers
                     </h2>
                     <p className="text-gray-700 max-w-2xl">
-                        At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom. Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                        <span className="text-red-600 font-semibold">JetFyX</span> offers a fully integrated platform that combines trade execution, risk management, reporting, and CRM into one seamless system—complete with lightning-fast performance,
                         {!showParaMore && (
                             <>
                                 &nbsp;
@@ -87,7 +87,7 @@ const FeatureSection = () => {
                                     transition={{ duration: 0.4 }}
                                     className="inline"
                                 >
-                                    &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics. We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                    &nbsp;expert regulatory guidance, customizable white-label branding, and 24/7 technical support to keep your operations running smoothly.
                                     &nbsp;
                                     <button
                                         className="font-semibold focus:outline-none"
@@ -142,11 +142,11 @@ const FeatureSection = () => {
                     </div>
 
                     <div style={{ position: 'relative' }}>
-                        <div style={{ borderRadius: '12px', border: '6px solid #C3282E38', }}>
+                        <div style={{ borderRadius: '26px', border: '6px solid #C3282E38', }}>
                             <img
                                 src={activeFeature.image}
                                 alt={activeFeature.title}
-                                style={{ width: '100%', objectFit: 'cover', borderRadius: '6px' }}
+                                style={{ width: '100%', objectFit: 'cover', borderRadius: '16px' }}
                                 className='filter grayscale'
                             />
                         </div>
@@ -174,8 +174,7 @@ const FeatureSection = () => {
                 </h2>
                 <div className="md:w-7/10">
                     <p className="text-gray-700 md:ml-8 max-w-3xl">
-                        At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
-                        Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                        <span className="text-red-600 font-semibold">JetFyX</span> offers a fully integrated platform that combines trade execution, risk management, reporting, and CRM into one seamless system—complete with lightning-fast performance,
                         {!showParaMore && (
                             <button
                                 className="font-semibold focus:outline-none"
@@ -194,8 +193,7 @@ const FeatureSection = () => {
                                     transition={{ duration: 0.4 }}
                                     className="inline"
                                 >
-                                    &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
-                                    We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                    &nbsp;expert regulatory guidance, customizable white-label branding, and 24/7 technical support to keep your operations running smoothly.
                                     <button
                                         className="font-semibold focus:outline-none"
                                         onClick={() => setShowParaMore(false)}
@@ -259,6 +257,7 @@ const FeatureSection = () => {
                                 padding: "15px",
                                 borderRadius: "12px",
                                 textAlign: "left",
+                                backgroundColor: 'rgb(0 0 0 / 0.6)'
                             }}
                         >
                             <h3
@@ -267,12 +266,12 @@ const FeatureSection = () => {
                                     width: '60%',
                                     fontWeight: "bold",
                                     margin: 0,
-                                    color: "#252525",
+                                    color: "white",
                                 }}
                             >
                                 {activeFeature.title}
                             </h3>
-                            <p style={{ fontSize: "16px", margin: 0, color: "#555555" }}>
+                            <p style={{ fontSize: "16px", margin: 0, color: "white" }}>
                                 {activeFeature.description}
                             </p>
                         </div>

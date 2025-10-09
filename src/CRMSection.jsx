@@ -23,12 +23,24 @@ export default function CRMSection() {
             description: "Automatic tracking and payouts for introducing brokers.",
         },
         {
-            title: "Advanced Analytics",
-            description: "Gain insights with powerful analytics tools.",
+            title: "Multi-Language Communication",
+            description: "Engage clients in their preferred language.",
         },
         {
-            title: "Customizable Dashboards",
-            description: "Tailor dashboards to suit your business needs.",
+            title: "Real-Time Compliance Alerts",
+            description: "Instant notifications for regulatory and operational checks.",
+        },
+        {
+            title: "Integrated Performance Dashboards",
+            description: "Monitor leads, clients, and IBs with clear analytics.",
+        },
+        {
+            title: "Custom CRM Integration",
+            description: "Sync seamlessly with trading platforms and back-office systems.",
+        },
+        {
+            title: "Data Security",
+            description: "Bank-grade encryption and secure handling of client data.",
         },
     ];
 
@@ -82,8 +94,7 @@ export default function CRMSection() {
                         </h2>
                         <div className="md:w-7/10">
                             <p className="text-gray-700 md:ml-8 max-w-3xl">
-                                At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
-                                Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
+                                <span className="text-red-600 font-semibold">JetFyX</span> Forex Trading Platform includes a powerful CRM and back-office system that streamlines client onboarding, KYC, deposits, withdrawals, and account management. With real-time risk controls, automated reporting, and customizable dashboards,
                                 {!showParaMore && (
                                     <button
                                         className="font-semibold focus:outline-none"
@@ -102,8 +113,7 @@ export default function CRMSection() {
                                             transition={{ duration: 0.4 }}
                                             className="inline"
                                         >
-                                            &nbsp;Our mission is to empower every user with cutting-edge technology, reliable support, and transparent analytics.
-                                            We envision a world where trading is accessible, secure, and rewarding for everyone.
+                                            &nbsp;it connects traders, dealers, and administrators in one seamless workflow—making brokerage operations smarter, faster, and more efficient.
                                             <button
                                                 className="font-semibold focus:outline-none"
                                                 onClick={() => setShowParaMore(false)}
