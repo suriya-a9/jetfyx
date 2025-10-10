@@ -2,15 +2,15 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
 const features = [
-    { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/business-person-looking-finance-graphs.webp' },
-    { title: 'Lightning-Fast Execution', description: 'Ultra-low latency for optimal performance.', image: '/assets/Backoffice.webp' },
-    { title: 'Deep Liquidity Access', description: 'Tier-1 providers for forex, commodities, indices, and crypto with tighter spreads.', image: '/assets/Risk.webp' },
-    { title: 'White Label Solutions', description: 'Proprietary JetFyX platforms branded to your identity.', image: '/assets/payment-benefits-bookkeeping-budget-payday-concept.webp' },
-    { title: 'Regulatory & Company Setup', description: 'Support with licensing, incorporations, and infrastructure.', image: '/assets/crm.webp' },
-    { title: 'Website & Payment Gateway', description: 'Custom broker sites with secure, multi-option funding.', image: '/assets/contract-fair-agreement-webpage-interface.webp' },
-    { title: 'Risk Management Tools', description: 'Protect your business and boost profitability.', image: '/assets/White.webp' },
-    { title: 'Advanced Back-Office', description: 'KYC, compliance, dashboards, and analytics.', image: '/assets/lightning.webp' },
-    { title: 'JetFyX CRM', description: 'Lead scoring, predictive insights, automated onboarding, IB automation, multilingual communication, and real-time alerts.', image: '/assets/business-person-looking-finance-graphs.webp' },
+    { title: 'Fully Integrated Platform', description: 'Execution, risk management, reporting, CRM, and IB portal in one system.', image: '/assets/broker-img-1.webp' },
+    { title: 'Lightning-Fast Execution', description: 'Ultra-low latency for optimal performance.', image: '/assets/lightning.jpg' },
+    { title: 'Deep Liquidity Access', description: 'Tier-1 providers for forex, commodities, indices, and crypto with tighter spreads.', image: '/assets/business-person-looking-finance-graphs (1).jpg' },
+    { title: 'White Label Solutions', description: 'Proprietary JetFyX platforms branded to your identity.', image: '/assets/White.webp' },
+    { title: 'Regulatory & Company Setup', description: 'Support with licensing, incorporations, and infrastructure.', image: '/assets/contract-fair-agreement-webpage-interface.jpg' },
+    { title: 'Website & Payment Gateway', description: 'Custom broker sites with secure, multi-option funding.', image: '/assets/payment-benefits-bookkeeping-budget-payday-concept.webp' },
+    { title: 'Risk Management Tools', description: 'Protect your business and boost profitability.', image: '/assets/Risk.webp' },
+    { title: 'Advanced Back-Office', description: 'KYC, compliance, dashboards, and analytics.', image: '/assets/Backoffice.jpg' },
+    { title: 'JetFyX CRM', description: 'Lead scoring, predictive insights, automated onboarding, IB automation, multilingual communication, and real-time alerts.', image: '/assets/crm.webp' },
 ];
 
 const FeatureSection = () => {
@@ -233,7 +233,7 @@ const FeatureSection = () => {
                 >
                     <div style={{
                         position: "relative", height: "100%", border: "10px solid #C3282E38",
-                        borderRadius: "16px",
+                        borderRadius: "35px",
                     }}>
                         <img
                             src={activeFeature.image}
@@ -241,7 +241,7 @@ const FeatureSection = () => {
                             style={{
                                 width: "100%",
                                 height: "100%",
-                                borderRadius: "5px",
+                                borderRadius: "25px",
                                 objectFit: "cover",
                                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
 

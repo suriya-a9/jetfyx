@@ -11,40 +11,120 @@ const initialFAQs = [
     {
         question: "Who is JetFyX designed for?",
         answer:
-            "JetFyX is designed for brokers, financial institutions, and traders looking for advanced trading tools and seamless integration.",
+            "The platform is built specifically for forex brokers, prop firms, liquidity providers, and financial institutions looking for reliable, scalable, and transparent trading technology.",
     },
     {
         question: "What makes JetFyX different from other trading platforms?",
         answer:
-            "JetFyX offers advanced features like multi-asset trading, CRM integration, and risk management tools, making it a comprehensive solution for brokers.",
+            "JetFyX offers real-time monitoring, customizable dashboards, multi-server coverage, and advanced risk management tools in a single, integrated solution—streamlining operations while reducing costs.",
     },
     {
-        question: "What are the key principles of UX design?",
+        question: "What are the key features of JetFyX?",
         answer:
-            "The key principles of UX design include usability, accessibility, and creating intuitive interfaces that enhance user satisfaction.",
+            "Real-time dealing desk monitoring and analytics Advanced risk management with instant alerts CRM and back-office integration Trading session control with PnL breakdowns Account aggregation and fraud detection Hedge account integration (JetFyX, FIX, and more) Transparent quotes monitoring and feed comparison White-label and branding options 24/7 technical support",
     },
 ];
 
 const additionalFAQs = [
     {
-        question: "How does JetFyX ensure security?",
+        question: "Does JetFyX support A/B/C book models?",
         answer:
-            "JetFyX uses advanced encryption and blockchain technology to ensure secure transactions and data protection.",
+            "Yes. JetFyX aggregates net volumes from multiple trading platforms into consolidated A/B/C books, making it easy to analyze exposures and compare hedge account coverage.",
     },
     {
-        question: "Can JetFyX be customized for specific needs?",
+        question: "Can I customize the platform to my brokerage’s needs?",
         answer:
-            "Yes, JetFyX offers customizable solutions tailored to meet the specific needs of brokers and financial institutions.",
+            "Absolutely. JetFyX dashboards are fully customizable with widgets so dealers can track the exact metrics they need. White-label branding is also available.",
     },
     {
-        question: "What makes JetFyX different from other trading platforms?",
+        question: "Does JetFyX support both demo and live trading?",
         answer:
-            "JetFyX offers advanced features like multi-asset trading, CRM integration, and risk management tools, making it a comprehensive solution for brokers.",
+            "Yes. Brokers can manage both demo and live environments under one portal.",
     },
     {
-        question: "What are the key principles of UX design?",
+        question: "Is there integration with hedge accounts?",
         answer:
-            "The key principles of UX design include usability, accessibility, and creating intuitive interfaces that enhance user satisfaction.",
+            "Yes. JetFyX directly connects with hedge accounts to build exposure, net volume, and session metrics across multiple platforms.",
+    },
+    {
+        question: "How does JetFyX help with risk management?",
+        answer:
+            "JetFyX acts as a real-time “antivirus” for your brokerage, detecting toxic trading, insider risks, scalping, arbitrage, and account manipulations. It instantly alerts dealers to activity outside safe thresholds.",
+    },
+    {
+        question: "Can JetFyX detect organized cheating groups?",
+        answer:
+            "Yes. By analyzing IPs, CIDs, and online sessions, JetFyX detects related accounts and suspicious trader clusters.",
+    },
+    {
+        question: "How does JetFyX ensure data security?",
+        answer:
+            "The platform uses enterprise-grade encryption, secure APIs, and multi-server redundancy to protect sensitive data and ensure uptime.",
+    },
+    {
+        question: "Does JetFyX come with CRM and back-office tools?",
+        answer:
+            "Yes. JetFyX provides an integrated CRM for client onboarding, KYC, deposits, withdrawals, and account management, along with automated reporting for the back office.",
+    },
+    {
+        question: "Can JetFyX generate reports for compliance?",
+        answer:
+            "Yes. JetFyX provides ready-made historical and live reports covering transactions, PnL, balances, equities, deposits, withdrawals, and trading activity.",
+    },
+    {
+        question: "Does the platform support multi-currency operations?",
+        answer:
+            "Yes. JetFyX fully supports multi-currency transactions and reporting.",
+    },
+    {
+        question: "How fast is JetFyX trade execution?",
+        answer:
+            "The platform is built with ultra-low latency connections for lightning-fast order execution.",
+    },
+    {
+        question: "Is JetFyX compatible with JetFyX and FIX APIs?",
+        answer:
+            "Yes. JetFyX integrates with JetFyX, FIX connections, and other major platforms.",
+    },
+    {
+        question: "Does JetFyX provide 24/7 technical support?",
+        answer:
+            "Yes. Brokers have access to 24×7 support to resolve issues immediately.",
+    },
+    {
+        question: "Can JetFyX operate across multiple servers?",
+        answer:
+            "Yes. JetFyX supports multi-server and multi-platform coverage under one consolidated web portal.",
+    },
+    {
+        question: "In which regions is JetFyX currently available?",
+        answer:
+            "JetFyX is already operating in key global markets, supporting brokers and institutions across Asia, Europe, Africa, and the Middle East.",
+    },
+    {
+        question: "Does JetFyX plan to expand further?",
+        answer:
+            "Yes. Our plan is to spread JetFyX across all markets and regions, creating a truly global standard for forex technology.",
+    },
+    {
+        question: "Can JetFyX help with regulatory licensing in new regions?",
+        answer:
+            "Yes. JetFyX provides regulatory support and guidance on company registration, licensing, and compliance in top jurisdictions.",
+    },
+    {
+        question: "How much does JetFyX cost?",
+        answer:
+            "Pricing depends on the size of your brokerage, required features, and level of customization. Tailored packages are available.",
+    },
+    {
+        question: "How long does it take to set up JetFyX?",
+        answer:
+            "Implementation timelines vary, but in most cases, JetFyX can be deployed and integrated within a few weeks.",
+    },
+    {
+        question: "Do you provide training for staff?",
+        answer:
+            "Yes. Comprehensive onboarding and training are included to ensure your team can maximize all platform features.",
     },
 ];
 

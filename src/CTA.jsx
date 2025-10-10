@@ -53,59 +53,11 @@ export default function CEOSection() {
                                 </h5>
                                 <p className="text-sm md:text-base">
                                     Dear Future Partner,<br /><br />
-                                    At <strong>JetFyX</strong>, we believe your success in the forex and crypto
-                                    market starts with the right foundation. Your brokerage, powered
-                                    by JetFyX, isn’t just an idea—it’s a proven reality. With our
-                                    technology, you can launch, scale, and dominate the forex market
-                                    faster than ever before. We’ve built the complete broker solution
-                                    so you can focus on growth, not guesswork. From registration to
-                                    revenue—we’ve got you covered, offering deep liquidity, instant
-                                    execution, and total control over your operations.
+                                    At <strong>JetFyX</strong>, we believe your success in the forex and crypto market starts with the right foundation. Your brokerage, powered by JetFyX, isn’t just an idea—it’s a proven reality. With our technology, you can launch, scale, and dominate the forex market faster than ever before. We’ve built the complete broker solution so you can focus on growth, not guesswork. From registration to revenue—we’ve got you covered, offering deep liquidity, instant execution, and total control over your operations. Whether you’re looking to build your brand on a solid trading foundation or expand globally, our turnkey solutions for serious brokers are designed to help you win.
                                     <br /><br />
-                                    From white-label solutions that streamline setup to advanced tools
-                                    for professional traders, JetFyX is packed with features that put
-                                    you ahead of the competition. Whether you’re a broker or a trader,
-                                    we’ve designed this platform with one goal in mind: to give you an
-                                    edge in every market. JetFyX supports multiple logins in one
-                                    window, so you can easily manage multiple accounts or strategies
-                                    without juggling platforms.
+                                    From white-label solutions that streamline setup to advanced tools for professional traders, JetFyX is packed with features that put you ahead of the competition. Whether you’re a broker or a trader, we’ve designed this platform with one goal in mind: to give you an edge in every market. JetFyX supports multiple logins in one window, so you can easily manage multiple accounts or strategies without juggling platforms. With account merging options, you can seamlessly consolidate your operations for smooth and efficient management. And with PAMM, MAM, and copy trading features, you can offer your clients the ability to invest and follow top traders, adding a new layer of service and flexibility to your offering. Our powerful search functions make it easy to find exactly what you need, while the ability to add and star your favorite currency pairs lets you personalize your trading experience for speed and convenience. With social trading capabilities, you can connect with a community of traders, share insights, and replicate strategies that work. We’ve engineered liquidity without limits, so you get faster execution, tighter spreads, and deeper market access—all while scaling up your business without slowing down. JetFyX is built for speed, efficiency, and performance, ensuring that every second counts. This is the future of trading. With JetFyX, you get faster trades, bigger opportunities, and a comprehensive suite of tools designed to keep you ahead of every market move. Whether you're managing clients, automating strategies, or trading for yourself, JetFyX is the platform that empowers you to do more, with zero compromise.
                                     <br /><br />
-                                    With account merging options, you can seamlessly consolidate your
-                                    operations for smooth and efficient management. And with PAMM, MAM,
-                                    and copy trading features, you can offer your clients the ability
-                                    to invest and follow top traders, adding a new layer of service
-                                    and flexibility to your offering.
-                                    <br /><br />
-                                    Our powerful search functions make it easy to find exactly what
-                                    you need, while the ability to add and star your favorite currency
-                                    pairs lets you personalize your trading experience for speed and
-                                    convenience. <em>With social trading capabilities</em>, you can
-                                    connect with a community of traders, share insights, and replicate
-                                    strategies that work.
-                                    <br /><br />
-                                    We’ve engineered liquidity without limits, so you get faster
-                                    execution, tighter spreads, and deeper market access—all while
-                                    scaling up your business without slowing down. JetFyX is built for
-                                    speed, efficiency, and performance, ensuring that every second
-                                    counts.
-                                    <br /><br />
-                                    This is the future of trading. With JetFyX, you get faster trades,
-                                    bigger opportunities, and a comprehensive suite of tools designed
-                                    to keep you ahead of every market move.
-                                    <br /><br />
-                                    Whether you're managing clients, automating strategies, or trading
-                                    for yourself, JetFyX is the platform that empowers you to do more,
-                                    with zero compromise.
-                                    <br /><br />
-                                    From charts to profits—simplified. To all the charts, all the
-                                    signals, all in one, JetFyX ensures execution you can trust.
-                                    Whether you’re a newbie or a pro, trading freedom is in your
-                                    hands. And when speed meets precision, you can turn market moves
-                                    into profit moves every single day.
-                                    <br /><br />
-                                    Whether you’re a broker seeking to grow your client base or a
-                                    trader chasing your next big opportunity, JetFyX is here to help
-                                    you go from vision to victory.
+                                    From charts to profits—simplified, to all the charts, all the signals, all in one, JetFyX ensures execution you can trust. Whether you’re a newbie or a pro, trading freedom is in your hands. And when speed meets precision, you can turn market moves into profit moves every single day. Whether you’re a broker seeking to grow your client base or a trader chasing your next big opportunity, JetFyX is here to help you go from vision to victory.
                                     <br /><br />
                                     Let’s build the future of forex—together.
                                     <br />

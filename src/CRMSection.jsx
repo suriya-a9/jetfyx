@@ -65,7 +65,7 @@ export default function CRMSection() {
                 <div className="absolute top-0 left-0 w-full md:w-1/2 h-full bg-gradient-to-r from-red-200 via-red-50 to-transparent pointer-events-none z-0"></div>
 
                 <div className="max-w-7xl mx-auto px-4 relative z-10" style={{ borderRadius: "20px" }}>
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                         <h2 className="text-3xl md:text-4xl font-bold leading-tight mb-2 md:mb-0">
                             <span className="text-red-600">JetFyX</span> CRM and<br />Back Office
                         </h2>
@@ -106,11 +106,11 @@ export default function CRMSection() {
                     </div>
 
                     <div className="flex flex-col md:flex-row items-center relative">
-                        <div className="md:w-1/2 mb-8 md:mb-0 relative">
+                        <div className="md:w-3/4 mb-8 md:mb-0 relative">
                             <img
                                 src="/assets/crm-img.webp"
                                 alt="JetFyX CRM and Back Office"
-                                className="w-full relative left-[-20px] bottom-[-14px] 2xl:left-[-18%]"
+                                className="w-full relative left-[-20px] bottom-[-14px] 2xl:left-[-5%]"
                             />
                         </div>
 
