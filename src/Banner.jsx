@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 export default function Banner() {
     return (
@@ -56,12 +57,26 @@ export default function Banner() {
                         </button>
                     </form>
                     <div className="flex space-x-4 md:w-[85%]" style={{ justifyContent: 'space-between' }}>
-                        <button className="bg-red-600 w-full text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
-                            CONTACT US
-                        </button>
-                        <button className="border w-full border-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
-                            BOOK DEMO
-                        </button>
+                        <Link
+                            to="contactSection"
+                            smooth={true}
+                            duration={800}
+                            offset={-50}
+                            className="w-full"
+                        >
+                            <button className="bg-red-600 w-full text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+                                CONTACT US
+                            </button></Link>
+                        <Link
+                            to="contactSection"
+                            smooth={true}
+                            duration={800}
+                            offset={-50}
+                            className="w-full"
+                        >
+                            <button className="border w-full border-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
+                                BOOK DEMO
+                            </button></Link>
                     </div>
                 </motion.div>
                 <motion.div

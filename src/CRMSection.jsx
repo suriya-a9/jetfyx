@@ -1,69 +1,52 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 export default function CRMSection() {
     const initialFeatures = [
-        {
-            title: "Lead Scoring",
-            description: "Prioritize prospects with intelligent scoring models.",
-        },
-        {
-            title: "Predictive Insights",
-            description: "AI-driven forecasts to improve conversions and retention.",
-        },
-        {
-            title: "Automated Onboarding",
-            description: "Streamlined client verification, KYC, and account setup.",
-        },
+        { title: "Lead Scoring", description: "Prioritize prospects with intelligent scoring models." },
+        { title: "Predictive Insights", description: "AI-driven forecasts to improve conversions and retention." },
+        { title: "Automated Onboarding", description: "Streamlined client verification, KYC, and account setup." },
     ];
 
     const additionalFeatures = [
-        {
-            title: "IB Commission Automation",
-            description: "Automatic tracking and payouts for introducing brokers.",
-        },
-        {
-            title: "Multi-Language Communication",
-            description: "Engage clients in their preferred language.",
-        },
-        {
-            title: "Real-Time Compliance Alerts",
-            description: "Instant notifications for regulatory and operational checks.",
-        },
-        {
-            title: "Integrated Performance Dashboards",
-            description: "Monitor leads, clients, and IBs with clear analytics.",
-        },
-        {
-            title: "Custom CRM Integration",
-            description: "Sync seamlessly with trading platforms and back-office systems.",
-        },
-        {
-            title: "Data Security",
-            description: "Bank-grade encryption and secure handling of client data.",
-        },
+        { title: "IB Commission Automation", description: "Automatic tracking and payouts for introducing brokers." },
+        { title: "Multi-Language Communication", description: "Engage clients in their preferred language." },
+        { title: "Real-Time Compliance Alerts", description: "Instant notifications for regulatory and operational checks." },
+        { title: "Integrated Performance Dashboards", description: "Monitor leads, clients, and IBs with clear analytics." },
+        { title: "Custom CRM Integration", description: "Sync seamlessly with trading platforms and back-office systems." },
+        { title: "Data Security", description: "Bank-grade encryption and secure handling of client data." },
     ];
 
     const [features, setFeatures] = useState(initialFeatures);
     const [showMore, setShowMore] = useState(false);
     const [showParaMore, setShowParaMore] = useState(false);
+    const [showScrollHint, setShowScrollHint] = useState(false);
     const featureContainerRef = useRef(null);
+
     const handleToggle = () => {
         if (showMore) {
             setFeatures(initialFeatures);
+            setShowScrollHint(false);
         } else {
             setFeatures([...initialFeatures, ...additionalFeatures]);
+            setShowScrollHint(true);
         }
         setShowMore(!showMore);
     };
+
     useEffect(() => {
-        if (showMore && featureContainerRef.current) {
-            featureContainerRef.current.scrollTo({
-                top: featureContainerRef.current.scrollHeight,
-                behavior: "smooth",
-            });
-        }
-    }, [showMore]);
+        const handleScroll = () => {
+            if (featureContainerRef.current && featureContainerRef.current.scrollTop > 10) {
+                setShowScrollHint(false);
+            }
+        };
+
+        const el = featureContainerRef.current;
+        if (el) el.addEventListener("scroll", handleScroll);
+        return () => el && el.removeEventListener("scroll", handleScroll);
+    }, []);
+
     const listVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: (i) => ({
@@ -74,12 +57,6 @@ export default function CRMSection() {
     };
 
     return (
-        // <motion.div
-        //     initial={{ opacity: 0, y: 50 }}
-        //     whileInView={{ opacity: 1, y: 0 }}
-        //     viewport={{ once: true, amount: 0.5 }}
-        //     transition={{ duration: 0.8 }}
-        // >
         <>
             <section
                 className="bg-white relative overflow-hidden md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
@@ -128,7 +105,7 @@ export default function CRMSection() {
                         </div>
                     </div>
 
-                    <div className="flex flex-col md:flex-row items-center">
+                    <div className="flex flex-col md:flex-row items-center relative">
                         <div className="md:w-1/2 mb-8 md:mb-0 relative">
                             <img
                                 src="/assets/crm-img.webp"
@@ -139,18 +116,14 @@ export default function CRMSection() {
 
                         <div
                             ref={featureContainerRef}
-                            className="md:w-1/2 space-y-6 max-h-[400px] overflow-y-scroll pr-2"
-                            style={{
-                                scrollbarWidth: "none",
-                                msOverflowStyle: "none",
-                            }}
+                            className="md:w-1/2 space-y-6 max-h-[400px] overflow-y-auto pr-2 hide-scrollbar relative"
                         >
                             <style>{`
-                                /* Hide scrollbar for Chrome, Safari and Opera */
-                                div::-webkit-scrollbar {
-                                    display: none;
-                                }
-                            `}</style>
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                .hide-scrollbar::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
 
                             {features.map((feature, index) => (
                                 <motion.div
@@ -173,6 +146,19 @@ export default function CRMSection() {
                                     </div>
                                 </motion.div>
                             ))}
+
+                            {/* Scroll hint arrow */}
+                            {showScrollHint && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2"
+                                >
+                                    <ChevronDown className="animate-bounce text-gray-600 w-6 h-6" />
+                                </motion.div>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -187,6 +173,5 @@ export default function CRMSection() {
                 </button>
             </div>
         </>
-        // </motion.div>
     );
 }

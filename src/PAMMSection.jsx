@@ -52,7 +52,7 @@ export default function PAMMSection() {
 
                 <div className="flex flex-col md:flex-row items-center md:pl-[2%] md:pr-[2%]">
                     <div className="md:w-1/2 mb-8 md:mb-0 flex justify-center items-start"
-                        style={{ position: "sticky", top: "100px", alignSelf: "flex-start" }}>
+                        style={{ top: "100px", alignSelf: "flex-start" }}>
                         <motion.img
                             src="/assets/pamm-section-img.webp"
                             alt="JetFyX PAMM, MAM & Social Trading"

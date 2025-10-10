@@ -1,8 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 export default function EdgeSection() {
   const [showMore, setShowMore] = useState(false);
+  const [showScrollHint, setShowScrollHint] = useState(false);
+  const listRef = useRef(null);
 
   const features = [
     { title: "Multiple Take Profit Levels", description: "Automate strategies with multi-level profit booking and loss control to close trades smartly." },
@@ -24,6 +27,27 @@ export default function EdgeSection() {
     { title: "Seamless Deposits & Withdrawals", description: "Multiple gateways with fast, secure processing." },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (listRef.current && listRef.current.scrollTop > 10) {
+        setShowScrollHint(false);
+      }
+    };
+
+    const el = listRef.current;
+    if (el) el.addEventListener("scroll", handleScroll);
+    return () => el && el.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (showMore) {
+      setShowScrollHint(true);
+      if (listRef.current) listRef.current.scrollTop = 0;
+    } else {
+      setShowScrollHint(false);
+    }
+  }, [showMore]);
+
   return (
     <section
       className="relative md:mt-[200px] sm:mt-0 md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
@@ -34,23 +58,40 @@ export default function EdgeSection() {
           <img src="/assets/edge-img.webp" alt="JetFyX Edge" className="w-full" />
         </div>
 
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 relative">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="text-red-600">JetFyX</span> Edge
           </h2>
 
-          <ul className="space-y-4 relative">
-            {[...features, ...(showMore ? additionalFeatures : [])].map((feature, index) => (
-              <FeatureItem key={feature.title} feature={feature} index={index} />
-            ))}
-          </ul>
+          <div
+            ref={listRef}
+            className="overflow-y-auto max-h-[500px] pr-2 hide-scrollbar"
+          >
+            <ul className="space-y-4 relative">
+              {[...features, ...(showMore ? additionalFeatures : [])].map((feature, index) => (
+                <FeatureItem key={feature.title} feature={feature} index={index} />
+              ))}
+            </ul>
+          </div>
 
           <button
             onClick={() => setShowMore(!showMore)}
-            className="font-semibold text-red-600 hover:underline mt-4"
+            className="font-semibold text-red-600 hover:underline mt-4 text-left"
           >
             {showMore ? "Read Less....." : "Read More....."}
           </button>
+
+          {showScrollHint && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2"
+            >
+              <ChevronDown className="animate-bounce text-gray-600 w-6 h-6" />
+            </motion.div>
+          )}
         </div>
       </div>
     </section>
@@ -74,7 +115,6 @@ function FeatureItem({ feature, index }) {
         <h3 className="text-lg font-bold text-gray-800">{feature.title}</h3>
         <p className="text-gray-700">{feature.description}</p>
       </div>
-
       <div
         className="absolute h-full border-l-4"
         style={{
