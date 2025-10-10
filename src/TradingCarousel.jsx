@@ -96,12 +96,12 @@ const TradingCarousel = () => {
         {
             title: "One-Click Trading",
             description: "Execute instantly with lightning speed and minimal slippage.",
-            icon: "/assets/trade-icon-2.webp",
+            icon: "/assets/trade-icon-3.webp",
         },
         {
             title: "Advanced Trading Tools",
             description: "Charts, indicators, and custom mappings on one screen for smarter decisions.",
-            icon: "/assets/trade-icon-3.webp",
+            icon: "/assets/icon/Advanced.webp",
         },
         {
             title: "Social Trading",
@@ -111,45 +111,45 @@ const TradingCarousel = () => {
         {
             title: "Risk Level Display",
             description: "View real-time risk on every trade and manage exposure transparently.",
-            icon: "/assets/trade-icon-2.webp",
+            icon: "/assets/icon/MAM.webp",
         },
 
         {
             title: "In-App News Feed",
             description: "Get the latest market news and insights without leaving the platform.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/In-App.webp",
+        }, {
             title: "Multiple Take Profit Levels",
             description: "Automate partial closes, secure gains step-by-step, and scale trades strategically.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/Multiple.webp",
+        }, {
             title: "Trailing Stop Orders",
             description: "Protect profits automatically as markets move.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/Trailing.webp",
+        }, {
             title: "Hedging Options",
             description: "Balance risk with multiple positions in the same instrument.",
             icon: "/assets/trade-icon-2.webp",
-        },{
+        }, {
             title: "API Integration",
             description: "Connect with third-party tools and build advanced algorithmic systems.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/API.webp",
+        }, {
             title: "Advanced Order Types",
             description: "Market, limit, stop, OCO, and more for precise execution.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/Advanced.webp",
+        }, {
             title: "Custom Alerts & Notifications",
             description: "Get instant updates via SMS, email, or in-app alerts.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/Custom.webp",
+        }, {
             title: "Dedicated Account Manager",
             description: "Priority support and personalized service.",
-            icon: "/assets/trade-icon-2.webp",
-        },{
+            icon: "/assets/icon/Dedicated.webp",
+        }, {
             title: "Training & Webinars",
             description: "Enhance trading skills and leadership through expert sessions.",
-            icon: "/assets/trade-icon-2.webp",
+            icon: "/assets/icon/Training.webp",
         },
     ];
     return (
@@ -191,9 +191,10 @@ const TradingCarousel = () => {
                                     alt={item.title}
                                     className="icon"
                                     style={{
-                                        width: '100px',
-                                        height: '100px',
+                                        width: '30%',
+                                        height: '85px',
                                         marginBottom: '15px',
+                                        objectFit:'contain',
                                         display: 'block',
                                         margin: '0 auto',
                                     }}
