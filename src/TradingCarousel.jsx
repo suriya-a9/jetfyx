@@ -194,7 +194,7 @@ const TradingCarousel = () => {
                                         width: '30%',
                                         height: '85px',
                                         marginBottom: '15px',
-                                        objectFit:'contain',
+                                        objectFit: 'contain',
                                         display: 'block',
                                         margin: '0 auto',
                                     }}

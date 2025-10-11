@@ -43,7 +43,6 @@ export default function AccountAccessSection() {
   const [tooltipPositions, setTooltipPositions] = useState({});
   const iconRefs = useRef([]);
 
-  // compute tooltip placement dynamically
   const computePositionFor = (index) => {
     const el = iconRefs.current[index];
     if (!el) return;
@@ -54,7 +53,6 @@ export default function AccountAccessSection() {
     setTooltipPositions((prev) => ({ ...prev, [index]: pos }));
   };
 
-  // re-evaluate when scrolling/resizing
   useEffect(() => {
     const updateAll = () => {
       const next = {};
@@ -116,7 +114,6 @@ export default function AccountAccessSection() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.35, delay: index * 0.06 }}
                 >
-                  {/* Icon + Tooltip wrapper */}
                   <div
                     ref={(el) => (iconRefs.current[index] = el)}
                     className="relative group w-[5rem] h-[5rem] bg-[#E7E7E7] rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-105"
@@ -133,28 +130,24 @@ export default function AccountAccessSection() {
                       className="w-[60%] h-[60%]"
                     />
 
-                    {/* Tooltip directly attached to icon */}
                     {feature.tooltip && (
                       <div
-                        className={`absolute left-1/2 transform -translate-x-1/2 z-50 pointer-events-none ${
-                          isBelow ? "top-full mt-2" : "bottom-full mb-2"
-                        }`}
+                        className={`absolute left-1/2 transform -translate-x-1/2 z-50 pointer-events-none ${isBelow ? "top-full mt-2" : "bottom-full mb-2"
+                          }`}
                       >
                         <div className="bg-white text-gray-800 text-sm font-medium rounded-lg shadow-xl px-4 py-2 border border-gray-200 relative w-max max-w-[200px] opacity-0 group-hover:opacity-100 transition-all duration-200">
                           {feature.tooltip}
                           <div
-                            className={`absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-gray-200 ${
-                              isBelow
+                            className={`absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-gray-200 ${isBelow
                                 ? "top-[-6px] border-l border-t"
                                 : "bottom-[-6px] border-r border-b"
-                            }`}
+                              }`}
                           />
                         </div>
                       </div>
                     )}
                   </div>
 
-                  {/* Title */}
                   <h3 className="text-lg font-bold text-red-600 text-[15px]">
                     {feature.title}
                   </h3>
