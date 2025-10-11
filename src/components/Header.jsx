@@ -44,6 +44,10 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    const handleSignIn = () => {
+        window.location.href = "https://dev.jetfyx.com/login";
+    };
+
     return (
         <header
             className={`w-full top-0 left-0 z-50 sticky transition-colors duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"
@@ -110,7 +114,10 @@ export default function Header() {
                     ))}
                 </nav>
                 <div className="hidden md:flex">
-                    <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+                    <button
+                        className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
+                        onClick={handleSignIn}
+                    >
                         Sign In
                     </button>
                 </div>
@@ -146,7 +153,10 @@ export default function Header() {
                                     )}
                                 </div>
                             ))}
-                            <button className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition">
+                            <button
+                                className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
+                                onClick={handleSignIn}
+                            >
                                 Sign In
                             </button>
                         </nav>
