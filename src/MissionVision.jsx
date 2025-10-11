@@ -96,7 +96,7 @@ export default function MissionVisionSection() {
                         </motion.div>
 
                         <motion.div
-                            className="flex flex-col md:flex-row md:items-start gap-6"
+                            className="flex flex-col md:flex-row md:items-start"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.5 }}
@@ -104,7 +104,7 @@ export default function MissionVisionSection() {
                             custom={1}
                         >
                             <div className="w-full md:w-[35%] flex flex-col justify-center">
-                                <ul className="space-y-2 text-gray-800 text-base font-bold">
+                                <ul className="space-y-2 text-gray-800 text-base font-bold mt-0 md:mt-[35px]" style={{lineHeight:'30px'}}>
                                     {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance"].map((item, i) => (
                                         <motion.li
                                             key={i}
@@ -113,6 +113,7 @@ export default function MissionVisionSection() {
                                             initial="hidden"
                                             whileInView="visible"
                                             viewport={{ once: true, amount: 0.5 }}
+                                            className="whitespace-nowrap"
                                         >
                                             • {item}
                                         </motion.li>
@@ -133,6 +134,7 @@ export default function MissionVisionSection() {
                                                         initial="hidden"
                                                         whileInView="visible"
                                                         viewport={{ once: true, amount: 0.5 }}
+                                                        className="whitespace-nowrap"
                                                     >
                                                         • {item}
                                                     </motion.li>
