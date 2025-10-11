@@ -83,7 +83,7 @@ export default function FeatureCarousel() {
                         Welcome to <span className="text-red-600">JetFyX</span>—the modern trading platform designed for multi-asset brokers! Enjoy a sleek, user-friendly experience with powerful risk management tools and round-the-clock support to keep your brokerage running smoothly.
                         {!showMore && (
                             <>
-                                &nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 <button
                                     className="font-semibold focus:outline-none"
                                     onClick={() => setShowMore(true)}
@@ -103,7 +103,7 @@ export default function FeatureCarousel() {
                                     className="inline"
                                 >
                                     &nbsp;Best of all? You can get up and running in less than two weeks! Ready to see it in action? Request a demo today—we’d love to show you around!
-                                    &nbsp;
+                                    &nbsp;&nbsp;&nbsp;
                                     <button
                                         className="font-semibold focus:outline-none"
                                         onClick={() => setShowMore(false)}

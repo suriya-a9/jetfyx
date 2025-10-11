@@ -11,7 +11,7 @@ export default function PAMMSection() {
                 "Dedicated account manager, custom CRM integration, ROI dashboards, and training webinars to sharpen trading leadership.",
         },
         {
-            title: "PAMM (Percent Allocation Management Module)",
+            title: "PAMM",
             description:
                 "Trade from one master account with profits/losses distributed proportionally among investors. A hands-off solution for professional traders.",
         },
@@ -76,53 +76,56 @@ export default function PAMMSection() {
                                     }`}
                             >
                                 <h3
+                                    onClick={() =>
+                                        setExpandedCard(expandedCard === index ? null : index)
+                                    }
                                     style={{
                                         borderRadius: "50px",
-                                        fontSize: "15px",
                                         boxShadow:
                                             expandedCard === index
                                                 ? "none"
                                                 : "rgb(38, 57, 77) 0px 8px 19px -10px",
-                                        padding: expandedCard === index
-                                            ? "10px 0px"
-                                            : "10px 25px",
+                                        padding: expandedCard === index ? "10px 0px" : "10px 25px",
+                                        cursor: "pointer",
+                                        justifyContent: "space-between",
                                     }}
-                                    className={`text-lg font-bold w-full text-gray-800 mb-2 rounded-md ${expandedCard === index
-                                        ? "bg-red-50"
-                                        : "bg-[#e7e7e7]"
+                                    className={`text-lg font-bold w-full text-gray-800 mb-2 rounded-md ${expandedCard === index ? "bg-red-50" : "bg-[#e7e7e7]"
                                         }`}
                                 >
-                                    {feature.title}
+                                    <span>{feature.title}<br /></span>
+                                    {expandedCard !== index && (
+                                        <div className="text-right text-sm">
+                                            <span className="text-red-600 text-right font-semibold hover:underline">
+                                                More Info here..
+                                            </span>
+                                        </div>
+                                    )}
                                 </h3>
 
                                 {expandedCard === index && (
-                                    <motion.p
+                                    <motion.div
                                         initial={{ opacity: 0, height: 0 }}
                                         animate={{ opacity: 1, height: "auto" }}
                                         exit={{ opacity: 0, height: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="text-gray-700 mb-4"
                                     >
-                                        {feature.description}
-                                    </motion.p>
-                                )}
+                                        <p className="text-gray-700 mb-4">{feature.description}</p>
 
-                                <div className="mt-4 text-right">
-                                    <button
-                                        onClick={() =>
-                                            setExpandedCard(
-                                                expandedCard === index ? null : index
-                                            )
-                                        }
-                                        className="font-semibold text-red-600 hover:underline"
-                                    >
-                                        {expandedCard === index
-                                            ? "Show Less.."
-                                            : "More Info here.."}
-                                    </button>
-                                </div>
+                                        <div className="mt-2 text-right">
+                                            <button
+                                                onClick={() =>
+                                                    setExpandedCard(expandedCard === index ? null : index)
+                                                }
+                                                className="font-semibold text-red-600 hover:underline"
+                                            >
+                                                Show Less..
+                                            </button>
+                                        </div>
+                                    </motion.div>
+                                )}
                             </motion.div>
                         ))}
+
                     </div>
                 </div>
             </motion.div>

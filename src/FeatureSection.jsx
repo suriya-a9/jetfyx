@@ -68,7 +68,7 @@ const FeatureSection = () => {
                         <span className="text-red-600 font-semibold">JetFyX</span> offers a fully integrated platform that combines trade execution, risk management, reporting, and CRM into one seamless system—complete with lightning-fast performance,
                         {!showParaMore && (
                             <>
-                                &nbsp;
+                                &nbsp;&nbsp;&nbsp;
                                 <button
                                     className="font-semibold focus:outline-none"
                                     onClick={() => setShowParaMore(true)}
@@ -87,8 +87,7 @@ const FeatureSection = () => {
                                     transition={{ duration: 0.4 }}
                                     className="inline"
                                 >
-                                    &nbsp;expert regulatory guidance, customizable white-label branding, and 24/7 technical support to keep your operations running smoothly.
-                                    &nbsp;
+                                    &nbsp;expert regulatory guidance, customizable white-label branding, and 24/7 technical support to keep your operations running smoothly.&nbsp;&nbsp;&nbsp;
                                     <button
                                         className="font-semibold focus:outline-none"
                                         onClick={() => setShowParaMore(false)}

@@ -73,13 +73,16 @@ export default function CRMSection() {
                             <p className="text-gray-700 md:ml-8 max-w-3xl">
                                 <span className="text-red-600 font-semibold">JetFyX</span> Forex Trading Platform includes a powerful CRM and back-office system that streamlines client onboarding, KYC, deposits, withdrawals, and account management. With real-time risk controls, automated reporting, and customizable dashboards,
                                 {!showParaMore && (
-                                    <button
-                                        className="font-semibold focus:outline-none"
-                                        onClick={() => setShowParaMore(true)}
-                                        style={{ color: "#555555" }}
-                                    >
-                                        {" "}Read More..
-                                    </button>
+                                    <>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button
+                                            className="font-semibold focus:outline-none"
+                                            onClick={() => setShowParaMore(true)}
+                                            style={{ color: "#555555" }}
+                                        >
+                                            {" "}Read More..
+                                        </button>
+                                    </>
                                 )}
                                 <AnimatePresence>
                                     {showParaMore && (
@@ -90,7 +93,7 @@ export default function CRMSection() {
                                             transition={{ duration: 0.4 }}
                                             className="inline"
                                         >
-                                            &nbsp;it connects traders, dealers, and administrators in one seamless workflow—making brokerage operations smarter, faster, and more efficient.
+                                            &nbsp;it connects traders, dealers, and administrators in one seamless workflow—making brokerage operations smarter, faster, and more efficient.&nbsp;&nbsp;&nbsp;
                                             <button
                                                 className="font-semibold focus:outline-none"
                                                 onClick={() => setShowParaMore(false)}

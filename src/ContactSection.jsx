@@ -15,50 +15,10 @@ L.Icon.Default.mergeOptions({
 
 export default function ContactSection() {
     const locations = [
-        // { name: "New York", position: [40.7128, -74.006] },
-        // { name: "London", position: [51.5074, -0.1278] },
-        // { name: "Tokyo", position: [35.6762, 139.6503] },
-        // { name: "Sydney", position: [-33.8688, 151.2093] },
-        // { name: "Iceland", position: [64.963051, -19.020835] },
-        // { name: "Greenland", position: [71.706936, -42.604303] },
-        // { name: "United States", position: [38.9072, -77.0369] },
-        // { name: "Canada", position: [45.4215, -75.6972] },
-        // { name: "Mexico", position: [19.4326, -99.1332] },
-        // { name: "Brazil", position: [-15.7939, -47.8828] },
-        // { name: "Argentina", position: [-34.6037, -58.3816] },
-        // { name: "Colombia", position: [4.7110, -74.0721] },
-        // { name: "Chile", position: [-33.4489, -70.6693] },
-        // { name: "Peru", position: [-12.0464, -77.0428] },
-        // { name: "Venezuela", position: [10.4806, -66.9036] },
-        // { name: "Ecuador", position: [-0.1807, -78.4678] },
-        { name: "China (Beijing)", img: "/assets/china.webp", position: [39.9042, 116.4074] },
-        // { name: "Japan (Tokyo)", position: [35.6762, 139.6503] },
-        // { name: "South Korea (Seoul)", position: [37.5665, 126.9780] },
-        { name: "India (New Delhi)", img: "/assets/India.webp", position: [28.6139, 77.2090] },
-        // { name: "Pakistan (Islamabad)", position: [33.6844, 73.0479] },
-        // { name: "Bangladesh (Dhaka)", position: [23.8103, 90.4125] },
-        // { name: "Vietnam (Hanoi)", position: [21.0285, 105.8544] },
-        // { name: "Thailand (Bangkok)", position: [13.7563, 100.5018] },
-        // { name: "Singapore", position: [1.3521, 103.8198] },
-        // { name: "Malaysia (Kuala Lumpur)", position: [3.1390, 101.6869] },
-        // { name: "Indonesia (Jakarta)", position: [-6.2088, 106.8456] },
-        // { name: "Philippines (Manila)", position: [14.5995, 120.9842] },
-        { name: "Nepal (Kathmandu)", img: "/assets/Nepal.webp", position: [27.7172, 85.3240] },
-        // { name: "Sri Lanka (Colombo)", position: [6.9271, 79.8612] },
-        // { name: "Myanmar (Yangon)", position: [16.8409, 96.1735] },
-        // { name: "Mongolia (Ulaanbaatar)", position: [47.8864, 106.9057] },
-        // { name: "Kazakhstan (Astana)", position: [51.1605, 71.4704] },
-        // { name: "Uzbekistan (Tashkent)", position: [41.2995, 69.2401] },
-        // { name: "Iran (Tehran)", position: [35.6892, 51.3890] },
-        // { name: "Saudi Arabia (Riyadh)", position: [24.7136, 46.6753] },
-        // { name: "United Arab Emirates (Dubai)", position: [25.276987, 55.296249] },
-        // { name: "Qatar (Doha)", position: [25.2854, 51.5310] },
-        // { name: "Turkey (Ankara)", position: [39.9334, 32.8597] },
-        // { name: "Israel (Jerusalem)", position: [31.7683, 35.2137] },
-        // { name: "Lebanon (Beirut)", position: [33.8938, 35.5018] },
-        // { name: "Jordan (Amman)", position: [31.9454, 35.9284] },
-        // { name: "Oman (Muscat)", position: [23.5880, 58.3829] },
-        // { name: "Kuwait (Kuwait City)", position: [29.3759, 47.9774] },
+        { name: "London", img: "/assets/flags/UK_flag.png", position: [51.5074, -0.1278] },
+        { name: "India (Hyderabad)", img: "/assets/flags/in-flag.jpg", position: [17.387140, 78.491684] },
+        { name: "Malaysia (Kuala Lumpur)", img: "/assets/flags/Flag_of_Malaysia.svg.png", position: [3.1390, 101.6869] },
+        { name: "UAE (Dubai)", img: "/assets/flags/uae flag.jpg", position: [25.276987, 55.296249] },
     ];
 
     const redDotIcon = new L.DivIcon({
@@ -78,7 +38,7 @@ export default function ContactSection() {
             <section className="relative py-16 overflow-hidden" style={{ marginTop: '60px' }}>
                 <div className="hidden md:block md:absolute inset-0 z-10">
                     <MapContainer
-                        center={[10, 90]}
+                        center={[1, 90]}
                         zoom={3}
                         scrollWheelZoom={true}
                         zoomControl={true}
@@ -136,7 +96,7 @@ export default function ContactSection() {
                                         )}
                                         <motion.span
                                             className="font-semibold text-xs text-gray-900 bg-white px-2 py-1 mt-1 rounded-md shadow"
-                                            initial={{ opacity: 0, y: 5 }}
+                                            initial={{ opacity: 0, y: 1 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.1 }}
                                         >
@@ -151,7 +111,7 @@ export default function ContactSection() {
 
                 <div className="md:hidden w-full h-64 mb-6 relative z-10">
                     <MapContainer
-                        center={[10, 90]}
+                        center={[1, 90]}
                         zoom={1}
                         scrollWheelZoom={true}
                         className="h-full w-full opacity-80"
@@ -227,10 +187,10 @@ export default function ContactSection() {
                             style={{ padding: "15px 20px", borderRadius: '26px' }}
                         >
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Ready to trade without limits?
+                                Ready to own a brokerage?
                             </h2>
                             <button className="bg-white text-[#C3282E] px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
-                                Start your journey with JetFyX now.
+                                Start a brokerage in few days
                             </button>
                         </div>
 
@@ -249,10 +209,10 @@ export default function ContactSection() {
                                     />
                                     <select className="w-full px-4 py-2 rounded-lg border border-gray-400">
                                         <option value="">Location</option>
-                                        <option value="New York">New York</option>
+                                        <option value="Hyderabad">Hyderabad</option>
                                         <option value="London">London</option>
-                                        <option value="Tokyo">Tokyo</option>
-                                        <option value="Sydney">Sydney</option>
+                                        <option value="Dubai">Dubai</option>
+                                        <option value="kuala Lumpur">kuala Lumpur</option>
                                     </select>
                                     <input
                                         type="text"

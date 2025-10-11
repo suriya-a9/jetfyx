@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-scroll";
 
 export default function ConsultationSection() {
     const initialFeatures = [
@@ -60,7 +61,7 @@ export default function ConsultationSection() {
 
     return (
         <section
-            className="bg-[#D9D9D933] py-16 md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
+            className=" py-16 md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
             style={{ marginTop: "60px" }}
         >
             <motion.div
@@ -71,7 +72,7 @@ export default function ConsultationSection() {
                 className="px-4"
             >
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                    <div className="md:w-1/2 flex justify-center">
+                    <div className="md:w-1/2 justify-center place-items-end mt-0 mr-0 md:mr-[2%]">
                         <motion.img
                             src="/assets/consultation-img.webp"
                             alt="Consultation Image"
@@ -81,6 +82,21 @@ export default function ConsultationSection() {
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 0.6 }}
                         />
+                        <div className="">
+                            <Link
+                                to="contactSection"
+                                smooth={true}
+                                duration={800}
+                                offset={-50}
+                                className="w-full"
+                            >
+                                <button
+                                    className="bg-red-600 text-white mt-[35px] px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
+                                >
+                                    CONTACT US
+                                </button>
+                            </Link>
+                        </div>
                     </div>
 
                     <div className="md:w-1/2 md:mt-[5%]">

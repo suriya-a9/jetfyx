@@ -24,7 +24,7 @@ function App() {
   return (
     <>
       <Header />
-      <main className="mt-16 px-10 md:px-18">
+      <main className="mt-16 px-7 md:px-10 md:overflow-visible overflow-hidden md:px-18">
         <Element name="banner">
           <Banner />
         </Element>

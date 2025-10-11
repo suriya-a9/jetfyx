@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [hoveredLink, setHoveredLink] = useState(null);
+    const [isScrolled, setIsScrolled] = useState(false);
 
     const links = [
         { name: "Home", to: "banner" },
@@ -35,8 +35,20 @@ export default function Header() {
         { name: "Contact", to: "contactSection" },
     ];
 
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 0);
+        };
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="w-full top-0 left-0 z-50">
+        <header
+            className={`w-full top-0 left-0 z-50 sticky transition-colors duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"
+                }`}
+        >
             <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-2">
                 <a href="#" className="flex items-center space-x-2">
                     <img

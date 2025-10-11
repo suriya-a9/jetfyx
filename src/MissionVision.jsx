@@ -41,13 +41,16 @@ export default function MissionVisionSection() {
                                 At <span className="text-red-600 font-semibold">JetFyX</span>, we believe every trade is more than just numbers on a screen—it's a step toward financial freedom.
                                 Whether you're a seasoned broker navigating global markets or a trader sharpening your edge, <span className="text-red-600 font-semibold">JetFyX</span> is here to fuel your journey.
                                 {!showParaMore && (
-                                    <button
-                                        className="font-semibold focus:outline-none"
-                                        onClick={() => setShowParaMore(true)}
-                                        style={{ color: "#555555" }}
-                                    >
-                                        {" "}Read More..
-                                    </button>
+                                    <>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button
+                                            className="font-semibold focus:outline-none"
+                                            onClick={() => setShowParaMore(true)}
+                                            style={{ color: "#555555" }}
+                                        >
+                                            {" "}Read More..
+                                        </button>
+                                    </>
                                 )}
                                 <AnimatePresence>
                                     {showParaMore && (
@@ -58,7 +61,7 @@ export default function MissionVisionSection() {
                                             transition={{ duration: 0.4 }}
                                             className="inline"
                                         >
-                                            &nbsp;Our platform is built on speed, transparency, and precision, giving you the tools, insights, and support you need to act with confidence. From advanced analytics and real-time data to a secure trading environment, everything we do is designed to help you stay ahead in a market that never sleeps. Here, you’re not just trading currency pairs—you're building strategies, seizing opportunities, and connecting with a global network of market movers. Trade smarter. Move faster. Aim higher. Once again, welcome to JetFyX. Let’s chart your path to success.
+                                            &nbsp;Our platform is built on speed, transparency, and precision, giving you the tools, insights, and support you need to act with confidence. From advanced analytics and real-time data to a secure trading environment, everything we do is designed to help you stay ahead in a market that never sleeps. Here, you’re not just trading currency pairs—you're building strategies, seizing opportunities, and connecting with a global network of market movers. Trade smarter. Move faster. Aim higher. Once again, welcome to JetFyX. Let’s chart your path to success.&nbsp;&nbsp;&nbsp;
                                             <button
                                                 className="font-semibold focus:outline-none"
                                                 onClick={() => setShowParaMore(false)}
@@ -105,7 +108,7 @@ export default function MissionVisionSection() {
                         >
                             <div className="w-full md:w-[35%] flex flex-col justify-center">
                                 <ul className="space-y-2 text-gray-800 text-base font-bold mt-0 md:mt-[35px]" style={{ lineHeight: '30px' }}>
-                                    {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance"].map((item, i) => (
+                                    {["Always Available", "Email Support", "Phone Hotline", "Onboarding Assistance", "Knowledge Base", "VIP Support"].map((item, i) => (
                                         <motion.li
                                             key={i}
                                             variants={listVariants}
@@ -143,7 +146,7 @@ export default function MissionVisionSection() {
                                         )}
                                     </AnimatePresence>
                                 </ul>
-                                {!showListMore ? (
+                                {/* {!showListMore ? (
                                     <button
                                         className="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-700 transition w-fit mt-2"
                                         onClick={() => setShowListMore(true)}
@@ -157,7 +160,7 @@ export default function MissionVisionSection() {
                                     >
                                         Read Less
                                     </button>
-                                )}
+                                )} */}
                             </div>
 
                             <motion.div

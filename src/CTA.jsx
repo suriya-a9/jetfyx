@@ -45,7 +45,7 @@ export default function CEOSection() {
                             animate={{ opacity: 1, height: "auto" }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.6, ease: "easeInOut" }}
-                            className="bg-white mt-10 rounded-lg shadow-md p-6 overflow-hidden"
+                            className="bg-white mt-10 rounded-lg shadow-md p-6 overflow-hidden md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[15%] 2xl:mr-[15%]"
                         >
                             <blockquote className="text-gray-800 leading-relaxed">
                                 <h5 className="text-lg font-bold mb-3 text-red-600">
