@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import "./EdgeSection.css"
 
 export default function EdgeSection() {
   const listRef = useRef(null);
@@ -23,23 +24,25 @@ export default function EdgeSection() {
 
   return (
     <section
-      className="relative md:mt-[200px] sm:mt-0 md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%] pt-[25px] pb-[25px]"
+      className="relative mt-[60px] md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%] pt-[25px] pb-[25px]"
       style={{ backgroundColor: "#D9D9D933", borderRadius: "20px" }}
     >
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center md:gap-10 overflow-hidden">
         <div className="md:w-1/2 flex justify-center items-center">
-          <motion.img
-            src="/assets/edge-img.webp"
-            alt="JetFyX Edge"
-            className="w-[80%] max-w-[450px] object-contain"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.4 }}
-            transition={{ duration: 0.6 }}
-          />
+          <div className="flex justify-center items-start md:sticky md:top-[100px] h-fit">
+            <motion.img
+              src="/assets/edge-img.webp"
+              alt="JetFyX Edge"
+              className="w-[100%] object-contain"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.6 }}
+            />
+          </div>
         </div>
 
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 overflow-y-auto max-h-[calc(100vh-150px)] pr-2">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             <span className="text-red-600">JetFyX</span> Edge
           </h2>
