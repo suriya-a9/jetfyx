@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -64,6 +64,13 @@ export default function FeatureCarousel() {
         if (i === (index + 2) % total) return "far-right";
         return "hidden";
     };
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            next();
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [index]);
 
     return (
         <motion.div
@@ -183,7 +190,7 @@ export default function FeatureCarousel() {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h3 className="text-lg font-bold mb-1 text-gray-900 text-center">{f.title}</h3>
+                                            <h3 className="text-lg font-bold mb-1 ml-8 text-gray-900 text-center">{f.title}</h3>
                                             <div className="w-full h-24 bg-[#C3272E] rounded-xl flex items-center justify-center mt-6 mb-3 overflow-hidden">
                                                 <img src={f.image} alt={f.title} className="object-cover w-full h-full opacity-80" />
                                             </div>

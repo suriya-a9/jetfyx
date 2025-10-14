@@ -84,6 +84,10 @@ const TradingCarousel = () => {
         arrows: true,
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        cssEase: "ease-in-out",
+        pauseOnHover: true,
     };
 
     const carouselItems = [

@@ -31,10 +31,15 @@ export default function SignInSignUp() {
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f7f7f7]">
             <div className="bg-white rounded-xl shadow-lg p-8 w-full max-w-md">
-                <h2 className="text-2xl font-bold text-center mb-6">
+                <img
+                    src="/assets/logo.webp"
+                    alt="Logo"
+                    style={{ height: "100px", width: "100px", margin: "0px auto" }}
+                />
+                {/* <h2 className="text-2xl font-bold text-center mt-6 mb-6">
                     {activeTab === "login" ? "Login Form" : "Sign up Form"}
-                </h2>
-                <div className="flex mb-6">
+                </h2> */}
+                <div className="flex mt-6 mb-6">
                     <button
                         className={`flex-1 py-2 rounded-l-lg font-semibold ${activeTab === "login" ? "bg-[#C3282E] text-white" : "bg-gray-100 text-gray-700"}`}
                         onClick={() => setActiveTab("login")}
