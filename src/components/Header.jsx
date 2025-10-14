@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const navigate = useNavigate();
 
     const links = [
         { name: "Home", to: "banner" },
@@ -43,10 +45,6 @@ export default function Header() {
 
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
-
-    const handleSignIn = () => {
-        window.location.href = "https://dev.jetfyx.com/login";
-    };
 
     return (
         <header
@@ -113,12 +111,18 @@ export default function Header() {
 
                     ))}
                 </nav>
-                <div className="hidden md:flex">
+                <div className="hidden md:flex space-x-4">
                     <button
                         className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
-                        onClick={handleSignIn}
+                        onClick={() => navigate("/auth", { state: { tab: "login" } })}
                     >
                         Sign In
+                    </button>
+                    <button
+                        className="border border-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-gray-700"
+                        onClick={() => navigate("/auth", { state: { tab: "signup" } })}
+                    >
+                        Sign Up
                     </button>
                 </div>
                 {isMobileMenuOpen && (
@@ -155,9 +159,21 @@ export default function Header() {
                             ))}
                             <button
                                 className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
-                                onClick={handleSignIn}
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    navigate("/auth", { state: { tab: "login" } });
+                                }}
                             >
                                 Sign In
+                            </button>
+                            <button
+                                className="border border-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-gray-700"
+                                onClick={() => {
+                                    setIsMobileMenuOpen(false);
+                                    navigate("/auth", { state: { tab: "signup" } });
+                                }}
+                            >
+                                Sign Up
                             </button>
                         </nav>
                     </div>

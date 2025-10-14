@@ -30,6 +30,10 @@ export default function PAMMSection() {
             description:
                 "Clients automatically mirror your trades for easy strategy scaling without extra workload.",
         },
+        {
+            title: "Advanced Analytics",
+            description: "Empowering your team with answers, not just data"
+        }
     ];
 
     return (
