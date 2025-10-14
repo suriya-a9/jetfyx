@@ -96,7 +96,7 @@ export default function PAMMSection() {
                                     className={`text-lg font-bold w-full text-gray-800 mb-2 rounded-md ${expandedCard === index ? "bg-red-50" : "bg-[#e7e7e7]"
                                         }`}
                                 >
-                                    <span>{feature.title}<br /></span>
+                                    <span style={{ height: expandedCard === index ? "0px" : "60px", display: expandedCard === index ? "inline" : "block" }}>{feature.title}<br /></span>
                                     {expandedCard !== index && (
                                         <div className="text-right text-sm">
                                             <span className="text-red-600 text-right font-semibold hover:underline">
