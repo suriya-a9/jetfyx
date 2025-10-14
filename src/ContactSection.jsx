@@ -16,9 +16,9 @@ L.Icon.Default.mergeOptions({
 export default function ContactSection() {
     const locations = [
         { name: "London", img: "/assets/flags/UK_flag.png", position: [51.5074, -0.1278] },
-        { name: "India (Hyderabad)", img: "/assets/flags/in-flag.jpg", position: [17.387140, 78.491684] },
-        { name: "Malaysia (Kuala Lumpur)", img: "/assets/flags/Flag_of_Malaysia.svg.png", position: [3.1390, 101.6869] },
-        { name: "UAE (Dubai)", img: "/assets/flags/uae flag.jpg", position: [25.276987, 55.296249] },
+        { name: "Hyderabad", img: "/assets/flags/in-flag.jpg", position: [17.387140, 78.491684] },
+        { name: "Kuala Lumpur", img: "/assets/flags/Flag_of_Malaysia.svg.png", position: [3.1390, 101.6869] },
+        { name: "Dubai", img: "/assets/flags/uae flag.jpg", position: [25.276987, 55.296249] },
     ];
 
     const redDotIcon = new L.DivIcon({
@@ -38,12 +38,12 @@ export default function ContactSection() {
             <section className="relative py-16 overflow-hidden" style={{ marginTop: '60px' }}>
                 <div className="hidden md:block md:absolute inset-0 z-10">
                     <MapContainer
-                        center={[1, 90]}
-                        zoom={3}
-                        scrollWheelZoom={true}
-                        zoomControl={true}
-                        dragging={true}
-                        doubleClickZoom={true}
+                        center={[1, 75]}
+                        zoom={1.5}
+                        scrollWheelZoom={false}
+                        zoomControl={false}
+                        dragging={false}
+                        doubleClickZoom={false}
                         className="h-full w-full opacity-80"
                     >
                         <TileLayer
@@ -66,7 +66,7 @@ export default function ContactSection() {
                                     direction="top"
                                     offset={[0, -10]}
                                     opacity={1}
-                                    permanent={false}
+                                    permanent={true}
                                     className="!bg-transparent !border-0 !shadow-none"
                                 >
                                     <motion.div
@@ -79,16 +79,16 @@ export default function ContactSection() {
                                             damping: 12,
                                             duration: 0.4,
                                         }}
-                                        whileHover={{
-                                            scale: 1.1,
-                                            transition: { type: "spring", stiffness: 300 },
-                                        }}
+                                        // whileHover={{
+                                        //     scale: 1.1,
+                                        //     transition: { type: "spring", stiffness: 300 },
+                                        // }}
                                     >
                                         {loc.img && (
                                             <motion.img
                                                 src={loc.img}
                                                 alt={loc.name}
-                                                className="w-24 h-16 object-cover rounded-lg shadow-lg border border-white"
+                                                className="w-10 h-10 object-cover rounded-lg shadow-lg border border-white"
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -111,9 +111,9 @@ export default function ContactSection() {
 
                 <div className="md:hidden w-full h-64 mb-6 relative z-10">
                     <MapContainer
-                        center={[1, 90]}
-                        zoom={1}
-                        scrollWheelZoom={true}
+                        center={[1, 55]}
+                        zoom={0.5}
+                        scrollWheelZoom={false}
                         className="h-full w-full opacity-80"
                     >
                         <TileLayer
@@ -136,7 +136,7 @@ export default function ContactSection() {
                                     direction="top"
                                     offset={[0, -10]}
                                     opacity={1}
-                                    permanent={false}
+                                    permanent={true}
                                     className="!bg-transparent !border-0 !shadow-none"
                                 >
                                     <motion.div
@@ -149,16 +149,16 @@ export default function ContactSection() {
                                             damping: 12,
                                             duration: 0.4,
                                         }}
-                                        whileHover={{
-                                            scale: 1.1,
-                                            transition: { type: "spring", stiffness: 300 },
-                                        }}
+                                        // whileHover={{
+                                        //     scale: 1.1,
+                                        //     transition: { type: "spring", stiffness: 300 },
+                                        // }}
                                     >
                                         {loc.img && (
                                             <motion.img
                                                 src={loc.img}
                                                 alt={loc.name}
-                                                className="w-24 h-16 object-cover rounded-lg shadow-lg border border-white"
+                                                className="w-10 h-10 object-cover rounded-lg shadow-lg border border-white"
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -183,7 +183,7 @@ export default function ContactSection() {
 
                     <div className="relative max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center gap-8">
                         <div
-                            className="md:w-3/4 bg-[#C3282E] text-white shadow-lg relative z-20 pointer-events-auto px-5 md:px-8 left-0 md:left-[20%]"
+                            className="md:w-3/4 bg-[#C3282E] text-white shadow-lg relative z-20 pointer-events-auto px-5 md:px-8 left-0 md:left-[20%] top-0 md:top-[120px]"
                             style={{ padding: "15px 20px", borderRadius: '26px' }}
                         >
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
