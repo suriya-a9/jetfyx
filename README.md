@@ -1,16 +1,26 @@
-# React + Vite
+# 🚀 Jetfyx — React + Vite Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Jetfyx is a personal project built to explore modern frontend tools and deployment workflows. It’s a responsive, animated landing page powered by:
 
-Currently, two official plugins are available:
+- ⚛️ **React + Vite** — Fast dev server, HMR, and optimized builds
+- 🎨 **Tailwind CSS** — Utility-first styling for rapid UI development
+- 🌀 **Framer Motion** — Smooth animations and transitions
+- 🗺️ **Leaflet** — Interactive maps with custom markers and tiles
+- 🔀 **React Router** — Client-side routing for multi-section navigation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> 🛠️ This project is not open source. It’s built for personal learning and experimentation.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Getting Started
 
-## Expanding the ESLint configuration
+```bash
+git clone https://github.com/your-username/jetfyx.git
+cd jetfyx
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+npm run dev
+```
+
+## 🗺️ Map Integration
+Jetfyx uses Leaflet for rendering maps. You can customize the map view, markers, and tile layers in the ```Map.jsx```component.
