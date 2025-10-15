@@ -150,7 +150,6 @@ export default function CRMSection() {
                                 </motion.div>
                             ))}
 
-                            {/* Scroll hint arrow */}
                             {showScrollHint && (
                                 <motion.div
                                     initial={{ opacity: 0, y: -10 }}

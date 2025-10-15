@@ -57,10 +57,10 @@ export default function ContactSection() {
                                 key={i}
                                 position={loc.position}
                                 icon={redDotIcon}
-                                eventHandlers={{
-                                    mouseover: (e) => e.target.openTooltip(),
-                                    mouseout: (e) => e.target.closeTooltip(),
-                                }}
+                            // eventHandlers={{
+                            //     mouseover: (e) => e.target.openTooltip(),
+                            //     mouseout: (e) => e.target.closeTooltip(),
+                            // }}
                             >
                                 <Tooltip
                                     direction="top"
@@ -79,10 +79,10 @@ export default function ContactSection() {
                                             damping: 12,
                                             duration: 0.4,
                                         }}
-                                        // whileHover={{
-                                        //     scale: 1.1,
-                                        //     transition: { type: "spring", stiffness: 300 },
-                                        // }}
+                                    // whileHover={{
+                                    //     scale: 1.1,
+                                    //     transition: { type: "spring", stiffness: 300 },
+                                    // }}
                                     >
                                         {loc.img && (
                                             <motion.img
@@ -111,8 +111,8 @@ export default function ContactSection() {
 
                 <div className="md:hidden w-full h-64 mb-6 relative z-10">
                     <MapContainer
-                        center={[1, 55]}
-                        zoom={0.5}
+                        center={[40, 50]}
+                        zoom={1.5}
                         scrollWheelZoom={false}
                         className="h-full w-full opacity-80"
                     >
@@ -127,10 +127,10 @@ export default function ContactSection() {
                                 key={i}
                                 position={loc.position}
                                 icon={redDotIcon}
-                                eventHandlers={{
-                                    mouseover: (e) => e.target.openTooltip(),
-                                    mouseout: (e) => e.target.closeTooltip(),
-                                }}
+                            // eventHandlers={{
+                            //     mouseover: (e) => e.target.openTooltip(),
+                            //     mouseout: (e) => e.target.closeTooltip(),
+                            // }}
                             >
                                 <Tooltip
                                     direction="top"
@@ -149,10 +149,10 @@ export default function ContactSection() {
                                             damping: 12,
                                             duration: 0.4,
                                         }}
-                                        // whileHover={{
-                                        //     scale: 1.1,
-                                        //     transition: { type: "spring", stiffness: 300 },
-                                        // }}
+                                    // whileHover={{
+                                    //     scale: 1.1,
+                                    //     transition: { type: "spring", stiffness: 300 },
+                                    // }}
                                     >
                                         {loc.img && (
                                             <motion.img
