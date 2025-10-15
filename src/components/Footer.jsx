@@ -24,13 +24,16 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    <div className="space-y-2"></div>
-
                     <div className="space-y-2" style={{ fontSize: '12px' }}>
                         <p><span className="text-red-600 font-semibold">General Support:</span> support@jetfyx.com</p>
                         <p><span className="text-red-600 font-semibold">Sales:</span> sales@jetfyx.com</p>
                         <p><span className="text-red-600 font-semibold">Technical Support:</span> tech@jetfyx.com</p>
-                        <p><span>&nbsp;</span></p>
+                        <p><span className="text-red-600 font-semibold">Partnerships:</span> partners@jetfyx.com</p>
+                        <p><span className="text-red-600 font-semibold">Careers:</span> careers@jetfyx.com</p>
+                        <p><span className="text-red-600 font-semibold">Website:</span> www.jetfyx.com</p>
+                    </div>
+
+                    <div className="space-y-2" style={{ fontSize: '12px' }}>
                         <p><span className="bg-red-600 text-white px-2 rounded">Dubai:</span> +971 50 290 5860</p>
                         <p><span className="bg-red-600 text-white px-2 rounded">Corporate Office:</span> 908, 9th Floor, Fifty-One Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates</p>
                         <div className="flex flex-row space-x-4 gap-5 mb-4 md:mb-0">
@@ -42,10 +45,6 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-2" style={{ fontSize: '12px' }}>
-                        <p><span className="text-red-600 font-semibold">Partnerships:</span> partners@jetfyx.com</p>
-                        <p><span className="text-red-600 font-semibold">Careers:</span> careers@jetfyx.com</p>
-                        <p><span className="text-red-600 font-semibold">Website:</span> www.jetfyx.com</p>
-                        <p><span>&nbsp;</span></p>
                         <p><span className="bg-red-600 text-white px-2 rounded">London:</span> +44 7466 993 122</p>
                         <p><span className="bg-red-600 text-white px-2 rounded">London Branch:</span> Unit 7B, Cranbrook House, 61 Cranbrook Road, Ilford, Essex, England, IG1 4PG</p>
                         <div className="flex flex-row space-x-4 gap-5 mt-4 md:mt-0">
