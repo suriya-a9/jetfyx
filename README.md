@@ -1,24 +1,29 @@
-# 🚀 Jetfyx — React + Vite Landing Page
+# 🚀 Jetfyx — Landing Page for Brokers
 
-Jetfyx is a personal project built to explore modern frontend tools and deployment workflows. It’s a responsive, animated landing page powered by:
-
-- ⚛️ **React + Vite** — Fast dev server, HMR, and optimized builds
-- 🎨 **Tailwind CSS** — Utility-first styling for rapid UI development
-- 🌀 **Framer Motion** — Smooth animations and transitions
-- 🗺️ **Leaflet** — Interactive maps with custom markers and tiles
-- 🔀 **React Router** — Client-side routing for multi-section navigation
+Jetfyx is a sleek, modern **single-page landing page** designed to showcase our trading services and attract professional brokers. Built with modern frontend technologies, it’s fully responsive, animated, and optimized for performance.
 
 ---
 
-## 🚀 Getting Started
+## 💻 Built With
 
-```bash
-git clone https://github.com/your-username/jetfyx.git
-cd jetfyx
-npm install
+- ⚛️ **React + Vite** — Lightning-fast development, HMR, and optimized production builds  
+- 🎨 **Tailwind CSS** — Utility-first styling for rapid UI development  
+- 🌀 **Framer Motion** — Smooth animations and transitions for a dynamic user experience  
+- 🗺️ **Leaflet** — Interactive maps for showcasing office locations or service areas  
+- 🔀 **React Router** — Smooth navigation between page sections  
 
-npm run dev
-```
+---
 
 ## 🗺️ Map Integration
-Jetfyx uses Leaflet for rendering maps. You can customize the map view, markers, and tile layers in the ```Map.jsx```component.
+
+The landing page uses Leaflet to display interactive maps. Customize map views, markers, and tiles in the ```ContactSection.jsx``` component to highlight your offices or service regions.
+
+## 🎯 Purpose
+
+This landing page is designed to:
+
+   > Showcase Jetfyx trading services in a professional, visually appealing format
+
+   > Attract and engage potential brokers and partners
+
+   > Highlight key features, benefits, and contact information in a clear, single-page layout
