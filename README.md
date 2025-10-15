@@ -8,8 +8,6 @@ Jetfyx is a personal project built to explore modern frontend tools and deployme
 - 🗺️ **Leaflet** — Interactive maps with custom markers and tiles
 - 🔀 **React Router** — Client-side routing for multi-section navigation
 
-> 🛠️ This project is not open source. It’s built for personal learning and experimentation.
-
 ---
 
 ## 🚀 Getting Started
