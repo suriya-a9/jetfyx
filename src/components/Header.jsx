@@ -12,7 +12,7 @@ export default function Header() {
         {
             name: "Features",
             dropdown: [
-                { name: "Platform", to: "featureSection" },
+                { name: "Platform", to: "tradingCarousel" },
                 { name: "PAMM/MAM", to: "pammSection" },
                 { name: "Copy Trading", to: "tradersSection" },
                 { name: "Social Trading", to: "accountAccessSection" },
@@ -21,17 +21,17 @@ export default function Header() {
         {
             name: "Exclusive",
             dropdown: [
-                { name: "Exclusive Offers", to: "missionVision" },
-                { name: "Download Corporate Brochure", to: "consultationSection" },
-                { name: "Download Client Brochure", to: "innovationSection" },
-                { name: "Other Services", to: "edgeSection" },
+                { name: "Exclusive Offers", to: "featureSection" },
+                { name: "Download Corporate Brochure", to: "" },
+                { name: "Download Client Brochure", to: "" },
+                { name: "Other Services", to: "consultationSection" },
             ],
         },
         {
             name: "Deals",
             dropdown: [
-                { name: "For Brokers", to: "crmSection" },
-                { name: "For Dealers", to: "riskManagementSection" },
+                { name: "For Brokers", to: "featureSection" },
+                { name: "For Dealers", to: "edgeSection" },
             ],
         },
         { name: "Contact", to: "contactSection" },

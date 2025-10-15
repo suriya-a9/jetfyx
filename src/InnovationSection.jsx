@@ -35,7 +35,7 @@ export default function InnovationSection() {
 
     return (
         <section
-            className="py-16 md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]"
+            className="py-16 md:ml-[4%] md:mr-[4%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%] bg-[#fcfcfc]"
             style={{ marginTop: "60px" }}
         >
             <motion.div
@@ -52,9 +52,10 @@ export default function InnovationSection() {
                     <p className="text-gray-700 mb-4">
                         Innovations that will transform how the world trades:
                     </p>
-                    <h1 className="text-[50px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none">
+                    {/* <h1 className="text-[50px] sm:text-[80px] md:text-[100px] lg:text-[140px] font-extrabold text-gray-200 relative hover-shine leading-none">
                         INNOVATION
-                    </h1>
+                    </h1> */}
+                    <img src="/assets/01_Jet and Static animation.gif" />
                 </div>
 
                 <div className="grid gap-6 md:justify-center">
