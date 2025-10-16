@@ -14,7 +14,7 @@ const Check = ({ className = "w-5 h-5 text-red-600" }) => (
 );
 
 export default function PricingSection() {
-    const [selectedPlan, setSelectedPlan] = useState(null);
+    const [selectedPlan, setSelectedPlan] = useState("free");
 
     const freeFeatures = [
         "Limited broker access",
@@ -47,10 +47,10 @@ export default function PricingSection() {
     return (
         <section className="py-16 bg-white md:ml-[6%] md:mr-[6%] sm:ml-[0] sm:mr-[0] 2xl:ml-[10%] 2xl:mr-[10%]">
             <div className="max-w-6xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mr-0 ml-0 md:mr-[10%] md:ml-[15%]">
+                <div className="grid grid-cols-1 bg-[#fcfcfc] md:grid-cols-2 gap-6 mr-0 ml-0 md:mr-[10%] md:ml-[15%]">
                     <motion.div
                         onClick={() => setSelectedPlan("free")}
-                        className={`cursor-pointer rounded-xl shadow-md p-6 flex flex-col transition-all duration-200 ${selectedPlan === "free"
+                        className={`cursor-pointer rounded-xl bg-[#fcfcfc] shadow-md p-6 flex flex-col transition-all duration-200 ${selectedPlan === "free"
                             ? "border-[3px] border-red-500"
                             : "border border-gray-200 bg-white hover:border-red-300"
                             }`}
@@ -100,7 +100,7 @@ export default function PricingSection() {
 
                     <motion.div
                         onClick={() => setSelectedPlan("pro")}
-                        className={`cursor-pointer rounded-xl shadow-md p-6 flex flex-col transition-all duration-200 relative ${selectedPlan === "pro"
+                        className={`cursor-pointer rounded-xl shadow-md p-6 bg-[#fcfcfc] flex flex-col transition-all duration-200 relative ${selectedPlan === "pro"
                             ? "border-[3px] border-red-500"
                             : "border border-gray-200 bg-white hover:border-red-300"
                             }`}
@@ -149,7 +149,7 @@ export default function PricingSection() {
                         >
                             Get Started
                         </button>
-                    </motion.div>
+                    </motion. div>
                 </div>
             </div>
         </section>

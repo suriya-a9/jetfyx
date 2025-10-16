@@ -139,8 +139,8 @@ export default function AccountAccessSection() {
                           {feature.tooltip}
                           <div
                             className={`absolute left-1/2 transform -translate-x-1/2 w-3 h-3 bg-white rotate-45 border-gray-200 ${isBelow
-                                ? "top-[-6px] border-l border-t"
-                                : "bottom-[-6px] border-r border-b"
+                              ? "top-[-6px] border-l border-t"
+                              : "bottom-[-6px] border-r border-b"
                               }`}
                           />
                         </div>

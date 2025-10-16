@@ -52,8 +52,8 @@ export default function SignInSignUp() {
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f7f7f7]">
-            <div className="flex w-full max-w-3xl bg-white rounded-xl shadow-lg overflow-hidden">
-                <div className="w-1/2 flex flex-col items-center justify-center bg-white p-8">
+            <div className="block md:flex w-full max-w-3xl bg-white rounded-xl shadow-lg overflow-hidden">
+                <div className="w-full md:w-1/2 block md:flex md:flex-col items-center justify-center bg-white p-8">
                     <img
                         src="/assets/fav-icon.webp"
                         alt="Logo"
@@ -61,7 +61,7 @@ export default function SignInSignUp() {
                         className="mx-auto"
                     />
                 </div>
-                <div className="w-1/2 p-8 flex flex-col justify-center">
+                <div className="w-full md:w-1/2 p-8 block md:flex md:flex-col justify-center">
                     <div className="flex mt-2 mb-6">
                         <button
                             className={`flex-1 py-2 rounded-l-lg font-semibold ${activeTab === "login" ? "bg-[#C3282E] text-white" : "bg-gray-100 text-gray-700"}`}
