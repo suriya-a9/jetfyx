@@ -21,6 +21,7 @@ import SignInSignUp from './SignInSignUp.jsx';
 import CEOSection from './CTA';
 import ContactSection from './ContactSection';
 import Footer from './components/Footer';
+import PricingSection from "./PricingSection.jsx";
 
 function App() {
   const location = useLocation();
@@ -75,6 +76,9 @@ function App() {
             </Element>
             <Element name="faqSection">
               <FAQSection />
+            </Element>
+            <Element name="">
+              <PricingSection />
             </Element>
             <Element name="ceoSection">
               <CEOSection />
