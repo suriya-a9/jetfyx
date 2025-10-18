@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
+import { useNavigate } from "react-router-dom";
 
 export default function Banner() {
+    const navigate = useNavigate();
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -34,7 +36,7 @@ export default function Banner() {
                         <span className="text-black"> Trading Platform<br />of Choice</span>
                     </h1>
                     <p className="text-gray-600">
-                        Trusted by millions of traders and hundreds of<br />brokers around the world.
+                        JetFyX Empowers New Brokers—Low Cost.<br />All Power.
                     </p>
                     <form className="bg-gray-100 rounded-xl p-6 space-y-4 shadow md:w-[85%]">
                         <input
@@ -53,8 +55,9 @@ export default function Banner() {
                             className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none"
                         />
                         <button
-                            type="submit"
+                            type="button"
                             className="w-full bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition"
+                            onClick={() => navigate("/auth")}
                         >
                             DOWNLOAD PLATFORM
                         </button>
