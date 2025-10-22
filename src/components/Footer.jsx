@@ -66,7 +66,7 @@ export default function Footer() {
                         <p><span className="bg-red-600 text-white px-2 rounded">Corporate Office:</span> 908, 9th Floor, Fifty-One Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates</p>
                         <div className="flex flex-row space-x-4 gap-5 mb-4 md:mb-0">
                             <a target="blank" href="https://www.facebook.com/profile.php?id=61581931895634"><FaFacebook size={20} /></a>
-                            <a target="blank" href="#"><FaLinkedin size={20} /></a>
+                            <a target="blank" href="https://www.linkedin.com/company/jetfyx/about/?viewAsMember=true"><FaLinkedin size={20} /></a>
                             <a target="blank" href="https://www.instagram.com/jetfyx/"><FaInstagramSquare size={21} /></a>
                             <a target="blank" href="#"><FaYoutube size={23} /></a>
                         </div>
