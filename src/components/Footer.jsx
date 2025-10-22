@@ -1,5 +1,15 @@
 import React from "react";
-
+import { Link } from "react-scroll";
+import { FaLinkedin, FaFacebook, FaInstagramSquare, FaYoutube } from "react-icons/fa";
+const sections = [
+    { name: "Home", to: "banner" },
+    { name: "Features", to: "tradingCarousel" },
+    { name: "Exclusive", to: "featureSection" },
+];
+const sectionss = [
+    { name: "Deals", to: "edgeSection" },
+    { name: "Contact", to: "contactSection" },
+];
 export default function Footer() {
     return (
         <>
@@ -9,18 +19,36 @@ export default function Footer() {
                     <div className="space-y-2">
                         <h3 className="font-semibold mb-2">Navigation</h3>
                         <ul className="space-y-1">
-                            <li><a href="#" className="hover:text-red-600">Home</a></li>
-                            <li><a href="#" className="hover:text-red-600">About</a></li>
-                            <li><a href="#" className="hover:text-red-600">Blog</a></li>
-                            <li><a href="#" className="hover:text-red-600">Service</a></li>
+                            {sections.map(section => (
+                                <li key={section.to}>
+                                    <Link
+                                        to={section.to}
+                                        smooth={true}
+                                        duration={500}
+                                        className="cursor-pointer hover:text-red-600"
+                                    >
+                                        {section.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                         <img src="/assets/footer_logo.webp" alt="JetFyX Logo" className="w-32" />
                     </div>
                     <div className="space-y-2">
                         <h3 className="font-semibold mb-2">&nbsp;</h3>
                         <ul className="space-y-1">
-                            <li><a href="#" className="hover:text-red-600">Portfolio</a></li>
-                            <li><a href="#" className="hover:text-red-600">Contact us</a></li>
+                            {sectionss.map(section => (
+                                <li key={section.to}>
+                                    <Link
+                                        to={section.to}
+                                        smooth={true}
+                                        duration={500}
+                                        className="cursor-pointer hover:text-red-600"
+                                    >
+                                        {section.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
@@ -37,21 +65,21 @@ export default function Footer() {
                         <p><span className="bg-red-600 text-white px-2 rounded">Dubai:</span> +971 50 290 5860</p>
                         <p><span className="bg-red-600 text-white px-2 rounded">Corporate Office:</span> 908, 9th Floor, Fifty-One Tower, Marasi Drive, Business Bay, Dubai, United Arab Emirates</p>
                         <div className="flex flex-row space-x-4 gap-5 mb-4 md:mb-0">
-                            <a href="#"><img src="/assets/facebook.webp" alt="Facebook" className="w-5 h-4" /></a>
-                            <a href="#"><img src="/assets/google.webp" alt="Google" className="w-5 h-4" /></a>
-                            <a href="#"><img src="/assets/instagram.webp" alt="Instagram" className="w-5 h-4" /></a>
-                            <a href="#"><img src="/assets/youtube.webp" alt="YouTube" className="w-5 h-4" /></a>
+                            <a target="blank" href="https://www.facebook.com/profile.php?id=61581931895634"><FaFacebook size={20} /></a>
+                            <a target="blank" href="#"><FaLinkedin size={20} /></a>
+                            <a target="blank" href="https://www.instagram.com/jetfyx/"><FaInstagramSquare size={21} /></a>
+                            <a target="blank" href="#"><FaYoutube size={23} /></a>
                         </div>
                     </div>
 
                     <div className="space-y-2" style={{ fontSize: '12px' }}>
                         <p><span className="bg-red-600 text-white px-2 rounded">London:</span> +44 7466 993 122</p>
                         <p><span className="bg-red-600 text-white px-2 rounded">London Branch:</span> Unit 7B, Cranbrook House, 61 Cranbrook Road, Ilford, Essex, England, IG1 4PG</p>
-                        <div className="flex flex-row space-x-4 gap-5 mt-4 md:mt-0">
-                            <a href="#"><img src="/assets/caller.webp" alt="Caller" className="w-5 h-4" /></a>
-                            <a href="#"><img src="/assets/telegram.webp" alt="Telegram" className="w-5 h-4" /></a>
-                            <a href="#"><img src="/assets/whatsapp.webp" alt="Whatsapp" className="w-5 h-4" /></a>
-                        </div>
+                        {/* <div className="flex flex-row space-x-4 gap-5 mt-4 md:mt-0">
+                            <a target="blank" href="#"><img src="/assets/caller.webp" alt="Caller" className="w-5 h-4" /></a>
+                            <a target="blank" href="#"><img src="/assets/telegram.webp" alt="Telegram" className="w-5 h-4" /></a>
+                            <a target="blank" href="#"><img src="/assets/whatsapp.webp" alt="Whatsapp" className="w-5 h-4" /></a>
+                        </div> */}
                     </div>
 
                 </div>
