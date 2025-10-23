@@ -22,6 +22,8 @@
     "react-owl-carousel": "^2.3.3",
     "react-router-dom": "^7.9.4",
     "react-scroll": "^1.9.3",
+    "react-select": "^5.10.2",
+    "react-select-country-list": "^2.2.3",
     "react-slick": "^0.31.0",
     "slick-carousel": "^1.8.1",
     "swiper": "^12.0.2"
