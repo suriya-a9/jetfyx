@@ -28,9 +28,10 @@ export default function SignInSignUp() {
                         {tab === "login" ? (
                             <form className="space-y-4">
                                 <h2 className="text-2xl font-bold">Welcome Back!</h2>
-                                <p className="text-gray-600">Enter your credentials to access your account</p>
+                                <p className="">Enter your credentials to access your account</p>
+                                <br />
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Email</label>
+                                    <label className="block mb-1">Email</label>
                                     <input
                                         type="email"
                                         placeholder="Email"
@@ -39,7 +40,7 @@ export default function SignInSignUp() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Password</label>
+                                    <label className="block mb-1">Password</label>
                                     <input
                                         type="password"
                                         placeholder="Password"
@@ -80,29 +81,30 @@ export default function SignInSignUp() {
                         ) : (
                             <form className="space-y-4">
                                 <h2 className="text-2xl font-bold">Create Account</h2>
-                                <p className="text-gray-600">Sign up to get started with Jet</p>
+                                <p className="">Sign up to get started with JetfyX</p>
+                                <br />
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Full Name</label>
+                                    <label className="block mb-1">Full Name</label>
                                     <input type="text" placeholder="Full Name" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" required />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Email</label>
+                                    <label className="block mb-1">Email</label>
                                     <input type="email" placeholder="Email" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" required />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Phone Number</label>
+                                    <label className="block mb-1">Phone Number</label>
                                     <input type="tel" placeholder="Phone Number" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" required />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Company Name</label>
+                                    <label className="block mb-1">Company Name</label>
                                     <input type="text" placeholder="Company Name" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Website</label>
+                                    <label className="block mb-1">Website</label>
                                     <input type="url" placeholder="Website" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Country</label>
+                                    <label className="block mb-1">Country</label>
                                     <Select
                                         options={countryOptions}
                                         value={country}
@@ -127,11 +129,11 @@ export default function SignInSignUp() {
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Password</label>
+                                    <label className="block mb-1">Password</label>
                                     <input type="password" placeholder="Password" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" required />
                                 </div>
                                 <div>
-                                    <label className="block text-gray-700 mb-1">Confirm Password</label>
+                                    <label className="block mb-1">Confirm Password</label>
                                     <input type="password" placeholder="Confirm Password" className="w-full px-3 py-2 border rounded-[15px] focus:outline-none focus:ring-2 focus:ring-red-200" required />
                                 </div>
 
