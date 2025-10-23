@@ -60,12 +60,12 @@ export default function SignInSignUp() {
                                     <span className="mx-2 text-gray-400 text-xs">or</span>
                                     <div className="flex-grow border-t" />
                                 </div>
-                                <div className="flex space-x-2">
-                                    <button type="button" className="flex-1 flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50">
+                                <div className="display-block md:flex gap-[15px]">
+                                    <button type="button" className="flex-1 w-full flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50 mt-2">
                                         <img src="/assets/google-login-icon.webp" alt="Google" className="w-5 h-5 mr-2" />
                                         <span className="text-sm">Sign in with Google</span>
                                     </button>
-                                    <button type="button" className="flex-1 flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50">
+                                    <button type="button" className="flex-1 w-full flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50 mt-2">
                                         <img src="/assets/apple-login-icon.webp" alt="Apple" className="w-5 h-5 mr-2" />
                                         <span className="text-sm">Sign in with Apple</span>
                                     </button>
@@ -141,12 +141,12 @@ export default function SignInSignUp() {
                                     <span className="mx-2 text-gray-400 text-xs">or</span>
                                     <div className="flex-grow border-t" />
                                 </div>
-                                <div className="flex space-x-2">
-                                    <button type="button" className="flex-1 flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50">
+                                <div className="display-block md:flex gap-[15px]">
+                                    <button type="button" className="flex-1 w-full flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50 mt-2">
                                         <img src="/assets/google-login-icon.webp" alt="Google" className="w-5 h-5 mr-2" />
                                         <span className="text-sm">Sign up with Google</span>
                                     </button>
-                                    <button type="button" className="flex-1 flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50">
+                                    <button type="button" className="flex-1 w-full flex items-center justify-center border rounded-[15px] py-2 hover:bg-gray-50 mt-2">
                                         <img src="/assets/apple-login-icon.webp" alt="Apple" className="w-5 h-5 mr-2" />
                                         <span className="text-sm">Sign up with Apple</span>
                                     </button>
