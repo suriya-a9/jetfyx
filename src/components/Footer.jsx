@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
-import { FaLinkedin, FaFacebook, FaInstagramSquare, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaInstagramSquare, FaYoutube, FaTelegram } from "react-icons/fa";
 const sections = [
     { name: "Home", to: "banner" },
     { name: "Features", to: "tradingCarousel" },
@@ -68,7 +68,8 @@ export default function Footer() {
                             <a target="blank" href="https://www.facebook.com/profile.php?id=61581931895634"><FaFacebook size={20} /></a>
                             <a target="blank" href="https://www.linkedin.com/company/jetfyx/about/?viewAsMember=true"><FaLinkedin size={20} /></a>
                             <a target="blank" href="https://www.instagram.com/jetfyx/"><FaInstagramSquare size={21} /></a>
-                            <a target="blank" href="#"><FaYoutube size={23} /></a>
+                            <a target="blank" href="https://www.youtube.com/@JetFyX"><FaYoutube size={23} /></a>
+                            <a target="blank" href="https://t.me/jetfyxofficial"><FaTelegram size={20} /></a>
                         </div>
                     </div>
 

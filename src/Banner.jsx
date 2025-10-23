@@ -54,15 +54,23 @@ export default function Banner() {
                             placeholder="Email Address"
                             className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none"
                         />
-                        <button
-                            type="button"
-                            className="w-full bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition"
-                            onClick={() => navigate("/auth")}
+                        <Link
+                            to="contactSection"
+                            smooth={true}
+                            duration={800}
+                            offset={-50}
+                            className="w-full"
                         >
-                            DOWNLOAD PLATFORM
-                        </button>
+                            <button
+                                type="button"
+                                className="w-full mt-[15px] bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition"
+                                // onClick={() => navigate("/auth")}
+                            >
+                                Book Demo
+                            </button>
+                        </Link>
                     </form>
-                    <div className="flex space-x-4 md:w-[85%]" style={{ justifyContent: 'space-between' }}>
+                    {/* <div className="flex space-x-4 md:w-[85%]" style={{ justifyContent: 'space-between' }}>
                         <Link
                             to="contactSection"
                             smooth={true}
@@ -83,7 +91,7 @@ export default function Banner() {
                             <button className="border w-full border-gray-700 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100 transition">
                                 BOOK DEMO
                             </button></Link>
-                    </div>
+                    </div> */}
                 </motion.div>
                 <motion.div
                     className="flex-1 flex justify-center mt-10 md:mt-0 relative z-10"
