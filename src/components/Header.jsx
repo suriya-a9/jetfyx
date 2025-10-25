@@ -116,7 +116,7 @@ export default function Header() {
                         className="bg-red-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-red-700 transition"
                         onClick={() => navigate("/auth", { state: { tab: "login" } })}
                     >
-                        Sign In
+                        Log In
                     </button>
                     <button
                         className="border border-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-gray-700"
@@ -164,7 +164,7 @@ export default function Header() {
                                     navigate("/auth", { state: { tab: "login" } });
                                 }}
                             >
-                                Sign In
+                                Log In
                             </button>
                             <button
                                 className="border border-gray-700 px-5 py-2 rounded-lg font-semibold hover:bg-gray-100 transition text-gray-700"

@@ -24,9 +24,12 @@ import CEOSection from './CTA';
 import ContactSection from './ContactSection';
 import Footer from './components/Footer';
 import PricingSection from "./PricingSection.jsx";
+import TawkToWidget from "./TawkToWidget.jsx";
+import NotFound from "./NotFound";
 
 function App() {
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const isAuthPage = location.pathname === "/auth";
   const [showPopup, setShowPopup] = useState(false);
   useEffect(() => {
@@ -52,7 +55,7 @@ function App() {
   return (
     <>
       <PopupModal open={showPopup} onClose={handleClosePopup} />
-      {!isAuthPage && <Header />}
+      {!isAuthPage && location.pathname !== "*" && <Header />}
       <Routes>
         <Route path="/" element={
           <main className="mt-16 px-1 md:px-10 md:overflow-visible overflow-hidden md:px-18">
@@ -114,15 +117,21 @@ function App() {
           </main>
         } />
         <Route path="/auth" element={<SignInSignUp />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
-      {/* {!isAuthPage && (
-        <img
-          src="/assets/float-img.webp"
-          alt="Floating Icon"
-          className="fixed bottom-10 right-0 md:w-[12%] md:h-[13%] w-[80px] h-[60px] z-50 cursor-pointer hover:scale-110 transition-transform duration-300"
-        />
-      )} */}
-      {!isAuthPage && <Footer />}
+      {isHomePage && (
+        <>
+          <img
+            src="/assets/offer.webp"
+            alt="Floating Icon"
+            className="fixed bottom-10 -left-2 md:w-[10%] md:h-[15%] w-[80px] h-[60px] z-50 cursor-pointer hover:scale-110 transition-transform duration-300 bg-[#D9D9D9] rounded-lg shadow-lg p-4"
+            style={{ borderTopRightRadius: '20px', borderBottomRightRadius: '20px' }}
+            onClick={() => setShowPopup(true)}
+          />
+          <TawkToWidget />
+        </>
+      )}
+      {!isAuthPage && location.pathname !== "*" && <Footer />}
     </>
   );
 }

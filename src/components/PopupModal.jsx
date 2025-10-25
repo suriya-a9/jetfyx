@@ -13,7 +13,7 @@ export default function PopupModal({ open, onClose }) {
                     &times;
                 </button>
                 <img
-                    src="/assets/float-img.webp"
+                    src="/assets/offer.webp"
                     alt="Floating Icon"
                     className="w-full h-full z-20"
                 />
