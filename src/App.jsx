@@ -54,7 +54,7 @@ function App() {
   };
   return (
     <>
-      <PopupModal open={showPopup} onClose={handleClosePopup} />
+      {!isAuthPage && location.pathname !== "*" && <PopupModal open={showPopup} onClose={handleClosePopup} />}
       {!isAuthPage && location.pathname !== "*" && <Header />}
       <Routes>
         <Route path="/" element={
@@ -119,7 +119,7 @@ function App() {
         <Route path="/auth" element={<SignInSignUp />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      {isHomePage && (
+      {!isAuthPage && location.pathname !== "*" &&
         <>
           <img
             src="/assets/offer.webp"
@@ -130,7 +130,7 @@ function App() {
           />
           <TawkToWidget />
         </>
-      )}
+      }
       {!isAuthPage && location.pathname !== "*" && <Footer />}
     </>
   );

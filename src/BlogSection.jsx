@@ -1,27 +1,25 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp } from "lucide-react";
+import BlogModal from "./components/BlogModal";
 
 const blogs = [
     {
-        title: "Best Multi-Asset Trading Platform",
+        title: "JetFyX Is Coming Soon: The Future of Forex Is Taking Off",
         description: "Discover the best trading platform for multi-asset brokers.",
         image: "/assets/blog-img-1.webp",
-        fullDescription: `<h1>Best Multi-Asset Trading Platform</h1>
-            <p>This is the <strong>full description</strong> of the best trading platform for multi-asset brokers. <br/>It supports <em>HTML elements</em> like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, etc.</p>`,
+        fullDescription: `<p>There’s a moment before takeoff when everything goes quiet—the engines hum, the air tightens, and for a second, you can almost feel the future leaning forward.That’s where we are right now.</p>`,
     },
     {
-        title: "Wealth Expo Mexico City",
+        title: "Welcome to JetFyX—Your Gateway to a New Era in Forex",
         description: "Meet top professionals and discover the latest in investment innovation.",
         image: "/assets/blog-img-2.webp",
-        fullDescription: `<h1>Wealth Expo Mexico City</h1>
-            <p>Meet top professionals and discover the latest in investment innovation at our <b>Mexico City Expo</b>.</p>`,
+        fullDescription: `<p>JetFyX isn’t another trading platform. It’s the full flight deck—built for brokers, traders, partners, and anyone ready to move faster than the market itself. Whether you’re starting your own brokerage or expanding your global reach, JetFyX gives you the complete ecosystem to launch, scale, and lead—all from one unified platform.</p>`,
     },
     {
-        title: "Wealth Expo Mexico Cities",
+        title: "Our philosophy is simple: precision, speed, and transparency should belong to everyone.",
         description: "Explore advanced trading strategies and tools for brokers.",
         image: "/assets/blog-img-3.webp",
-        fullDescription: `<h1>Wealth Expo Mexico Cities</h1>
-            <p>Explore advanced trading strategies and tools for brokers in multiple cities.</p>`,
+        fullDescription: `<p>From registration to revenue, from the first click to the final execution—we've built JetFyX to take the friction out of Forex.</p>`,
     },
     {
         title: "Wealth Expo Mexico City",
@@ -35,6 +33,7 @@ const blogs = [
 export default function BlogSection() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [showDropdown, setShowDropdown] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     const sideBlogs = [
         blogs[(currentIndex + 1) % blogs.length],
@@ -79,18 +78,23 @@ export default function BlogSection() {
                         <div className="absolute inset-0 flex flex-col justify-between p-6">
                             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                                 <span className="px-3 py-1 rounded bg-black/60 w-fit">
-                                    <h2 className="text-xl w-full font-bold text-white m-0 p-4">
+                                    <h2 className="w-full font-bold text-white text-[14px] m-0 p-4">
                                         {blogs[currentIndex].title}
                                     </h2>
                                 </span>
                                 <button
-                                    className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition mt-2 md:mt-0 md:ml-4 self-start md:self-auto flex items-center gap-2"
-                                    onClick={() => setShowDropdown((v) => !v)}
+                                    className="bg-red-600 text-white px-4 py-2 text-[15px] rounded-lg hover:bg-red-700 transition mt-2 md:mt-0 md:ml-4 self-start md:self-auto flex items-center gap-2"
+                                    onClick={() => setShowModal(true)}
                                 >
                                     Read More
-                                    {showDropdown ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                                    {/* {showDropdown ? <ChevronUp size={18} /> : <ChevronDown size={18} />} */}
                                 </button>
                             </div>
+                            <BlogModal
+                                open={showModal}
+                                onClose={() => setShowModal(false)}
+                                content={blogs[currentIndex].fullDescription}
+                            />
                             {showDropdown && (
                                 <div
                                     className="relative mt-4 bg-white rounded-lg shadow-xl border-t-4 border-red-600 p-4 overflow-auto animate-fadeIn"
@@ -147,10 +151,10 @@ export default function BlogSection() {
                                         />
                                         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
                                         <div className="absolute bottom-0 left-0 w-full px-4 pb-4">
-                                            <h4 className="text-lg font-bold text-gray-900">
+                                            <h4 className="font-bold text-[13px] text-gray-900">
                                                 {blog.title}
                                             </h4>
-                                            <p className="text-sm text-gray-700">
+                                            <p className="text-gray-700 text-[12px]">
                                                 {blog.description}
                                             </p>
                                         </div>
