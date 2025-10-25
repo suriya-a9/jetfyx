@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import { motion } from "framer-motion";
+import Select from "react-select";
+import countryList from "react-select-country-list";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./ContactSection.css";
@@ -13,28 +15,6 @@ L.Icon.Default.mergeOptions({
     shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
 
-const allCountries = [
-    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
-    "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia",
-    "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon",
-    "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo (Congo-Brazzaville)", "Costa Rica",
-    "Croatia", "Cuba", "Cyprus", "Czechia (Czech Republic)", "Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica",
-    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini (fmr. Swaziland)",
-    "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea",
-    "Guinea-Bissau", "Guyana", "Haiti", "Holy See", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
-    "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon",
-    "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali",
-    "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro",
-    "Morocco", "Mozambique", "Myanmar (formerly Burma)", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger",
-    "Nigeria", "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea",
-    "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia",
-    "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles",
-    "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain",
-    "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga",
-    "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
-    "United States of America", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
-];
-
 export default function ContactSection() {
     const locations = [
         { name: "London", img: "/assets/flags/UK_flag.png", position: [51.5074, -0.1278] },
@@ -44,18 +24,13 @@ export default function ContactSection() {
     ];
 
     const [country, setCountry] = useState("");
-
+    const countryOptions = countryList().getData();
     const redDotIcon = new L.DivIcon({
         html: `<div style="width:12px; height:12px; background-color:#C3282E; border-radius:50%; border: 2px solid white;"></div>`,
         className: "",
         iconSize: [12, 12],
         iconAnchor: [6, 6],
     });
-
-    const handleCountryChange = (e) => {
-        setCountry(e.target.value);
-        setTimeSlot(countryTimeSlots[e.target.value] || "");
-    };
 
     return (
         <motion.div
@@ -236,16 +211,27 @@ export default function ContactSection() {
                                         placeholder="Company Name"
                                         className="w-full px-4 py-2 rounded-lg border border-gray-400"
                                     />
-                                    <select
-                                        className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none"
+                                    <Select
+                                        options={countryOptions}
                                         value={country}
-                                        onChange={handleCountryChange}
-                                    >
-                                        <option value="">Select Country</option>
-                                        {allCountries.map((c) => (
-                                            <option key={c} value={c}>{c}</option>
-                                        ))}
-                                    </select>
+                                        onChange={setCountry}
+                                        className="react-select-container rounded-lg"
+                                        classNamePrefix="react-select"
+                                        placeholder="Choose Country"
+                                        isClearable
+                                        styles={{
+                                            control: (base) => ({
+                                                ...base,
+                                                borderRadius: 8,
+                                                minHeight: 40,
+                                                borderColor: "#d1d5db",
+                                                boxShadow: "none",
+                                            }),
+                                            menu: (base) => ({
+                                                ...base,
+                                            }),
+                                        }}
+                                    />
                                     <input
                                         type="text"
                                         placeholder="Mobile No:"
