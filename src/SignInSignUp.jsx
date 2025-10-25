@@ -24,14 +24,14 @@ export default function SignInSignUp() {
                     <div className="flex justify-center mb-6">
                         <img src="/assets/fav-icon.webp" alt="JET Logo" className="w-[30%] h-[30%] object-contain rounded-full" />
                     </div>
-                    <div className="flex justify-end mb-4">
+                    {/* <div className="flex justify-end mb-4">
                         <button
-                            className="bg-red-600 w-full text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition"
-                            onClick={() => setTab(tab === "login" ? "signup" : "login")}
+                            className="bg-red-600 w-full text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition" disabled
+                        // onClick={() => setTab(tab === "login" ? "signup" : "login")}
                         >
-                            {tab === "login" ? "Sign Up" : "Log in"}
+                            {tab === "login" ? "Log in" : "Sign Up"}
                         </button>
-                    </div>
+                    </div> */}
                     {tab === "login" ? (
                         <form className="space-y-4">
                             <div className="floating-label-group">
@@ -55,6 +55,12 @@ export default function SignInSignUp() {
                                 <div className="flex-1"></div>
                                 <button type="submit" className="bg-red-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition">
                                     Log in
+                                </button>
+                            </div>
+                            <div className="text-center text-sm mt-2">
+                                Don&apos;t have an account?{" "}
+                                <button type="button" className="text-red-600 hover:underline" onClick={() => setTab("signup")}>
+                                    Sign Up
                                 </button>
                             </div>
                         </form>
@@ -137,6 +143,12 @@ export default function SignInSignUp() {
                                 <div className="flex-1"></div>
                                 <button type="submit" className="bg-red-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition">
                                     Sign Up
+                                </button>
+                            </div>
+                            <div className="text-center text-sm mt-2">
+                                Already have an account?{" "}
+                                <button type="button" className="text-red-600 hover:underline" onClick={() => setTab("login")}>
+                                    Sign In
                                 </button>
                             </div>
                         </form>

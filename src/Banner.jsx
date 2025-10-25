@@ -105,6 +105,7 @@ export default function Banner() {
                         alt="Trading Platform Devices"
                         className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl 2xl:top-[-30px]"
                     />
+
                     {/* <img
                         src="/assets/jet.webp"
                         alt="Jet"
@@ -113,6 +114,12 @@ export default function Banner() {
                     /> */}
                 </motion.div>
             </div>
+            {/* <img
+                src="/assets/float-img.webp"
+                alt="Floating Icon"
+                className="absolute bottom-0 right-0 md:w-[12%] md:h-[13%] w-[80px] h-[60px]] z-20 cursor-pointer hover:scale-110 transition-transform duration-300"
+                style={{ maxWidth: '180px', maxHeight: '120px' }}
+            /> */}
         </motion.div>
     );
 }
