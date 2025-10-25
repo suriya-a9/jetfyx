@@ -64,7 +64,7 @@ export default function Banner() {
                             <button
                                 type="button"
                                 className="w-full mt-[15px] bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition"
-                                // onClick={() => navigate("/auth")}
+                            // onClick={() => navigate("/auth")}
                             >
                                 Book Demo
                             </button>
@@ -101,7 +101,7 @@ export default function Banner() {
                 >
                     <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[200px] md:w-[600px] md:h-[500px] rounded-full bg-red-300 opacity-40 blur-2xl z-0"></div>
                     <img
-                        src="/assets/new-banner-1.webp"
+                        src="/assets/new-banner-2.webp"
                         alt="Trading Platform Devices"
                         className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl 2xl:top-[-30px]"
                     />

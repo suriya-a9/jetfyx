@@ -1,0 +1,49 @@
+input::placeholder {
+    font-size: 14px;
+}
+
+Select::placeholder {
+    font-size: 14px;
+}
+
+.react-select__placeholder {
+    font-size: 14px;
+}
+
+.floating-label-group {
+    position: relative;
+}
+
+.floating-label-group .form-control {
+    width: 100%;
+    padding: 8px 8px;
+    border: 1px solid #d1d5db;
+    border-radius: 0.75rem;
+    outline: none;
+    background: transparent;
+}
+
+.floating-label-group label {
+    position: absolute;
+    left: 0.75rem;
+    top: 0.75rem;
+    color: #9ca3af;
+    font-size: 14px;
+    pointer-events: none;
+    background-color: #fbfbfb;
+    transition: all 0.2s ease;
+    padding: 0 0.25rem;
+}
+
+.floating-label-group .form-control:focus+label,
+.floating-label-group .form-control:not(:placeholder-shown)+label {
+    top: -0.6rem;
+    left: 0.6rem;
+    font-size: 12px;
+    color: #dc2626;
+}
+
+.floating-label-group .form-control:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.15);
+}
