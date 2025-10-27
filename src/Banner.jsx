@@ -103,7 +103,7 @@ export default function Banner() {
                     <img
                         src="/assets/new-banner-2.webp"
                         alt="Trading Platform Devices"
-                        className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl 2xl:top-[-30px]"
+                        className="relative z-10 md:top-[-50px] sm:top-0 md:w-xl 2xl:top-[0px]"
                     />
 
                     {/* <img
