@@ -129,6 +129,18 @@ function App() {
             onClick={() => setShowPopup(true)}
           />
           <TawkToWidget />
+          <a
+            href="https://wa.me/971506595860"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="fixed bottom-[13%] right-6 z-50"
+          >
+            <img
+              src="/assets/whatsapp-icon.webp"
+              alt="WhatsApp"
+              className="w-14 h-14 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
+            />
+          </a>
         </>
       }
       {!isAuthPage && location.pathname !== "*" && <Footer />}
