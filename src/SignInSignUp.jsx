@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import countryList from "react-select-country-list";
 import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
@@ -10,19 +10,25 @@ export default function SignInSignUp() {
     const initialTab = location.state?.tab === "signup" ? "signup" : "login";
     const [tab, setTab] = useState(initialTab);
     const [country, setCountry] = useState(null);
-
+    const navigate = useNavigate();
     const countryOptions = countryList().getData();
 
     const rightImage =
         tab === "login"
             ? "/assets/siggnnnn.webp"
             : "/assets/sign-up.webp";
+
+    const handleOnClick = () => {
+        window.location.href = "https://jetfyx.com"
+    }
     return (
         <div className="min-h-screen flex">
             <div className="flex flex-col justify-center items-center w-full md:w-1/2">
-                <div className="w-full max-w-sm p-8 border-[3px] rounded-[10px] bg-[#FBFBFB]">
-                    <div className="flex justify-center mb-6">
+                <div className="w-full max-w-sm p-5 border-[3px] rounded-[10px] bg-[#FBFBFB]">
+                    <div className="flex justify-center mb-3" style={{ flexDirection: 'column', alignItems: 'center' }}>
                         <img src="/assets/fav-icon.webp" alt="JET Logo" className="w-[30%] h-[30%] object-contain rounded-full" />
+                        <span className="text-red-600 text-sm mt-2">JetFyX—Precision. Speed. Confidence</span>
+                        <span className="text-xl font-medium mt-2">Welcome to your broker portal.</span>
                     </div>
                     {/* <div className="flex justify-end mb-4">
                         <button
@@ -41,6 +47,15 @@ export default function SignInSignUp() {
                             <div className="floating-label-group">
                                 <input type="password" className="form-control" required placeholder=" " />
                                 <label>Password</label>
+                            </div>
+                            <div className="flex items-center justify-between mt-1 mb-2">
+                                <label className="flex items-center text-sm">
+                                    <input type="checkbox" className="mr-2" />
+                                    Remember me
+                                </label>
+                                <button type="button" className="text-red-600 text-sm hover:underline">
+                                    Forgot password?
+                                </button>
                             </div>
                             <div className="flex items-center gap-2 mt-2">
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
@@ -63,6 +78,9 @@ export default function SignInSignUp() {
                                     Sign Up
                                 </button>
                             </div>
+                            <div className="text-center text-sm cursor-pointer">
+                                <a onClick={handleOnClick} target="blank" className="text-red-600 underline">www.jetfyx.com</a>
+                            </div>
                         </form>
                     ) : (
                         <form className="space-y-4">
@@ -80,7 +98,6 @@ export default function SignInSignUp() {
                                 <input type="tel" className="form-control" required placeholder=" " />
                                 <label>Phone Number</label>
                             </div>
-
                             <div className="block md:flex gap-2">
                                 <div className="floating-label-group flex-1">
                                     <input type="text" className="form-control" placeholder=" " />
@@ -150,6 +167,9 @@ export default function SignInSignUp() {
                                 <button type="button" className="text-red-600 hover:underline" onClick={() => setTab("login")}>
                                     Sign In
                                 </button>
+                            </div>
+                            <div className="text-center text-sm cursor-pointer">
+                                <a onClick={handleOnClick} target="blank" className="text-red-600 underline">www.jetfyx.com</a>
                             </div>
                         </form>
                     )}

@@ -21,13 +21,13 @@ const blogs = [
         image: "/assets/blog-img-3.webp",
         fullDescription: `<p>From registration to revenue, from the first click to the final execution—we've built JetFyX to take the friction out of Forex.</p>`,
     },
-    {
-        title: "Wealth Expo Mexico City",
-        description: "Meet top professionals and discover the latest in investment innovation.",
-        image: "/assets/blog-img-2.webp",
-        fullDescription: `<h1>Wealth Expo Mexico City</h1>
-            <p>Meet top professionals and discover the latest in investment innovation at our <b>Mexico City Expo</b>.</p>`,
-    },
+    // {
+    //     title: "Wealth Expo Mexico City",
+    //     description: "Meet top professionals and discover the latest in investment innovation.",
+    //     image: "/assets/blog-img-2.webp",
+    //     fullDescription: `<h1>Wealth Expo Mexico City</h1>
+    //         <p>Meet top professionals and discover the latest in investment innovation at our <b>Mexico City Expo</b>.</p>`,
+    // },
 ];
 
 export default function BlogSection() {
