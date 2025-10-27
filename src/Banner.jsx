@@ -12,7 +12,7 @@ export default function Banner() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:py-12 overflow-hidden md:top-[-100px] 2xl:top-[-200px] sm:top-0 pl-0 pr-0 md:pl-[10%] md:pr-[6%] 2xl:pl-[15%] 2xl:pr-[10%]">
+            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:py-12 overflow-hidden md:top-[-100px] 2xl:top-[-100px] sm:top-0 pl-0 pr-0 md:pl-[10%] md:pr-[6%] 2xl:pl-[15%] 2xl:pr-[10%]">
                 <div
                     className="absolute inset-0 w-full h-full bg-no-repeat bg-cover bg-center pointer-events-none"
                     style={{
@@ -31,9 +31,9 @@ export default function Banner() {
                     <h1 className="text-3xl md:text-5xl font-bold" style={{ lineHeight: "1.2" }}>
                         <span className="whitespace-nowrap">
                             <span className="text-red-600">JetFyX</span>
-                            <span className="text-black">: The&nbsp;Multi-Asset</span>
+                            <span className="text-gray-700 font-medium">: The&nbsp;Multi-Asset</span>
                         </span>
-                        <span className="text-black"> Trading Platform<br/> for Brokers</span>
+                        <span className="text-gray-700 font-medium"> Trading Platform<br/> for Brokers</span>
                     </h1>
                     <p className="text-gray-600">
                         JetFyX Empowers New Brokers—Low Cost.<br />All Power.
