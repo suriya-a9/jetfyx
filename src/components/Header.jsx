@@ -85,6 +85,7 @@ export default function Header() {
                                 to={link.to || ""}
                                 smooth={true}
                                 duration={500}
+                                offset={-130}
                                 className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
                             >
                                 {link.name}
@@ -100,6 +101,7 @@ export default function Header() {
                                             to={dropdownItem.to}
                                             smooth={true}
                                             duration={500}
+                                            offset={-130}
                                             className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
                                         >
                                             {dropdownItem.name}
@@ -134,6 +136,7 @@ export default function Header() {
                                         to={link.to || ""}
                                         smooth={true}
                                         duration={500}
+                                        offset={-130}
                                         className="text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
@@ -147,6 +150,7 @@ export default function Header() {
                                                     to={dropdownItem.to}
                                                     smooth={true}
                                                     duration={500}
+                                                    offset={-130}
                                                     className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
                                                     onClick={() => setIsMobileMenuOpen(false)}
                                                 >
