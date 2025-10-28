@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import PhoneInput from "react-phone-input-2";
@@ -13,7 +13,7 @@ export default function SignInSignUp() {
     const initialTab = location.state?.tab === "signup" ? "signup" : "login";
     const [tab, setTab] = useState(initialTab);
     const [phone, setPhone] = useState("");
-    const [country, setCountry] = useState(null);
+    const [countryCode, setCountryCode] = useState(null);
     const navigate = useNavigate();
     const countryOptions = countryList().getData();
 
@@ -25,6 +25,18 @@ export default function SignInSignUp() {
     const handleOnClick = () => {
         window.location.href = "https://jetfyx.com"
     }
+    useEffect(() => {
+        if (tab === "signup") {
+            fetch("https://ipapi.co/json/")
+                .then(res => res.json())
+                .then(data => {
+                    if (data && data.country_code) {
+                        setCountryCode(data.country_code.toLowerCase());
+                    }
+                })
+                .catch(() => setCountryCode("us"));
+        }
+    }, [tab]);
     return (
         <div className="min-h-screen flex">
             <div className="flex flex-col justify-center items-center w-full md:w-1/2">
@@ -63,13 +75,13 @@ export default function SignInSignUp() {
                             </div>
                             <div className="flex items-center gap-2 mt-2">
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaGoogle />
+                                    <FaGoogle className="hover:text-red-600" />
                                 </button>
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaApple />
+                                    <FaApple className="hover:text-red-600" />
                                 </button>
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaFacebookF />
+                                    <FaFacebookF className="hover:text-red-600" />
                                 </button>
                                 <div className="flex-1"></div>
                                 <button type="submit" className="bg-red-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition">
@@ -100,7 +112,7 @@ export default function SignInSignUp() {
 
                             <div className="floating-label-group">
                                 <PhoneInput
-                                    country={'us'}
+                                    country={countryCode}
                                     value={phone}
                                     onChange={(value, countryData) => {
                                         setPhone(value);
@@ -165,13 +177,13 @@ export default function SignInSignUp() {
 
                             <div className="flex items-center gap-2 mt-2">
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaGoogle />
+                                    <FaGoogle className="hover:text-red-600" />
                                 </button>
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaApple />
+                                    <FaApple className="hover:text-red-600" />
                                 </button>
                                 <button type="button" className="flex items-center justify-center border rounded-full w-10 h-10 hover:bg-gray-100">
-                                    <FaFacebookF />
+                                    <FaFacebookF className="hover:text-red-600" />
                                 </button>
                                 <div className="flex-1"></div>
                                 <button type="submit" className="bg-red-600 text-white px-6 py-2 rounded-xl font-semibold hover:bg-red-700 transition">

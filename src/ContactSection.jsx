@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Tooltip } from "react-leaflet";
 import { motion } from "framer-motion";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "./ContactSection.css";
@@ -23,7 +25,8 @@ export default function ContactSection() {
         { name: "Dubai", img: "/assets/flags/uae flag.jpg", position: [25.276987, 55.296249] },
     ];
 
-    const [country, setCountry] = useState("");
+    const [phone, setPhone] = useState("");
+    const [countryCode, setCountryCode] = useState(null);
     const countryOptions = countryList().getData();
     const redDotIcon = new L.DivIcon({
         html: `<div style="width:12px; height:12px; background-color:#C3282E; border-radius:50%; border: 2px solid white;"></div>`,
@@ -31,6 +34,16 @@ export default function ContactSection() {
         iconSize: [12, 12],
         iconAnchor: [6, 6],
     });
+    useEffect(() => {
+        fetch("https://ipapi.co/json/")
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.country_code) {
+                    setCountryCode(data.country_code.toLowerCase());
+                }
+            })
+            .catch(() => setCountryCode("us"));
+    }, []);
 
     return (
         <motion.div
@@ -211,27 +224,37 @@ export default function ContactSection() {
                                         placeholder="Company Name"
                                         className="w-full px-4 py-2 rounded-lg border border-gray-400"
                                     />
-                                    <Select
-                                        options={countryOptions}
-                                        value={country}
-                                        onChange={setCountry}
-                                        className="react-select-container rounded-lg"
-                                        classNamePrefix="react-select"
-                                        placeholder="Choose Country"
-                                        isClearable
-                                        styles={{
-                                            control: (base) => ({
-                                                ...base,
-                                                borderRadius: 8,
-                                                minHeight: 40,
-                                                borderColor: "#d1d5db",
-                                                boxShadow: "none",
-                                            }),
-                                            menu: (base) => ({
-                                                ...base,
-                                            }),
-                                        }}
-                                    />
+                                    <div>
+                                        <PhoneInput
+                                            country={countryCode}
+                                            value={phone}
+                                            onChange={(value, countryData) => {
+                                                setPhone(value);
+                                            }}
+                                            enableSearch={true}
+                                            disableDropdown={false}
+                                            disableCountryGuess={true}
+                                            inputClass="form-control"
+                                            containerStyle={{
+                                                width: "100%",
+                                                borderRadius: "8px",
+                                            }}
+                                            inputStyle={{
+                                                width: "100%",
+                                                borderRadius: "8px",
+                                                height: "40px",
+                                                paddingLeft: '15%'
+                                            }}
+                                            buttonStyle={{
+                                                borderRadius: "8px 0 0 8px",
+                                            }}
+                                            dropdownStyle={{
+                                                borderRadius: "8px",
+                                                maxHeight: "200px",
+                                            }}
+                                            placeholder="Enter phone number"
+                                        />
+                                    </div>
                                     <input
                                         type="text"
                                         placeholder="Mobile No:"

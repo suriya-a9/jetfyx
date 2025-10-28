@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
+import countryList from "react-select-country-list";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 export default function Banner() {
     const navigate = useNavigate();
+    const [phone, setPhone] = useState("");
+    const [countryCode, setCountryCode] = useState(null);
+    useEffect(() => {
+        fetch("https://ipapi.co/json/")
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.country_code) {
+                    setCountryCode(data.country_code.toLowerCase());
+                }
+            })
+            .catch(() => setCountryCode("us"));
+    }, []);
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -33,7 +48,7 @@ export default function Banner() {
                             <span className="text-red-600">JetFyX</span>
                             <span className="text-gray-700 font-medium">: The&nbsp;Multi-Asset</span>
                         </span>
-                        <span className="text-gray-700 font-medium"> Trading Platform<br/> for Brokers</span>
+                        <span className="text-gray-700 font-medium"> Trading Platform<br /> for Brokers</span>
                     </h1>
                     <p className="text-gray-600">
                         JetFyX Empowers New Brokers—Low Cost.<br />All Power.
@@ -44,10 +59,34 @@ export default function Banner() {
                             placeholder="Full Name"
                             className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none"
                         />
-                        <input
-                            type="text"
-                            placeholder="Mobile No"
-                            className="w-full px-4 py-2 rounded border border-gray-300 focus:outline-none"
+                        <PhoneInput
+                            country={countryCode}
+                            value={phone}
+                            onChange={(value, countryData) => {
+                                setPhone(value);
+                            }}
+                            enableSearch={true}
+                            disableDropdown={false}
+                            disableCountryGuess={true}
+                            inputClass="form-control"
+                            containerStyle={{
+                                width: "100%",
+                                borderRadius: "8px",
+                            }}
+                            inputStyle={{
+                                width: "100%",
+                                borderRadius: "8px",
+                                height: "40px",
+                                paddingLeft: '15%'
+                            }}
+                            buttonStyle={{
+                                borderRadius: "8px 0 0 8px",
+                            }}
+                            dropdownStyle={{
+                                borderRadius: "8px",
+                                maxHeight: "200px",
+                            }}
+                            placeholder="Enter phone number"
                         />
                         <input
                             type="email"
