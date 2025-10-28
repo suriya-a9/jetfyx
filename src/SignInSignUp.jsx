@@ -102,9 +102,12 @@ export default function SignInSignUp() {
                                 <PhoneInput
                                     country={'us'}
                                     value={phone}
-                                    onChange={setPhone}
+                                    onChange={(value, countryData) => {
+                                        setPhone(value);
+                                    }}
                                     enableSearch={true}
                                     disableDropdown={false}
+                                    disableCountryGuess={true}
                                     inputClass="form-control"
                                     containerStyle={{
                                         width: "100%",
@@ -114,6 +117,7 @@ export default function SignInSignUp() {
                                         width: "100%",
                                         borderRadius: "8px",
                                         height: "40px",
+                                        paddingLeft: '15%'
                                     }}
                                     buttonStyle={{
                                         borderRadius: "8px 0 0 8px",
@@ -136,6 +140,7 @@ export default function SignInSignUp() {
                                     Phone Number
                                 </label>
                             </div>
+
                             <div className="floating-label-group flex-1">
                                 <input type="text" className="form-control" placeholder=" " />
                                 <label>Company Name</label>
