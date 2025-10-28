@@ -12,7 +12,7 @@ export default function Banner() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8 }}
         >
-            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:py-12 overflow-hidden md:top-[-100px] 2xl:top-[-100px] sm:top-0 pl-0 pr-0 md:pl-[10%] md:pr-[6%] 2xl:pl-[15%] 2xl:pr-[10%]">
+            <div className="relative z-20 min-h-screen flex flex-col md:flex-row items-center justify-center px-4 sm:py-12 overflow-hidden md:top-[-45px] 2xl:top-[-50px] sm:top-0 pl-0 pr-0 md:pl-[10%] md:pr-[6%] 2xl:pl-[15%] 2xl:pr-[10%]">
                 <div
                     className="absolute inset-0 w-full h-full bg-no-repeat bg-cover bg-center pointer-events-none"
                     style={{
