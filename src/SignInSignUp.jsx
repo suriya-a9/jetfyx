@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Select from "react-select";
+import PhoneInput from "react-phone-input-2";
 import countryList from "react-select-country-list";
 import { FaGoogle, FaApple, FaFacebookF } from "react-icons/fa";
+import "react-phone-input-2/lib/style.css";
+import countryTelephoneCode from "country-telephone-code";
 import "./SignInSignUp.css";
 
 export default function SignInSignUp() {
     const location = useLocation();
     const initialTab = location.state?.tab === "signup" ? "signup" : "login";
     const [tab, setTab] = useState(initialTab);
+    const [phone, setPhone] = useState("");
     const [country, setCountry] = useState(null);
     const navigate = useNavigate();
     const countryOptions = countryList().getData();
@@ -95,44 +99,51 @@ export default function SignInSignUp() {
                             </div>
 
                             <div className="floating-label-group">
-                                <input type="tel" className="form-control" required placeholder=" " />
-                                <label>Phone Number</label>
-                            </div>
-                            <div className="block md:flex gap-2">
-                                <div className="floating-label-group flex-1">
-                                    <input type="text" className="form-control" placeholder=" " />
-                                    <label>Company Name</label>
-                                </div>
-
-                                <div className="floating-label-group mt-2 md:mt-0 flex-1">
-                                    <input type="url" className="form-control" placeholder=" " />
-                                    <label>Website</label>
-                                </div>
-                            </div>
-
-                            <div>
-                                <Select
-                                    options={countryOptions}
-                                    value={country}
-                                    onChange={setCountry}
-                                    className="react-select-container rounded-xl"
-                                    classNamePrefix="react-select"
-                                    placeholder="Choose Country"
-                                    isClearable
-                                    styles={{
-                                        control: (base) => ({
-                                            ...base,
-                                            borderRadius: 12,
-                                            minHeight: 40,
-                                            borderColor: "#d1d5db",
-                                            boxShadow: "none",
-                                        }),
-                                        menu: (base) => ({
-                                            ...base,
-                                            borderRadius: 12,
-                                        }),
+                                <PhoneInput
+                                    country={'us'}
+                                    value={phone}
+                                    onChange={setPhone}
+                                    enableSearch={true}
+                                    disableDropdown={false}
+                                    inputClass="form-control"
+                                    containerStyle={{
+                                        width: "100%",
+                                        borderRadius: "8px",
                                     }}
+                                    inputStyle={{
+                                        width: "100%",
+                                        borderRadius: "8px",
+                                        height: "40px",
+                                    }}
+                                    buttonStyle={{
+                                        borderRadius: "8px 0 0 8px",
+                                    }}
+                                    dropdownStyle={{
+                                        borderRadius: "8px",
+                                        maxHeight: "200px",
+                                    }}
+                                    placeholder="Enter phone number"
                                 />
+                                <label
+                                    style={{
+                                        top: "-10px",
+                                        left: "12px",
+                                        fontSize: "12px",
+                                        background: "#FBFBFB",
+                                        padding: "0 4px",
+                                    }}
+                                >
+                                    Phone Number
+                                </label>
+                            </div>
+                            <div className="floating-label-group flex-1">
+                                <input type="text" className="form-control" placeholder=" " />
+                                <label>Company Name</label>
+                            </div>
+
+                            <div className="floating-label-group mt-2 md:mt-0 flex-1">
+                                <input type="url" className="form-control" placeholder=" " />
+                                <label>Website</label>
                             </div>
 
                             <div className="block md:flex gap-2">

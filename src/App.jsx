@@ -105,7 +105,7 @@ function App() {
             <Element name="faqSection">
               <FAQSection />
             </Element>
-            <Element name="">
+            <Element name="PricingSection">
               <PricingSection />
             </Element>
             <Element name="ceoSection">

@@ -10,28 +10,28 @@ export default function Header() {
     const links = [
         { name: "Home", to: "banner" },
         {
-            name: "Features",
+            name: "Features", to: "featureCarousel",
             dropdown: [
                 { name: "Platform", to: "tradingCarousel" },
                 { name: "PAMM/MAM", to: "pammSection" },
-                { name: "Copy Trading", to: "tradersSection" },
-                { name: "Social Trading", to: "accountAccessSection" },
+                { name: "Copy Trading", to: "pammSection" },
+                { name: "Social Trading", to: "pammSection" },
             ],
         },
         {
-            name: "Exclusive",
+            name: "Exclusive", to: "innovationSection",
             dropdown: [
-                { name: "Exclusive Offers", to: "featureSection" },
-                { name: "Download Corporate Brochure", to: "" },
-                { name: "Download Client Brochure", to: "" },
-                { name: "Other Services", to: "consultationSection" },
+                { name: "Exclusive Offers", to: "innovationSection" },
+                { name: "Download Corporate Brochure", to: "innovationSection" },
+                { name: "Download Client Brochure", to: "innovationSection" },
+                { name: "Other Services", to: "innovationSection" },
             ],
         },
         {
-            name: "Deals",
+            name: "Deals", to: "PricingSection",
             dropdown: [
                 { name: "For Brokers", to: "featureSection" },
-                { name: "For Dealers", to: "edgeSection" },
+                { name: "For Dealers", to: "featureSection" },
             ],
         },
         { name: "Contact", to: "contactSection" },

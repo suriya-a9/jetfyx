@@ -93,7 +93,7 @@ export default function FeatureCarousel() {
             onViewportEnter={() => setIsInView(true)}
             onViewportLeave={() => setIsInView(false)}
         >
-            <section className="py-16">
+            <section className="py-16 mt-0 md:mt-[-100px] 2xl:mt-[-100px]">
                 <div className="text-center mb-10">
                     <h2 className="text-3xl md:text-4xl font-bold mb-2">
                         Welcome to <span className="text-red-600">JetFyX</span>
