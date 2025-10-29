@@ -130,7 +130,7 @@ function App() {
           />
           <TawkToWidget />
           <a
-            href="https://wa.me/971506595860"
+            href="https://api.whatsapp.com/send/?phone=447444468968&text&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
             className="fixed bottom-[13%] right-6 z-50"

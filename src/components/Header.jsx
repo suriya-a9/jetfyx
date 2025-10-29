@@ -23,7 +23,6 @@ export default function Header() {
             dropdown: [
                 { name: "Exclusive Offers", to: "innovationSection" },
                 { name: "Download Corporate Brochure", to: "innovationSection" },
-                { name: "Download Client Brochure", to: "innovationSection" },
                 { name: "Other Services", to: "innovationSection" },
             ],
         },
@@ -91,24 +90,41 @@ export default function Header() {
                                 {link.name}
                             </Link>
 
-                            {link.dropdown && (
-                                <div
-                                    className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-                                >
-                                    {link.dropdown.map((dropdownItem, dropdownIndex) => (
-                                        <Link
-                                            key={dropdownIndex}
-                                            to={dropdownItem.to}
-                                            smooth={true}
-                                            duration={500}
-                                            offset={-130}
-                                            className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
-                                        >
-                                            {dropdownItem.name}
-                                        </Link>
-                                    ))}
-                                </div>
-                            )}
+                            {
+                                link.dropdown && (
+                                    <div
+                                        className="absolute top-full left-0 bg-white shadow-lg rounded-lg mt-2 p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                                    >
+                                        {link.dropdown.map((dropdownItem, dropdownIndex) => {
+                                            if (dropdownItem.name === "Download Corporate Brochure") {
+                                                return (
+                                                    <a
+                                                        key={dropdownIndex}
+                                                        href="/assets/JetFyX-Corporate-Brochure.pdf"
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
+                                                    >
+                                                        {dropdownItem.name}
+                                                    </a>
+                                                );
+                                            }
+                                            return (
+                                                <Link
+                                                    key={dropdownIndex}
+                                                    to={dropdownItem.to}
+                                                    smooth={true}
+                                                    duration={500}
+                                                    offset={-130}
+                                                    className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
+                                                >
+                                                    {dropdownItem.name}
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                )
+                            }
                         </div>
 
                     ))}
@@ -144,19 +160,35 @@ export default function Header() {
                                     </Link>
                                     {link.dropdown && (
                                         <div className="pl-4">
-                                            {link.dropdown.map((dropdownItem, dropdownIndex) => (
-                                                <Link
-                                                    key={dropdownIndex}
-                                                    to={dropdownItem.to}
-                                                    smooth={true}
-                                                    duration={500}
-                                                    offset={-130}
-                                                    className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
-                                                    onClick={() => setIsMobileMenuOpen(false)}
-                                                >
-                                                    {dropdownItem.name}
-                                                </Link>
-                                            ))}
+                                            {link.dropdown.map((dropdownItem, dropdownIndex) => {
+                                                if (dropdownItem.name === "Download Corporate Brochure") {
+                                                    return (
+                                                        <a
+                                                            key={dropdownIndex}
+                                                            href="/assets/JetFyX-Corporate-Brochure.pdf"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer px-4 py-2 whitespace-nowrap"
+                                                            onClick={() => setIsMobileMenuOpen(false)}
+                                                        >
+                                                            {dropdownItem.name}
+                                                        </a>
+                                                    );
+                                                }
+                                                return (
+                                                    <Link
+                                                        key={dropdownIndex}
+                                                        to={dropdownItem.to}
+                                                        smooth={true}
+                                                        duration={500}
+                                                        offset={-130}
+                                                        className="block text-gray-700 hover:text-red-600 transition font-normal text-sm cursor-pointer"
+                                                        onClick={() => setIsMobileMenuOpen(false)}
+                                                    >
+                                                        {dropdownItem.name}
+                                                    </Link>
+                                                );
+                                            })}
                                         </div>
                                     )}
                                 </div>

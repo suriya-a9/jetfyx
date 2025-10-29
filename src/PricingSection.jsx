@@ -65,7 +65,7 @@ export default function PricingSection() {
                             <div className="text-xl font-bold text-gray-900">Free Trial</div>
                             <div className="flex items-baseline gap-3 mt-2 justify-center">
                                 <span className="text-5xl font-extrabold text-gray-900">Free</span>
-                                <span className="text-gray-500">3 months</span>
+                                <span className="text-gray-500">30 days</span>
                             </div>
                             <p className="text-gray-600 mt-3">
                                 Perfect for testing our platform with

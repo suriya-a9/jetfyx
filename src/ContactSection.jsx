@@ -22,7 +22,7 @@ export default function ContactSection() {
         { name: "London", img: "/assets/flags/UK_flag.png", position: [51.5074, -0.1278] },
         { name: "Hyderabad", img: "/assets/flags/in-flag.jpg", position: [17.387140, 78.491684] },
         { name: "Kuala Lumpur", img: "/assets/flags/Flag_of_Malaysia.svg.png", position: [3.1390, 101.6869] },
-        { name: "Dubai", img: "/assets/flags/uae flag.jpg", position: [25.276987, 55.296249] },
+        { name: "Dubai", img: "/assets/flags/uae flag.webp", position: [25.276987, 55.296249] },
     ];
 
     const [phone, setPhone] = useState("");
@@ -105,7 +105,7 @@ export default function ContactSection() {
                                             <motion.img
                                                 src={loc.img}
                                                 alt={loc.name}
-                                                className="w-10 h-10 object-cover rounded-lg shadow-lg border border-white"
+                                                className="w-10 h-10 object-contain"
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -175,7 +175,7 @@ export default function ContactSection() {
                                             <motion.img
                                                 src={loc.img}
                                                 alt={loc.name}
-                                                className="w-10 h-10 object-cover rounded-lg shadow-lg border border-white"
+                                                className="w-10 h-10 object-contain"
                                                 initial={{ opacity: 0, scale: 0.8 }}
                                                 animate={{ opacity: 1, scale: 1 }}
                                                 transition={{ duration: 0.3 }}
@@ -255,11 +255,6 @@ export default function ContactSection() {
                                             placeholder="Enter phone number"
                                         />
                                     </div>
-                                    <input
-                                        type="text"
-                                        placeholder="Mobile No:"
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-400"
-                                    />
                                     <input
                                         type="email"
                                         placeholder="Email Address"
