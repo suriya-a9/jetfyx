@@ -43,8 +43,8 @@ export default function SignInSignUp() {
                 <div className="w-full max-w-sm p-5 border-[3px] rounded-[10px] bg-[#FBFBFB]">
                     <div className="flex justify-center mb-3" style={{ flexDirection: 'column', alignItems: 'center' }}>
                         <img src="/assets/fav-icon.webp" alt="JET Logo" className="w-[30%] h-[30%] object-contain rounded-full" />
-                        <span className="text-red-600 text-sm mt-2">JetFyX—Precision. Speed. Confidence</span>
-                        <span className="text-xl font-medium mt-2">Welcome to your broker portal.</span>
+                        {tab === "login" ? (<span className="text-red-600 text-[13px] text-center mt-2">Effortless and Exceptional Experience</span>) : (<span className="text-red-600 text-center text-[13px] mt-2">JetFyX—Precision. Speed. Confidence</span>)}
+                        {tab === "login" ? (<span className="text-[17px] text-center font-medium mt-2">Welcome back. Great to See You Again</span>) : (<span className="text-[17px] text-center font-medium mt-2">Welcome to your broker portal.</span>)}
                     </div>
                     {/* <div className="flex justify-end mb-4">
                         <button
