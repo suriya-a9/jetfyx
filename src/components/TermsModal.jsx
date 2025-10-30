@@ -176,7 +176,7 @@ export default function TermsModal({ open, onAgree }) {
                     className="w-full bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition mt-4"
                     onClick={onAgree}
                 >
-                    Agree
+                    Accept and Close
                 </button>
             </div>
         </div>

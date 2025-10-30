@@ -107,7 +107,7 @@ export default function PrivacyPolicyModal({ open, onClose }) {
                     className="w-full bg-red-600 text-white font-semibold py-2 rounded-lg hover:bg-red-700 transition mt-4"
                     onClick={onClose}
                 >
-                    Close
+                    Accept and Close
                 </button>
             </div>
         </div>
