@@ -74,7 +74,7 @@ export default function Footer() {
                     </div>
 
                     <div className="space-y-2" style={{ fontSize: '12px' }}>
-                        <p><span className="bg-red-600 text-white px-2 rounded">London:</span> +44 7466 993 122</p>
+                        <p><span className="bg-red-600 text-white px-2 rounded">London:</span> +44 7444 468968</p>
                         <p><span className="bg-red-600 text-white px-2 rounded">London Branch:</span> Unit 7B, Cranbrook House, 61 Cranbrook Road, Ilford, Essex, England, IG1 4PG</p>
                         {/* <div className="flex flex-row space-x-4 gap-5 mt-4 md:mt-0">
                             <a target="blank" href="#"><img src="/assets/caller.webp" alt="Caller" className="w-5 h-4" /></a>

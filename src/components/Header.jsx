@@ -23,7 +23,7 @@ export default function Header() {
             dropdown: [
                 { name: "Exclusive Offers", to: "innovationSection" },
                 { name: "Download Corporate Brochure", to: "innovationSection" },
-                { name: "Other Services", to: "innovationSection" },
+                { name: "Future Features", to: "innovationSection" },
             ],
         },
         {
